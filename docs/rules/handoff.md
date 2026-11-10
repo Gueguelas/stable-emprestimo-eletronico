@@ -2,7 +2,7 @@
 Ao terminar uma tarefa do plano, ou quando eu disser "vamos fechar".
 
 ## Procedimento
-Escreve na /handoff, com a data do dia de hoje. No máximo, 25 linhas:
+Sobrescreva handoff.md na raiz com, no máximo, 50 linhas:
 Coloque o modelo 
 1. Onde parei — tarefa e critério em andamento
 2. O que está commitado e em qual branch

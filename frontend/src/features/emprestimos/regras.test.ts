@@ -1,4 +1,4 @@
-import { describe, expect, it } from "vitest";
+import { beforeEach, describe, expect, it } from "vitest";
 import {
   acaoDoCard,
   filtrarEquipamentos,
@@ -6,6 +6,9 @@ import {
   situacaoDoPrazo
 } from "./regras";
 import type { Equipamento } from "@/api/schemas";
+import { solicitarEmprestimoMock } from "@/lib/devolucaoMock";
+import { useEmprestimosMock } from "@/stores/emprestimosMock";
+import { useEquipamentosMock } from "@/stores/equipamentosMock";
 import type { Emprestimo } from "@/stores/emprestimosMock";
 
 const equipamento: Equipamento = {
@@ -20,6 +23,16 @@ const equipamento: Equipamento = {
 };
 
 const emprestimos: Emprestimo[] = [];
+
+beforeEach(() => {
+  useEmprestimosMock.setState({ emprestimos: [] });
+  useEquipamentosMock.setState({
+    equipamentos: [
+      equipamento,
+      { ...equipamento, id: "0798ffed-4000-4a66-9073-22c5a021a202", patrimonio: "TI-1000", situacao: "em_manutencao" as const }
+    ]
+  });
+});
 
 describe("test_ca_06_limite_e_atraso", () => {
   it("test_ca_06_limite_de_tres_desabilita_solicitacao", () => {
@@ -125,6 +138,60 @@ describe("test_ca_07_prazo_a_vencer", () => {
     expect(situacaoDoPrazo("2026-08-30")).toBe("em_atraso");
     expect(situacaoDoPrazo("2026-09-02")).toBe("a_vencer");
     expect(situacaoDoPrazo("2026-09-03")).toBe("em_dia");
+  });
+});
+
+describe("test_ca_01_solicitar_emprestimo", () => {
+  it("test_ca_01_registra_solicitacao_valida_e_atualiza_o_catalogo", () => {
+    const resultado = solicitarEmprestimoMock(
+      { ...equipamento, situacao: "disponivel", comPessoa: null },
+      "Ana Ribeiro"
+    );
+
+    expect(resultado).toBe(true);
+    expect(useEmprestimosMock.getState().emprestimos).toHaveLength(1);
+    expect(useEmprestimosMock.getState().emprestimos[0]).toMatchObject({
+      pessoa: "Ana Ribeiro",
+      patrimonio: "TI-0142",
+      devolvido: false
+    });
+    expect(
+      useEquipamentosMock.getState().equipamentos.find((item) => item.patrimonio === "TI-0142")
+    ).toMatchObject({ situacao: "emprestado", comPessoa: "Ana Ribeiro" });
+  });
+
+  it("test_ca_06_bloqueia_solicitacao_quando_ha_atraso_ou_limite", () => {
+    useEmprestimosMock.setState({
+      emprestimos: [
+        {
+          id: "late",
+          equipamento: "Item em atraso",
+          patrimonio: "TI-0001",
+          pessoa: "Ana Ribeiro",
+          retirada: "2026-08-01",
+          prazo: "2026-08-30",
+          devolvido: false,
+          categoria: "notebook"
+        },
+        ...[1, 2, 3].map((n) => ({
+          id: `loan-${n}`,
+          equipamento: `Item ${n}`,
+          patrimonio: `TI-${n}`,
+          pessoa: "Ana Ribeiro",
+          retirada: "2026-08-20",
+          prazo: "2026-09-10",
+          devolvido: false,
+          categoria: "notebook" as const
+        }))
+      ]
+    });
+
+    expect(
+      solicitarEmprestimoMock(
+        { ...equipamento, situacao: "disponivel", comPessoa: null },
+        "Ana Ribeiro"
+      )
+    ).toBe(false);
   });
 });
 

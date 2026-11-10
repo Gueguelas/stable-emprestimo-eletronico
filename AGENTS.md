@@ -48,7 +48,6 @@ docs/rules/skill.md        → quando capturar e como reusar skills
 docs/rules/handoff.md      → o que escrever no handoff ao fechar a sessão
 docs/rules/clean-code.md   → guia de referência Clean Code TypeScript (consulta)
 docs/skills/               → skills capturados: procedimentos que já funcionaram
-docs/handoff/              → onde a sessão parou (escrever ao fim de cada sessão)
 prototipo/                 → protótipo navegável do layout (catalogo.html)
 backend/                   → API (NestJS + Prisma); separação em repo próprio
                              é pendência, não mudança do ADR-001
@@ -57,6 +56,8 @@ CLAUDE.md                  → aponta para este arquivo
 .env                       → ignorado pelo git — nunca versionar
 .env.example               → modelo das variáveis esperadas
 skills/                    → Pasta de skils para serem utilizadas se necessário 
+handoff.md                 → onde a sessão parou (escrever ao fim de cada sessão)
+
 ```
 
 ## Convenções obrigatórias

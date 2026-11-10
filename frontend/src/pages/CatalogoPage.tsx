@@ -10,6 +10,7 @@ import { Button } from "@/components/ui/button";
 import { Dialog } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { SectionRule } from "@/components/ui/section-rule";
+import { solicitarEmprestimoMock } from "@/lib/devolucaoMock";
 import { useToast } from "@/stores/toast";
 
 const filtros = [
@@ -36,8 +37,14 @@ export function CatalogoPage() {
   const bloqueadoPorAtraso = meus.some((item) => item.prazo < HOJE_MOCK);
 
   function confirmarSolicitacao() {
+    if (!selecionado || !usuario) return;
+    const ok = solicitarEmprestimoMock(selecionado, usuario.nome);
     setSelecionado(null);
-    mostrarToast("Solicitações de empréstimo estarão disponíveis em breve.");
+    if (ok) {
+      mostrarToast(`${selecionado.nome} adicionado aos seus empréstimos.`);
+      return;
+    }
+    mostrarToast("Não foi possível solicitar este item. Verifique o limite e os atrasos.");
   }
 
   return (
