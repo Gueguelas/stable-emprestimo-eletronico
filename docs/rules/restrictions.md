@@ -9,8 +9,6 @@ alwaysApply: true
 
 ## Autoridade
 
-- Não escreva ADR. Se encontrar uma decisão que precisa de um, descreva
-  a decisão e as alternativas, e PARE. Quem decide é o time.
 - Não contrarie o que está em docs/adr/. Se precisar contrariar, pare.
 - Não responda por conta própria o que o PRD deixou ambíguo. Liste as
   perguntas e espere. (Ex.: quem provisiona tenant, quem convida

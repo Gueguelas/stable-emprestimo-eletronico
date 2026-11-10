@@ -1,19 +1,14 @@
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { Brand } from "@/components/ui/brand";
 import { useAuth } from "@/stores/auth";
-<<<<<<< HEAD
-=======
 import { useToast } from "@/stores/toast";
->>>>>>> a52456606c59e2feef60eb067f786b93e23ae2a1
 
 export function AppNav() {
   const usuario = useAuth((estado) => estado.usuario);
   const sair = useAuth((estado) => estado.sair);
-<<<<<<< HEAD
-=======
   const mostrarToast = useToast((estado) => estado.mostrar);
->>>>>>> a52456606c59e2feef60eb067f786b93e23ae2a1
   const navigate = useNavigate();
+
   if (!usuario) return null;
 
   const links =
@@ -31,16 +26,12 @@ export function AppNav() {
 
   async function encerrarSessao() {
     await sair();
-<<<<<<< HEAD
-    navigate("/login", { replace: true });
-=======
     const { usuario: sessao, erro } = useAuth.getState();
     if (erro) {
       mostrarToast(erro);
     } else if (!sessao) {
       navigate("/login", { replace: true });
     }
->>>>>>> a52456606c59e2feef60eb067f786b93e23ae2a1
   }
 
   return (

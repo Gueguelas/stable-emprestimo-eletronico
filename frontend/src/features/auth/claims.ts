@@ -3,10 +3,7 @@ export type Papel = "colaborador" | "operacoes";
 export interface ClaimsAuth {
   app_metadata?: Record<string, unknown>;
   user_metadata?: Record<string, unknown>;
-<<<<<<< HEAD
-=======
   role?: unknown;
->>>>>>> a52456606c59e2feef60eb067f786b93e23ae2a1
   papel?: unknown;
   full_name?: unknown;
   name?: unknown;
@@ -17,7 +14,8 @@ export function extrairPapel(claims: ClaimsAuth): Papel {
   const papel =
     claims.app_metadata?.papel ??
     claims.app_metadata?.role ??
-    claims.papel;
+    claims.papel ??
+    claims.role;
   return papel === "operacoes" ? "operacoes" : "colaborador";
 }
 

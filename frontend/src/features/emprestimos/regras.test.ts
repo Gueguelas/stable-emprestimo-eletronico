@@ -1,14 +1,10 @@
 import { describe, expect, it } from "vitest";
-<<<<<<< HEAD
-import { acaoDoCard, filtrarEquipamentos, resumoEmprestimos } from "./regras";
-=======
 import {
   acaoDoCard,
   filtrarEquipamentos,
   resumoEmprestimos,
   situacaoDoPrazo
 } from "./regras";
->>>>>>> a52456606c59e2feef60eb067f786b93e23ae2a1
 import type { Equipamento } from "@/api/schemas";
 import type { Emprestimo } from "@/stores/emprestimosMock";
 
@@ -83,8 +79,6 @@ describe("test_ca_09_situacoes_de_equipamento", () => {
       ).texto
     ).toBe("Emprestado");
   });
-<<<<<<< HEAD
-=======
 
   it("test_ca_09_item_ja_emprestado_para_usuario_tem_precedencia", () => {
     const meuEmprestimo = {
@@ -132,7 +126,6 @@ describe("test_ca_07_prazo_a_vencer", () => {
     expect(situacaoDoPrazo("2026-09-02")).toBe("a_vencer");
     expect(situacaoDoPrazo("2026-09-03")).toBe("em_dia");
   });
->>>>>>> a52456606c59e2feef60eb067f786b93e23ae2a1
 });
 
 describe("test_ca_02_busca_e_filtro", () => {

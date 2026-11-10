@@ -52,12 +52,9 @@ test("problema RFC 9457 aparece como mensagem de erro", async ({ page }) => {
   await page.getByRole("button", { name: "Entrar", exact: true }).click();
   await expect(page.getByText("Token de acesso inválido.")).toBeVisible();
 });
-<<<<<<< HEAD
-=======
 
 test("rota de Operações exige sessão e preserva o destino", async ({ page }) => {
   await page.goto("/operacoes");
   await expect(page).toHaveURL(/\/login\?para=%2Foperacoes$/);
   await expect(page.getByRole("heading", { name: "Entrar" })).toBeVisible();
 });
->>>>>>> a52456606c59e2feef60eb067f786b93e23ae2a1

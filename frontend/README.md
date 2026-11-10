@@ -1,4 +1,4 @@
-# Stable — front-end
+﻿# Stable — front-end
 
 Aplicação web interna, em português do Brasil, para consultar equipamentos de
 TI. O catálogo lê `GET /v1/equipamentos`; empréstimos, devoluções, Operações e
@@ -20,11 +20,7 @@ $env:VITE_API_URL = "http://localhost:3000"
 $env:VITE_SUPABASE_URL = "https://SEU-PROJETO.supabase.co"
 $env:VITE_SUPABASE_ANON_KEY = "SUA_CHAVE_ANON"
 npm install
-<<<<<<< HEAD
-npm run dev -- --port 5173
-=======
-npm run dev
->>>>>>> a52456606c59e2feef60eb067f786b93e23ae2a1
+npm run dev -- --host 127.0.0.1 --port 5173
 ```
 
 Abra <http://localhost:5173/login>. Sem `VITE_SUPABASE_URL` e
@@ -56,31 +52,20 @@ de topo do Supabase.
 No backend, inicie o PostgreSQL 16 local na porta 5433, rode
 `npm run db:reset` e depois `npm run start:dev` (API em
 `http://localhost:3000`). No front, use `VITE_API_URL=http://localhost:3000`
-e as duas chaves do mesmo projeto Supabase. Sem `FRONT_ORIGIN`, a API permite
-origens locais conforme sua configuração atual.
+e as duas chaves do mesmo projeto Supabase.
 
 ### Opção B — front local e API publicada
 
 Use `VITE_API_URL=https://<api>.vercel.app` (sem acrescentar `/v1`) e as chaves
 Supabase correspondentes ao ambiente da API. Confira `https://<api>.vercel.app/health`.
-Se a API restringir CORS por `FRONT_ORIGIN`, a origem
-`http://localhost:5173` precisa estar permitida. Esta opção lê dados do ambiente
-publicado; valide a URL e o ambiente antes de usar.
 
 ### Opção C — front na Vercel
 
 Crie um projeto separado para o front, configure o root directory como
 `frontend/`, framework Vite, build `npm run build` e output `dist`. Cadastre
 `VITE_API_URL`, `VITE_SUPABASE_URL` e `VITE_SUPABASE_ANON_KEY` nas configurações
-do projeto; mudanças nessas variáveis exigem novo build. A API precisa permitir
-a origem pública do front em `FRONT_ORIGIN`.
+do projeto.
 
-<<<<<<< HEAD
-=======
-O servidor de desenvolvimento já fixa a porta 5173. Rode `npm run dev` e abra
-<http://localhost:5173/login>.
-
->>>>>>> a52456606c59e2feef60eb067f786b93e23ae2a1
 O deploy não foi executado e não há URL pública confirmada. A configuração de
 rewrite SPA deve ser adicionada pelo responsável pelo projeto de deploy antes
 da publicação.
@@ -114,4 +99,4 @@ nem de backend remoto.
 - Empréstimos, cadastro, devolução e operações usam fixtures em memória. Não
   chamam endpoints de escrita e perdem as alterações ao recarregar.
 - Próximo passo de integração: implementar as rotas de escrita na API, publicar
-  o OpenAPI, gerar o cliente e substituir os mocks correspondentes.
+o OpenAPI, gerar o cliente e substituir os mocks correspondentes.

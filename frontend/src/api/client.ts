@@ -1,4 +1,4 @@
-import { listaEquipamentosSchema } from "./schemas";
+﻿import { listaEquipamentosSchema } from "./schemas";
 
 // Provisório até a API publicar openapi.json para gerar o cliente com orval.
 export class ErroApi extends Error {
@@ -25,22 +25,11 @@ async function buscarPagina(cursor: string | null, token: string | null) {
   if (!response.ok) {
     const body: unknown = await response.json().catch(() => null);
     const problem =
-      typeof body === "object" && body !== null
-<<<<<<< HEAD
-        ? (body as { title?: unknown; detail?: unknown })
-        : null;
+      typeof body === "object" && body !== null ? (body as { title?: unknown; detail?: unknown }) : null;
     const detail =
       typeof problem?.detail === "string"
         ? problem.detail
         : typeof problem?.title === "string"
-=======
-        ? body
-        : null;
-    const detail =
-      problem && "detail" in problem && typeof problem.detail === "string"
-        ? problem.detail
-        : problem && "title" in problem && typeof problem.title === "string"
->>>>>>> a52456606c59e2feef60eb067f786b93e23ae2a1
           ? problem.title
           : "Não foi possível carregar os equipamentos.";
     throw new ErroApi(detail, response.status);
@@ -60,7 +49,7 @@ async function buscarPagina(cursor: string | null, token: string | null) {
 }
 
 export async function listarEquipamentos(token: string | null) {
-  const itens = [];
+  const itens: Awaited<ReturnType<typeof buscarPagina>>["itens"] = [];
   let cursor: string | null = null;
   const vistos = new Set<string>();
   for (let pagina = 0; pagina < 20; pagina += 1) {
