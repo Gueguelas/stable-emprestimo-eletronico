@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stable — Catálogo (protótipo)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  /* Tokens — docs/adr/002-layout-design-system.md seções 2 e 4 (design system Nocturne + acento Stable) */
+  :root {
+    --color-bg: #161826;
+    --color-surface: #232532;
+    --color-text: #e9e9ed;
+    --color-divider: color-mix(in srgb, #e9e9ed 16%, transparent);
+    --color-neutral-900: #292b31;
+    --color-accent: #2fb8ac;
+    --color-accent-300: #93e3da;
+    --color-accent-700: #1d746d;
+    --color-accent-900: #0f3733;
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 14px;
+    --font-heading: "Raleway", sans-serif;
+    --font-body: "Raleway", sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-body);
+    font-size: 14px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  /* Barra de navegação — docs/adr/002-layout-design-system.md seção 7 */
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    height: 60px;
+    background: var(--color-bg);
+    border-bottom: 1px solid var(--color-divider);
+    display: flex;
+    align-items: center;
+    padding: 0 40px;
+  }
+  .nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--font-heading);
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+  }
+  .nav-mark {
+    width: 24px;
+    height: 24px;
+    border: 1.5px solid var(--color-accent);
+    border-radius: 7px;
+    display: grid;
+    place-items: center;
+    flex: none;
+  }
+  .nav-mark i {
+    width: 9px;
+    height: 9px;
+    background: var(--color-accent);
+    border-radius: 2px;
+    display: block;
+  }
+  .nav-brand .ai { color: var(--color-accent); font-weight: 700; }
+  .nav-tabs { display: flex; gap: 4px; margin-left: 32px; height: 100%; flex: 1; }
+  .nav-tab {
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    color: var(--color-text);
+    opacity: 0.55;
+    font-family: var(--font-body);
+    font-size: 13.5px;
+    padding: 0 14px;
+    cursor: pointer;
+    height: 100%;
+  }
+  .nav-tab.is-active {
+    opacity: 1;
+    border-bottom: 2px solid var(--color-accent);
+  }
+  .nav-user { display: flex; align-items: center; gap: 14px; }
+  .tag-outline {
+    font-size: 11.5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-text);
+    opacity: 0.72;
+    border: 1px solid var(--color-divider);
+    border-radius: 999px;
+    padding: 4px 10px;
+  }
+  .avatar {
+    width: 28px;
+    height: 28px;
+    border-radius: 999px;
+    background: var(--color-accent-900);
+    border: 1px solid var(--color-accent-700);
+    color: var(--color-accent-300);
+    font-size: 11.5px;
+    font-weight: 600;
+    display: grid;
+    place-items: center;
+  }
+  .nav-user .name { font-size: 13.5px; }
+  .nav-user .sair {
+    background: none;
+    border: none;
+    color: var(--color-text);
+    opacity: 0.55;
+    font-family: var(--font-body);
+    font-size: 13px;
+    cursor: pointer;
+  }
+  .nav-user .sair:hover { opacity: 0.8; }
+  /* Conteúdo interno — padding 36px 40px 64px, catálogo 1240px */
+  .page {
+    padding: 36px 40px 64px;
+    max-width: 1240px;
+    margin: 0 auto;
+  }
+  .page-head {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: 22px;
+  }
+  h1 {
+    font-family: var(--font-heading);
+    font-size: 30px;
+    font-weight: 600;
+    line-height: 1.12;
+    letter-spacing: -0.015em;
+    text-wrap: pretty;
+  }
+  .lead { font-size: 14px; opacity: 0.55; margin-top: 4px; }
+
+  /* Busca de 260px, input de 36px */
+  .search {
+    background: var(--color-surface);
+    border: 1px solid var(--color-divider);
+    border-radius: var(--radius-md);
+    color: var(--color-text);
+    font-family: var(--font-body);
+    font-size: 13.5px;
+    height: 36px;
+    padding: 6px 10px;
+    width: 260px;
+  }
+  .search:focus {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+  .search::placeholder { color: var(--color-text); opacity: 0.4; }
+
+  /* Chips de filtro — docs/adr/002-layout-design-system.md seção 8, item 9 */
+  .filters { display: flex; gap: 8px; margin-bottom: 22px; }
+  .chip {
+    background: transparent;
+    border: 1px solid var(--color-divider);
+    border-radius: 999px;
+    color: var(--color-text);
+    opacity: 0.72;
+    font-family: var(--font-body);
+    font-size: 12.5px;
+    padding: 5px 14px;
+    cursor: pointer;
+  }
+  .chip:hover { border-color: var(--color-accent-700); color: var(--color-accent-300); }
+  .chip.is-active {
+    border-color: var(--color-accent);
+    color: var(--color-accent-300);
+    background: rgba(47, 184, 172, 0.10);
+    opacity: 1;
+  }
+  /* Grade e card do catálogo — docs/adr/002-layout-design-system.md seções 4 e 6.2 */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(292px, 1fr));
+    gap: 16px;
+  }
+  .card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-divider);
+    border-radius: var(--radius-lg);
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    animation: fadeUp 0.25s ease both;
+  }
+  .card-kicker {
+    font-size: 11px;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--color-text);
+    opacity: 0.45;
+  }
+  .card-title {
+    font-family: var(--font-heading);
+    font-size: 16.5px;
+    font-weight: 600;
+    line-height: 1.2;
+  }
+  .card-patrimonio {
+    font-size: 12px;
+    color: var(--color-text);
+    opacity: 0.45;
+  }
+  .card-row-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 10px;
+  }
+  .card-detail {
+    min-height: 18px;
+    font-size: 12.5px;
+    color: var(--color-text);
+    opacity: 0.72;
+  }
+  .card .btn { margin-top: auto; }
+  /* Pill de situação — cores semânticas do ADR-002 (seção 2) */
+  .pill {
+    border-radius: 999px;
+    padding: 3px 9px;
+    font-size: 12px;
+    font-weight: 500;
+    white-space: nowrap;
+    flex: none;
+  }
+  .pill-disponivel {
+    color: #5fcfc4;
+    background: rgba(47, 184, 172, 0.12);
+    border: 1px solid rgba(47, 184, 172, 0.40);
+  }
+  .pill-emprestado {
+    color: #c9a25f;
+    background: rgba(201, 162, 95, 0.12);
+    border: 1px solid rgba(201, 162, 95, 0.38);
+  }
+  .pill-manutencao {
+    color: #9aa0ad;
+    background: rgba(154, 160, 173, 0.10);
+    border: 1px solid rgba(154, 160, 173, 0.30);
+  }
+
+  /* Botões — docs/adr/002-layout-design-system.md seção 5 (primário é contorno, nunca preenchimento) */
+  .btn {
+    height: 36px;
+    border-radius: var(--radius-md);
+    font-family: var(--font-body);
+    font-size: 13.5px;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 0 14px;
+    background: transparent;
+    transition: background 0.15s ease, border-color 0.15s ease;
+  }
+  .btn-primary {
+    border: 1px solid var(--color-accent);
+    color: var(--color-accent-300);
+  }
+  .btn-primary:hover { background: rgba(47, 184, 172, 0.12); }
+  .btn-primary:active { background: rgba(47, 184, 172, 0.22); }
+  .btn-secondary {
+    border: 1px solid var(--color-divider);
+    color: var(--color-text);
+    opacity: 0.72;
+  }
+  .btn-secondary:hover { border-color: var(--color-text); opacity: 1; }
+  .btn-block { width: 100%; }
+  .btn:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+  }
+
+  /* Estado vazio da busca — docs/adr/002-layout-design-system.md seção 8, item 8 */
+  .empty {
+    border: 1px dashed var(--color-divider);
+    border-radius: var(--radius-lg);
+    padding: 48px;
+    text-align: center;
+    color: var(--color-text);
+    opacity: 0.55;
+    font-size: 13.5px;
+    display: none;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Navegação: papel Colaborador — abas Catálogo, Meus empréstimos (docs/adr/002-layout-design-system.md seção 7) -->
+<header class="nav">
+  <div class="nav-brand">
+    <span class="nav-mark"><i></i></span>
+    <span>EMPREST<span class="ai">.AI</span></span>
+  </div>
+  <nav class="nav-tabs">
+    <button class="nav-tab is-active">Catálogo</button>
+    <button class="nav-tab">Meus empréstimos</button>
+  </nav>
+  <div class="nav-user">
+    <span class="tag-outline">Colaborador</span>
+    <span class="avatar">AR</span>
+    <span class="name">Ana Ribeiro</span>
+    <button class="sair">Sair</button>
+  </div>
+</header>
+
+<main class="page">
+  <div class="page-head">
+    <div>
+      <h1>Catálogo</h1>
+      <p class="lead" id="contagem"></p>
+    </div>
+    <input
+      class="search"
+      id="busca"
+      type="search"
+      placeholder="Buscar por nome ou patrimônio"
+      aria-label="Buscar equipamento"
+    />
+  </div>
+
+  <div class="filters" id="filtros">
+    <button class="chip is-active" data-filtro="todos">Todos</button>
+    <button class="chip" data-filtro="disponivel">Disponíveis</button>
+    <button class="chip" data-filtro="emprestado">Emprestados</button>
+    <button class="chip" data-filtro="manutencao">Em manutenção</button>
+  </div>
+
+  <div class="grid" id="grade"></div>
+  <div class="empty" id="vazio">Nenhum equipamento encontrado para esta busca.</div>
+</main>
+
+<script>
+  // Dados de exemplo — docs/adr/002-layout-design-system.md seção 10. Situação derivada no render.
+  const itens = [
+    { nome: "Notebook Dell Latitude 5450", categoria: "Notebook", patrimonio: "TI-0142", situacao: "disponivel" },
+    { nome: "MacBook Pro 14 M3", categoria: "Notebook", patrimonio: "TI-0088", situacao: "emprestado", detalhe: "Com Marcos Lemos · devolver até 07/09" },
+    { nome: "Monitor LG 27\u201D 4K", categoria: "Monitor", patrimonio: "TI-0231", situacao: "disponivel" },
+    { nome: "Monitor Dell 24\u201D FHD", categoria: "Monitor", patrimonio: "TI-0233", situacao: "manutencao", detalhe: "Painel com falha, retorna em 05/09" },
+    { nome: "Câmera Sony ZV-1", categoria: "Câmera", patrimonio: "TI-0301", situacao: "emprestado", detalhe: "Está com você · devolver até 12/09", meu: true },
+    { nome: "Cabo HDMI 2.1 3m", categoria: "Cabo", patrimonio: "TI-0455", situacao: "disponivel" },
+    { nome: "Dock Thunderbolt 4", categoria: "Acessório", patrimonio: "TI-0512", situacao: "emprestado", detalhe: "Está com você · devolver até 05/09", meu: true },
+    { nome: "Tripé Manfrotto Befree", categoria: "Acessório", patrimonio: "TI-0318", situacao: "manutencao", detalhe: "Trava do centro quebrada" },
+    { nome: "Headset Jabra Evolve2", categoria: "Acessório", patrimonio: "TI-0402", situacao: "disponivel" }
+  ];
+
+  // Ana está com 2 de 3 itens, em dia — sem bloqueio por atraso (dados de exemplo).
+  const limiteAtingido = false;
+
+  const rotulos = { disponivel: "Disponível", emprestado: "Emprestado", manutencao: "Em manutenção" };
+  let filtro = "todos";
+  let query = "";
+
+  function botao(item) {
+    if (item.situacao === "manutencao") {
+      return '<button class="btn btn-secondary btn-block" disabled>Indisponível</button>';
+    }
+    if (item.meu) {
+      return '<button class="btn btn-secondary btn-block" disabled>Está com você</button>';
+    }
+    if (item.situacao === "emprestado") {
+      return '<button class="btn btn-secondary btn-block" disabled>Emprestado</button>';
+    }
+    if (limiteAtingido) {
+      return '<button class="btn btn-secondary btn-block" disabled>Limite de 3 itens</button>';
+    }
+    return '<button class="btn btn-primary btn-block">Solicitar empréstimo</button>';
+  }
+  function render() {
+    const visiveis = itens.filter(function (item) {
+      const passaFiltro = filtro === "todos" || item.situacao === filtro;
+      const alvo = (item.nome + " " + item.patrimonio).toLowerCase();
+      return passaFiltro && alvo.includes(query);
+    });
+
+    const grade = document.getElementById("grade");
+    grade.innerHTML = visiveis.map(function (item) {
+      const detalhe = item.detalhe
+        ? item.detalhe
+        : (item.situacao === "disponivel" ? "Pronto para retirada no balcão" : "");
+      return (
+        '<article class="card">' +
+          '<div class="card-row-top">' +
+            '<div>' +
+              '<div class="card-kicker">' + item.categoria + '</div>' +
+              '<div class="card-title">' + item.nome + '</div>' +
+              '<div class="card-patrimonio">Patrimônio ' + item.patrimonio + '</div>' +
+            '</div>' +
+            '<span class="pill pill-' + item.situacao + '">' + rotulos[item.situacao] + '</span>' +
+          '</div>' +
+          '<div class="card-detail">' + detalhe + '</div>' +
+          botao(item) +
+        '</article>'
+      );
+    }).join("");
+
+    const vazia = visiveis.length === 0;
+    grade.style.display = vazia ? "none" : "";
+    document.getElementById("vazio").style.display = vazia ? "block" : "none";
+
+    // Contagem derivada no render — nunca armazenada à mão (regra do AGENTS.md).
+    const disponiveis = itens.filter(function (i) { return i.situacao === "disponivel"; }).length;
+    document.getElementById("contagem").textContent =
+      disponiveis + " de " + itens.length + " equipamentos disponíveis agora";
+  }
+
+  document.getElementById("busca").addEventListener("input", function (e) {
+    query = e.target.value.trim().toLowerCase();
+    render();
+  });
+
+  document.getElementById("filtros").addEventListener("click", function (e) {
+    const chip = e.target.closest(".chip");
+    if (!chip) return;
+    filtro = chip.dataset.filtro;
+    document.querySelectorAll(".chip").forEach(function (c) {
+      c.classList.toggle("is-active", c === chip);
+    });
+    render();
+  });
+
+  render();
+</script>
+
+</body>
+</html>

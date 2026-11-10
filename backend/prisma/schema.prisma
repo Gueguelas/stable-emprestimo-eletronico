@@ -1,0 +1,108 @@
+// Dono do schema: Prisma Migrate (ADR-001, seção 5). Nada de SQL avulso fora da migration.
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+enum Papel {
+  colaborador
+  operacoes
+
+  @@map("papel")
+}
+
+enum Categoria {
+  notebook
+  monitor
+  cabo
+  camera
+  acessorio
+
+  @@map("categoria")
+}
+
+// Situação INTRÍNSECA do equipamento. "Emprestado" nunca é coluna:
+// deriva do empréstimo em aberto (estado derivado no render — AGENTS.md).
+enum SituacaoItem {
+  disponivel
+  em_manutencao
+
+  @@map("situacao_item")
+}
+
+model Tenant {
+  id       String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  slug     String   @unique
+  nome     String
+  criadoEm DateTime @default(now()) @map("criado_em") @db.Timestamptz(6)
+
+  memberships  Membership[]
+  equipamentos Equipamento[]
+  emprestimos  Emprestimo[]
+
+  @@map("tenants")
+}
+
+// Espelho mínimo de auth.users (Supabase Auth é o dono da identidade).
+model User {
+  id    String @id @db.Uuid
+  nome  String
+  email String @unique
+
+  memberships Membership[]
+  emprestimos Emprestimo[]
+
+  @@map("users")
+}
+
+model Membership {
+  id       String @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  tenantId String @map("tenant_id") @db.Uuid
+  userId   String @map("user_id") @db.Uuid
+  papel    Papel  @default(colaborador)
+
+  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([tenantId, userId])
+  @@map("memberships")
+}
+
+model Equipamento {
+  id           String       @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  tenantId     String       @map("tenant_id") @db.Uuid
+  nome         String
+  categoria    Categoria
+  patrimonio   String
+  situacao     SituacaoItem @default(disponivel)
+  observacao   String?
+  cadastradoEm DateTime     @default(now()) @map("cadastrado_em") @db.Timestamptz(6)
+
+  tenant     Tenant       @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  emprestimos Emprestimo[]
+
+  @@unique([tenantId, patrimonio])
+  @@map("equipamentos")
+}
+
+model Emprestimo {
+  id             String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  tenantId       String    @map("tenant_id") @db.Uuid
+  equipamentoId  String    @map("equipamento_id") @db.Uuid
+  userId         String    @map("user_id") @db.Uuid
+  retiradaEm     DateTime  @map("retirada_em") @db.Date
+  prazoEm        DateTime  @map("prazo_em") @db.Date
+  devolvidoEm    DateTime? @map("devolvido_em") @db.Timestamptz(6)
+
+  tenant      Tenant      @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  equipamento Equipamento @relation(fields: [equipamentoId], references: [id], onDelete: Restrict)
+  user        User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([tenantId, equipamentoId], name: "emprestimos_tenant_equip_idx")
+  @@map("emprestimos")
+}
