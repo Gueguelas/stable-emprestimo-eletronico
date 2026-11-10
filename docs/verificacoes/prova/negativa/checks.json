@@ -1,0 +1,70 @@
+{
+  "estado": "d95f1c03696fa886be54144c00ab8d53cd5837c94f1665d6c362456d01a878dc",
+  "terminouEm": "2026-11-10T17:32:36.990Z",
+  "aprovado": true,
+  "passos": [
+    {
+      "nome": "contrato",
+      "comando": "npm run contrato (.)",
+      "exitCode": 0,
+      "arquivo": "docs/verificacoes/contrato.txt",
+      "sha256": "519a465e6d3ddad7cf60e7072379853386395addeb0b0ccd5e0608eab1b9203b"
+    },
+    {
+      "nome": "api-test",
+      "comando": "npm run test -- --runInBand (backend)",
+      "exitCode": 0,
+      "arquivo": "docs/verificacoes/api-test.txt",
+      "sha256": "3197a758df11e5ec631d0cd698faa4dd74d9da5b9be763c0a3477437c342b557"
+    },
+    {
+      "nome": "api-build",
+      "comando": "npm run build (backend)",
+      "exitCode": 0,
+      "arquivo": "docs/verificacoes/api-build.txt",
+      "sha256": "f6b840c20d1d86ca8616ffb99175a2d7c364e616f0613dd18ca05d7507c73103"
+    },
+    {
+      "nome": "front-test",
+      "comando": "npm run test (frontend)",
+      "exitCode": 0,
+      "arquivo": "docs/verificacoes/front-test.txt",
+      "sha256": "65c7587a723215d8a7e60b7329bb20d7d5d166391147e505fc06824542980eeb"
+    },
+    {
+      "nome": "front-build",
+      "comando": "npm run build (frontend)",
+      "exitCode": 0,
+      "arquivo": "docs/verificacoes/front-build.txt",
+      "sha256": "4e9d19f33a5c493a9d7aea21f70cff6feec05d688d0245182ffdd3c488a5d130"
+    },
+    {
+      "nome": "front-lint",
+      "comando": "npm run lint (frontend)",
+      "exitCode": 0,
+      "arquivo": "docs/verificacoes/front-lint.txt",
+      "sha256": "bb5c2263db42e53604e745e52d145b0b0243d2cbdb033c4208b44e0f06cb56d0"
+    },
+    {
+      "nome": "front-e2e",
+      "comando": "npm run e2e (frontend)",
+      "exitCode": 0,
+      "arquivo": "docs/verificacoes/front-e2e.txt",
+      "sha256": "41b6f40975a3d165577112a391d789267fce31b5bf073de01d07fcd81f7c3a37"
+    },
+    {
+      "nome": "imagens-test",
+      "comando": "npm run test:imagens (.)",
+      "exitCode": 0,
+      "arquivo": "docs/verificacoes/imagens-test.txt",
+      "sha256": "8f00d24f2bc628e87a923b23d98327bf92b3e68c3e31693ace50311b88fcdab3"
+    },
+    {
+      "nome": "harness-test",
+      "comando": "npm run test:harness (.)",
+      "exitCode": 0,
+      "arquivo": "docs/verificacoes/harness-test.txt",
+      "sha256": "5a75292cab980cc7cafaba67c3a9ebe610f391215847a8a8b524276db9290542"
+    }
+  ]
+}

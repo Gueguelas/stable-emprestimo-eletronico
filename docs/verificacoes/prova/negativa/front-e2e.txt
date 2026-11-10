@@ -1,0 +1,30 @@
+
+> stable-front@0.1.0 e2e
+> node ./node_modules/@playwright/test/cli.js test
+
+[WebServer] (node:96157) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 11 tests using 4 workers
+
+(node:96159) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:96161) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:96160) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:96162) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   2 e2e/emprestimos.spec.ts:84:3 › spec 003 — interface com API interceptada; persistência real coberta no Postgres › test_ca_003_07_catalogo_12_busca_filtro_imagem_fallback_e_credito (1.6s)
+  ✓   3 e2e/emprestimos.spec.ts:130:5 › spec 003 — interface com API interceptada; persistência real coberta no Postgres › test_ca_003_08_mostra_recusa_Bloqueado por empréstimo em atraso (2.7s)
+  ✓   1 e2e/emprestimos.spec.ts:130:5 › spec 003 — interface com API interceptada; persistência real coberta no Postgres › test_ca_003_08_mostra_recusa_Limite de 3 itens atingido (2.7s)
+  ✓   4 e2e/emprestimos.spec.ts:105:3 › spec 003 — interface com API interceptada; persistência real coberta no Postgres › test_ca_003_08_solicita_atualiza_e_preserva_apos_reload_e_relogin_demo (3.2s)
+  ✓   5 e2e/emprestimos.spec.ts:130:5 › spec 003 — interface com API interceptada; persistência real coberta no Postgres › test_ca_003_08_mostra_recusa_Equipamento já emprestado (1.9s)
+  ✓   8 e2e/smoke.spec.ts:3:1 › login renderiza em modo de demonstração (499ms)
+  ✓   9 e2e/smoke.spec.ts:9:1 › catálogo carrega dados da API e aplica filtro (605ms)
+  ✓  11 e2e/smoke.spec.ts:56:1 › rota de Operações exige sessão e preserva o destino (391ms)
+  ✓   6 e2e/emprestimos.spec.ts:138:3 › spec 003 — interface com API interceptada; persistência real coberta no Postgres › test_ca_003_08_falha_da_conta_bloqueia_sem_assumir_zero (2.4s)
+  ✓   7 e2e/emprestimos.spec.ts:153:3 › spec 003 — interface com API interceptada; persistência real coberta no Postgres › test_ca_003_08_duplo_clique_na_confirmacao_envia_uma_vez (2.7s)
+  ✓  10 e2e/smoke.spec.ts:41:1 › problema RFC 9457 aparece como mensagem de erro (1.8s)
+
+  11 passed (8.5s)

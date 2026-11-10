@@ -1,0 +1,113 @@
+{
+  "spec": "003-solicitar-emprestimo",
+  "estado": "e0f38bbff0208c0607748d2440e6a5a665501f80c74b94569c8a7e20e9a0b150",
+  "criterios": [
+    {
+      "ca": "CA-01",
+      "resultado": "APROVADO",
+      "evidencia": "backend/test/emprestimos.integration.spec.ts:182; backend/src/auth/jwt.guard.ts:58; backend/src/auth/claims.ts:4; frontend/src/stores/auth.test.ts:7; docs/verificacoes/api-test.txt:39; docs/verificacoes/front-test.txt:14. npm run test -- --runInBand (backend): 20 aprovados; npm run test (frontend): 17 aprovados.",
+      "motivo": "Testes ativos verificam JWT assinado via JWKS local, rejeição de claims conflitantes/inválidos, ausência de membership e tenant adicional no body, com status e corpo. Produção sem Auth também recusa login demo."
+    },
+    {
+      "ca": "CA-02",
+      "resultado": "APROVADO",
+      "evidencia": "backend/test/emprestimos.integration.spec.ts:215; backend/test/prazo.spec.ts:2; backend/src/emprestimos/emprestimos.repository.ts:89; docs/verificacoes/api-test.txt:5; docs/verificacoes/api-test.txt:36. npm run test -- --runInBand: ambas as suítes passaram.",
+      "motivo": "Comprova criação 201, prazo de 14 dias e persistência em duas consultas ao Postgres real. Teste de datas cobre meia-noite em São Paulo, virada de ano e ano bissexto."
+    },
+    {
+      "ca": "CA-03",
+      "resultado": "APROVADO",
+      "evidencia": "backend/test/emprestimos.integration.spec.ts:237; backend/test/emprestimos.integration.spec.ts:231; backend/src/equipamentos/equipamentos.service.ts:30; docs/verificacoes/api-test.txt:39. npm run test -- --runInBand: 20 aprovados.",
+      "motivo": "Manutenção e item ocupado retornam 409 com motivo, sem inserir outro empréstimo. O catálogo deriva a situação emprestado; manutenção prevalece na derivação."
+    },
+    {
+      "ca": "CA-04",
+      "resultado": "APROVADO",
+      "evidencia": "backend/test/emprestimos.integration.spec.ts:247; frontend/src/features/emprestimos/regrasReais.test.ts:25; backend/src/emprestimos/emprestimos.repository.ts:72; docs/verificacoes/api-test.txt:39; docs/verificacoes/front-test.txt:14. Testes da API e front passaram.",
+      "motivo": "Exercita limite com 422, atraso com precedência sobre limite e vencimento hoje permitindo 201. A implementação verifica qualquer prazo anterior à data do servidor; o front também testa bloqueio com um único empréstimo atrasado."
+    },
+    {
+      "ca": "CA-05",
+      "resultado": "APROVADO",
+      "evidencia": "backend/test/emprestimos.integration.spec.ts:267; backend/test/emprestimos.integration.spec.ts:275; backend/src/emprestimos/emprestimos.repository.ts:46; docs/verificacoes/api-test.txt:39. npm run test -- --runInBand: 20 aprovados, 20 totais.",
+      "motivo": "Os dois testes estão ativos. Pedidos simultâneos pelo mesmo item produzem somente uma linha; cinco pedidos do mesmo usuário, já com dois itens, resultam em apenas uma criação e quatro recusas por limite."
+    },
+    {
+      "ca": "CA-06",
+      "resultado": "APROVADO",
+      "evidencia": "backend/test/emprestimos.integration.spec.ts:290; backend/test/emprestimos.integration.spec.ts:304; backend/test/emprestimos.integration.spec.ts:314; backend/src/emprestimos/emprestimos.repository.ts:24; docs/verificacoes/api-test.txt:5. npm run test -- --runInBand: suíte de integração aprovada.",
+      "motivo": "Usuários com o mesmo nome não compartilham a listagem. Outro tenant recebe catálogo vazio e 404 ao solicitar. A leitura sob RLS usa SET LOCAL ROLE stable_reader, criado com NOBYPASSRLS, e comprova os bloqueios."
+    },
+    {
+      "ca": "CA-07",
+      "resultado": "PENDENTE",
+      "evidencia": "backend/src/emprestimos/emprestimos.schema.ts:1; frontend/src/api/client.ts:2; frontend/e2e/emprestimos.spec.ts:84; frontend/e2e/emprestimos.spec.ts:105; frontend/e2e/smoke.spec.ts:41; docs/verificacoes/contrato.txt:14; docs/verificacoes/front-e2e.txt:31; docs/operacao-pratica.md:5; docs/operacao-pratica.md:21. npm run contrato: exitCode 0; npm run e2e: 12 aprovados; rg --files artifacts/imagens: diretório inexistente.",
+      "motivo": "Contrato Zod/OpenAPI/Orval e fluxos reais sem mocks estão presentes. Testes cobrem busca, filtro, loading, erro, vazio, crédito, imagem sintética 800×600 em 4:3 e fallback. Faltam evidências de fotos reais do Pixabay e sua publicação em Storage público; a fixture SVG não comprova essa entrega."
+    },
+    {
+      "ca": "CA-08",
+      "resultado": "APROVADO",
+      "evidencia": "frontend/e2e/emprestimos.spec.ts:160; frontend/e2e/emprestimos.spec.ts:185; frontend/e2e/emprestimos.spec.ts:193; frontend/e2e/emprestimos.spec.ts:208; frontend/src/api/useEmprestimos.ts:23; docs/verificacoes/front-e2e.txt:31. npm run e2e: 12 aprovados.",
+      "motivo": "E2E verifica confirmação, prazo, atualização do catálogo e da listagem, recusa com motivo, reload com reautenticação demo, bloqueio por erro de leitura e um único POST no duplo clique. A persistência no banco é comprovada separadamente pelo CA-02."
+    },
+    {
+      "ca": "CA-09",
+      "resultado": "APROVADO",
+      "evidencia": "scripts/gate.test.mjs:4; scripts/gate.mjs:1; scripts/verificar-spec.mjs:29; docs/verificacoes/harness-test.txt:5; docs/verificacoes/sandbox-test.txt:5; docs/verificacoes/prova/negativa/api-test.txt:39; docs/verificacoes/003-solicitar-emprestimo/2026-11-10T17-34-55-099Z.txt:5443. npm run test:harness: 1 aprovado; npm run test:sandbox: escritaBloqueada=true e redeBloqueada=true. Hash recalculado por scripts/estado.mjs coincide com o solicitado; os dez logs conferem com seus SHA-256 e registram exitCode 0.",
+      "motivo": "A execução negativa registrada identifica o teste ignorado como SEM_TESTE, sem corrigi-lo. Os testes atuais do gate comprovam recusa de relatório ausente/desatualizado e de qualquer resultado diferente de APROVADO. O runner configura execução ephemeral readonly, sem apps/plugins/MCP e sem herança de segredos no shell."
+    }
+  ],
+  "conclusao": "NAO_PRONTA",
+  "em": "2026-11-10T17:42:48.564Z",
+  "harness": {
+    "sandbox": "read-only",
+    "mcp": false,
+    "apps": false,
+    "plugins": false,
+    "shellSecrets": false,
+    "args": [
+      "--no-daemon",
+      "exec",
+      "--ignore-user-config",
+      "--ephemeral",
+      "--sandbox",
+      "read-only",
+      "-c",
+      "approval_policy=\"never\"",
+      "-c",
+      "mcp_servers={}",
+      "-c",
+      "web_search=\"disabled\"",
+      "-c",
+      "shell_environment_policy.inherit=\"none\"",
+      "-c",
+      "shell_environment_policy.include_only=[\"PATH\",\"TMPDIR\"]",
+      "--disable",
+      "apps",
+      "--disable",
+      "plugins",
+      "--disable",
+      "hooks",
+      "--disable",
+      "browser_use",
+      "--disable",
+      "browser_use_external",
+      "--disable",
+      "computer_use",
+      "--disable",
+      "in_app_browser",
+      "--disable",
+      "multi_agent",
+      "--disable",
+      "image_generation",
+      "--cd",
+      "/Users/miguel.araujo/Documents/Personal/vibe-coding/estabulo-emprestimo-eletronico/",
+      "--output-schema",
+      "/Users/miguel.araujo/Documents/Personal/vibe-coding/estabulo-emprestimo-eletronico/scripts/verificador.schema.json",
+      "--output-last-message",
+      "/Users/miguel.araujo/Documents/Personal/vibe-coding/estabulo-emprestimo-eletronico/artifacts/verificador/003-solicitar-emprestimo/resultado.json",
+      "-"
+    ]
+  },
+  "checksSha256": "89f1a38d1193844e961755ae571235974745f59751c7e689db99e8dd9fe8960f"
+}

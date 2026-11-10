@@ -1,0 +1,39 @@
+{
+  "estado": "a0e0c41176bcd6564c61768ae2e18ecc2d92026759b579b2d066d5fb67dc68f2",
+  "checksAprovados": true,
+  "specs": {
+    "002-dados-iniciais": {
+      "conclusao": "NAO_PRONTA",
+      "parecerEm": "2026-11-10T18:32:49.548Z",
+      "pendentes": [
+        {
+          "ca": "CA-04",
+          "resultado": "PENDENTE",
+          "motivo": "Preparação e validação locais comprovadas. Faltam upload humano e evidência de acesso anônimo às URLs públicas; código preparado não comprova essa operação externa."
+        },
+        {
+          "ca": "CA-05",
+          "resultado": "PENDENTE",
+          "motivo": "Comportamento local coberto por testes reais sobre API simulada. Não há comprovação de provisionamento, membership, ausência de empréstimos e login da conta real em produção."
+        }
+      ]
+    },
+    "003-solicitar-emprestimo": {
+      "conclusao": "NAO_PRONTA",
+      "parecerEm": "2026-11-10T18:33:01.340Z",
+      "pendentes": [
+        {
+          "ca": "CA-07",
+          "resultado": "PENDENTE",
+          "motivo": "Contrato Zod/OpenAPI/Orval e estados do catálogo estão cobertos. Os testes de imagem usam fallback e SVG sintético; as fotos locais não comprovam sua disponibilização no catálogo real. Upload e acesso público ao Storage permanecem sem comprovação."
+        }
+      ]
+    }
+  },
+  "fotosLocais": {
+    "aprovadas": 12,
+    "reprovadas": 48,
+    "manifesto": "docs/evidencias/imagens/manifesto.json"
+  },
+  "producaoExecutada": false
+}

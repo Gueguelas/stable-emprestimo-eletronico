@@ -1,0 +1,113 @@
+{
+  "spec": "003-solicitar-emprestimo",
+  "estado": "3a4c79b8042dddd0b26aa31f2f4983b733c818b3185d98db28028761d468c756",
+  "criterios": [
+    {
+      "ca": "CA-01",
+      "resultado": "APROVADO",
+      "evidencia": "backend/test/emprestimos.integration.spec.ts:182; docs/verificacoes/api-test.txt:5. npm run test -- --runInBand: 20 testes aprovados.",
+      "motivo": "Teste ativo verifica JWT, claims conflitantes e inválidos, membership obrigatória e rejeição de tenant no body, com status e corpo."
+    },
+    {
+      "ca": "CA-02",
+      "resultado": "APROVADO",
+      "evidencia": "backend/test/emprestimos.integration.spec.ts:215; backend/test/prazo.spec.ts:2; docs/verificacoes/api-test.txt:36; frontend/e2e/emprestimos.spec.ts:160; docs/verificacoes/front-e2e.txt:21.",
+      "motivo": "Comprova criação 201, persistência entre consultas e prazo +14 dias com limites de data em São Paulo. E2E cobre reload com reautenticação demo; persistência real é exercitada no Postgres."
+    },
+    {
+      "ca": "CA-03",
+      "resultado": "APROVADO",
+      "evidencia": "backend/test/emprestimos.integration.spec.ts:237; backend/test/emprestimos.integration.spec.ts:231; docs/verificacoes/api-test.txt:5.",
+      "motivo": "Testes executados verificam 409 com motivo para manutenção e item emprestado, ausência de nova linha e situação derivada no catálogo."
+    },
+    {
+      "ca": "CA-04",
+      "resultado": "APROVADO",
+      "evidencia": "backend/test/emprestimos.integration.spec.ts:247; frontend/src/features/emprestimos/regrasReais.test.ts:25; docs/verificacoes/api-test.txt:39; docs/verificacoes/front-test.txt:14.",
+      "motivo": "Exercita limite, atraso com precedência sobre limite e vencimento hoje permitido. API e regras reais da UI passaram."
+    },
+    {
+      "ca": "CA-05",
+      "resultado": "APROVADO",
+      "evidencia": "backend/test/emprestimos.integration.spec.ts:267; backend/test/emprestimos.integration.spec.ts:275; docs/verificacoes/api-test.txt:39. npm run test -- --runInBand: 20 passed, 20 total.",
+      "motivo": "Ambos os testes estão ativos: concorrência pelo item produz somente um empréstimo; pedidos simultâneos do mesmo usuário mantêm o total em três."
+    },
+    {
+      "ca": "CA-06",
+      "resultado": "APROVADO",
+      "evidencia": "backend/test/emprestimos.integration.spec.ts:290; backend/test/emprestimos.integration.spec.ts:304; backend/test/emprestimos.integration.spec.ts:314; docs/verificacoes/api-test.txt:5.",
+      "motivo": "Comprova isolamento por usuário e tenant, incluindo solicitação 404. RLS é exercitada com SET LOCAL ROLE stable_reader, definido NOBYPASSRLS."
+    },
+    {
+      "ca": "CA-07",
+      "resultado": "PENDENTE",
+      "evidencia": "frontend/src/api/client.ts:2; frontend/e2e/emprestimos.spec.ts:84; frontend/e2e/emprestimos.spec.ts:105; frontend/e2e/smoke.spec.ts:41; docs/verificacoes/front-e2e.txt:31; docs/operacao-pratica.md:23. npm run e2e: 12 aprovados.",
+      "motivo": "Contrato Zod/OpenAPI/Orval e estados do catálogo estão cobertos. A imagem carregada no teste é uma fixture SVG; faltam evidências de fotos reais revisadas e disponíveis no Storage público. Scripts e crédito Pixabay não comprovam essa operação."
+    },
+    {
+      "ca": "CA-08",
+      "resultado": "APROVADO",
+      "evidencia": "frontend/e2e/emprestimos.spec.ts:160; frontend/e2e/emprestimos.spec.ts:185; frontend/e2e/emprestimos.spec.ts:193; frontend/e2e/emprestimos.spec.ts:208; docs/verificacoes/front-e2e.txt:31.",
+      "motivo": "E2E executado cobre confirmação, atualização das telas, recusa, reload, bloqueio por falha de carregamento e apenas um POST no duplo clique. Persistência real é comprovada separadamente pelo CA-02."
+    },
+    {
+      "ca": "CA-09",
+      "resultado": "APROVADO",
+      "evidencia": "scripts/gate.test.mjs:4; docs/verificacoes/harness-test.txt:5; docs/verificacoes/prova/negativa/teste-plantado.ts.txt:275; docs/verificacoes/prova/negativa/verificador.json:30; docs/verificacoes/003-solicitar-emprestimo/fechamento-recusa.txt:5.",
+      "motivo": "Prova negativa registra o teste desativado como SEM_TESTE e fechamento recusado com saída 1. Teste atual do gate passou. Hash do estado recalculado coincide com o solicitado; os dez logs conferem com seus SHA-256 e exitCode 0. Nenhum arquivo foi alterado nesta revisão."
+    }
+  ],
+  "conclusao": "NAO_PRONTA",
+  "em": "2026-11-10T17:55:44.245Z",
+  "harness": {
+    "sandbox": "read-only",
+    "mcp": false,
+    "apps": false,
+    "plugins": false,
+    "shellSecrets": false,
+    "args": [
+      "--no-daemon",
+      "exec",
+      "--ignore-user-config",
+      "--ephemeral",
+      "--sandbox",
+      "read-only",
+      "-c",
+      "approval_policy=\"never\"",
+      "-c",
+      "mcp_servers={}",
+      "-c",
+      "web_search=\"disabled\"",
+      "-c",
+      "shell_environment_policy.inherit=\"none\"",
+      "-c",
+      "shell_environment_policy.include_only=[\"PATH\",\"TMPDIR\"]",
+      "--disable",
+      "apps",
+      "--disable",
+      "plugins",
+      "--disable",
+      "hooks",
+      "--disable",
+      "browser_use",
+      "--disable",
+      "browser_use_external",
+      "--disable",
+      "computer_use",
+      "--disable",
+      "in_app_browser",
+      "--disable",
+      "multi_agent",
+      "--disable",
+      "image_generation",
+      "--cd",
+      "/Users/miguel.araujo/Documents/Personal/vibe-coding/estabulo-emprestimo-eletronico/",
+      "--output-schema",
+      "/Users/miguel.araujo/Documents/Personal/vibe-coding/estabulo-emprestimo-eletronico/scripts/verificador.schema.json",
+      "--output-last-message",
+      "/Users/miguel.araujo/Documents/Personal/vibe-coding/estabulo-emprestimo-eletronico/artifacts/verificador/003-solicitar-emprestimo/resultado.json",
+      "-"
+    ]
+  },
+  "checksSha256": "994f5980e05587c83e788a26a92b51d8f59cb8af4f508345fdc7f9c3dbacd393"
+}

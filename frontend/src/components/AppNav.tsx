@@ -8,20 +8,19 @@ export function AppNav() {
   const sair = useAuth((estado) => estado.sair);
   const mostrarToast = useToast((estado) => estado.mostrar);
   const navigate = useNavigate();
-
   if (!usuario) return null;
 
   const links =
-    usuario.papel === "operacoes"
+    usuario.modoDev && usuario.papel === "operacoes"
       ? [
           ["/catalogo", "Catálogo"],
           ["/operacoes", "Operações"],
           ["/equipamentos", "Equipamentos"],
-          ["/meus-emprestimos", "Meus empréstimos"]
+          ["/meus-emprestimos", "Meus empréstimos"],
         ]
       : [
           ["/catalogo", "Catálogo"],
-          ["/meus-emprestimos", "Meus empréstimos"]
+          ["/meus-emprestimos", "Meus empréstimos"],
         ];
 
   async function encerrarSessao() {
@@ -51,8 +50,12 @@ export function AppNav() {
         ))}
       </nav>
       <div className="nav-user">
-        <span className="tag tag-outline">{usuario.papel === "operacoes" ? "Operações" : "Colaborador"}</span>
-        <span className="avatar" aria-hidden="true">{usuario.iniciais}</span>
+        <span className="tag tag-outline">
+          {usuario.papel === "operacoes" ? "Operações" : "Colaborador"}
+        </span>
+        <span className="avatar" aria-hidden="true">
+          {usuario.iniciais}
+        </span>
         <span className="nav-name">{usuario.nome}</span>
         <button className="button button-ghost nav-logout" onClick={() => void encerrarSessao()}>
           Sair

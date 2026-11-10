@@ -1,0 +1,42 @@
+
+> stable-api@0.1.0 test
+> jest --runInBand
+
+PASS test/emprestimos.integration.spec.ts (8.018 s)
+warn The configuration property `package.json#prisma` is deprecated and will be removed in Prisma 7. Please migrate to a Prisma config file (e.g., `prisma.config.ts`).
+For more information, see: https://pris.ly/prisma-config
+
+Prisma schema loaded from prisma/schema.prisma
+Datasource "db": PostgreSQL database "test", schema "public" at "localhost:32781"
+
+2 migrations found in prisma/migrations
+
+Applying migration `0001_fundacao`
+Applying migration `0002_pratica_imagens_emprestimos`
+
+The following migration(s) have been applied:
+
+migrations/
+  └─ 0001_fundacao/
+    └─ migration.sql
+  └─ 0002_pratica_imagens_emprestimos/
+    └─ migration.sql
+      
+All migrations have been successfully applied.
+warn The configuration property `package.json#prisma` is deprecated and will be removed in Prisma 7. Please migrate to a Prisma config file (e.g., `prisma.config.ts`).
+For more information, see: https://pris.ly/prisma-config
+
+Running seed command `ts-node prisma/seed.ts` ...
+Seed idempotente concluído: 12 equipamentos; nenhum empréstimo criado.
+
+🌱  The seed command has been executed.
+PASS test/equipamentos.repository.spec.ts (6.498 s)
+PASS test/health.controller.spec.ts
+PASS test/equipamentos.service.spec.ts
+PASS test/prazo.spec.ts
+
+Test Suites: 5 passed, 5 total
+Tests:       1 skipped, 19 passed, 20 total
+Snapshots:   0 total
+Time:        15.421 s
+Ran all test suites.

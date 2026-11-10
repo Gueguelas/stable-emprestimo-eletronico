@@ -4,6 +4,7 @@ import { AppModule } from "./app.module";
 import helmet from "helmet";
 import pinoHttp from "pino-http";
 import { carregarEnv } from "./env";
+import { publicarOpenApi } from "./openapi";
 
 // Bootstrap local (npm run start:dev). Em produção na Vercel quem serve é
 // o handler serverless (serverless.ts) com instância cacheada — ADR-001, seção 3.
@@ -16,15 +17,16 @@ async function bootstrap(): Promise<void> {
     pinoHttp({
       // Log em JSON com tenant no contexto — ADR-001, seção 9.
       autoLogging: false,
-      genReqId: () => crypto.randomUUID()
-    })
+      genReqId: () => crypto.randomUUID(),
+    }),
   );
   app.setGlobalPrefix("v1", { exclude: ["health"] });
   app.enableCors({
     origin: process.env.FRONT_ORIGIN?.split(",") ?? true,
-    credentials: true
+    credentials: true,
   });
 
+  publicarOpenApi(app);
   await app.listen(env.PORT);
   console.log(`Stable API em http://localhost:${env.PORT} — GET /health e /v1`);
 }

@@ -1,0 +1,95 @@
+{
+  "spec": "002-dados-iniciais",
+  "estado": "d3d7e3104dcfc234524a6d11812076c3c58305a963ccabceb6c7f1bac2468da2",
+  "criterios": [
+    {
+      "ca": "CA-01",
+      "resultado": "APROVADO",
+      "evidencia": "backend/test/emprestimos.integration.spec.ts:96 e :151; backend/prisma/seed.ts:8; backend/prisma/equipamentos.json:1. npm run test -- --runInBand: 5 suítes e 20 testes aprovados, conforme docs/verificacoes/api-test.txt:38.",
+      "motivo": "Reset local e seed reais exercitados. Inventário contém TI-0001 a TI-0012, categorias e manutenção exigidas; implementação do seed não cria empréstimos. Ressalva de cobertura: a asserção de zero empréstimos ocorre após limpeza no beforeEach."
+    },
+    {
+      "ca": "CA-02",
+      "resultado": "APROVADO",
+      "evidencia": "backend/test/emprestimos.integration.spec.ts:170; backend/prisma/seed.ts:24. docs/verificacoes/api-test.txt:5 e :39: suíte executada, 20 testes aprovados.",
+      "motivo": "Teste cria empréstimo, repete o seed duas vezes e verifica preservação dos IDs e do empréstimo. Upsert usa a chave única tenant/patrimônio."
+    },
+    {
+      "ca": "CA-03",
+      "resultado": "APROVADO",
+      "evidencia": "docs/evidencias/imagens/manifesto.json:3; docs/evidencias/imagens/preparacao.json:2; scripts/imagens.test.cjs:177 e :334; docs/verificacoes/imagens-test.txt:5. Executado /opt/homebrew/bin/node scripts/validar-imagens-entrega.cjs: 12 aprovadas, 48 rejeitadas, 800×600, 12 IDs e hashes distintos; manifesto SHA256 24f4320559235bf3c1160149f1039fd48c465884d9635db859fd577c3bad4c8d.",
+      "motivo": "Os 12 JPG foram inspecionados nesta verificação. Manifesto registra origem, autor, licença, hashes e aprovações individuais; metadados correspondem às respostas preservadas da API. Os 11 testes executados cobrem revisão obrigatória, substituição, reenquadramento e retomada, sem skip/todo."
+    },
+    {
+      "ca": "CA-04",
+      "resultado": "PENDENTE",
+      "evidencia": ".agents/skills/imagens-equipamentos/scripts/preparar.cjs:194 e :261; backend/prisma/seed.ts:57; docs/verificacoes/imagens-reais.txt:13; docs/evidencias/imagens/README.md:17. Validação local executada retornou storagePublicoVerificado=false.",
+      "motivo": "Caminhos determinísticos e validação anterior ao seed estão implementados e cobertos localmente. Faltam upload humano e comprovação de acesso anônimo às URLs públicas; arquivos locais não comprovam Storage ou produção."
+    },
+    {
+      "ca": "CA-05",
+      "resultado": "PENDENTE",
+      "evidencia": "scripts/provisionar-professor.mjs:58, :113 e :120; scripts/professor.test.mjs:88 e :118; docs/verificacoes/professor-test.txt:5: 4 testes aprovados, zero skip/todo; docs/operacao-pratica.md:39 e :46.",
+      "motivo": "API simulada comprova idempotência, membership colaborador, senha fornecida em execução e recusa de sucesso com empréstimos ou falha de login. Não há evidência de provisionamento da conta real nem de login em produção."
+    },
+    {
+      "ca": "CA-06",
+      "resultado": "APROVADO",
+      "evidencia": "scripts/verificar-spec.mjs:19, :29 e :119; scripts/gate.mjs:1; scripts/gate.test.mjs:22; docs/verificacoes/harness-test.txt:5; docs/verificacoes/sandbox.json:5. Recalculado estado via scripts/estado.mjs: corresponde ao solicitado; hashes dos 12 logs conferidos, todos íntegros e com exitCode=0 em docs/verificacoes/checks.json:1.",
+      "motivo": "Verificação independente confrontou código, testes, fotos e logs atuais em ambiente readonly. Gate testado rejeita ausência de teste e pendências. Storage e Auth reais permanecem explicitamente pendentes; checks locais aprovados não autorizam fechamento da spec."
+    }
+  ],
+  "conclusao": "NAO_PRONTA",
+  "em": "2026-11-10T18:28:58.948Z",
+  "harness": {
+    "sandbox": "read-only",
+    "mcp": false,
+    "apps": false,
+    "plugins": false,
+    "shellSecrets": false,
+    "args": [
+      "--no-daemon",
+      "exec",
+      "--ignore-user-config",
+      "--ephemeral",
+      "--sandbox",
+      "read-only",
+      "-c",
+      "approval_policy=\"never\"",
+      "-c",
+      "mcp_servers={}",
+      "-c",
+      "web_search=\"disabled\"",
+      "-c",
+      "shell_environment_policy.inherit=\"none\"",
+      "-c",
+      "shell_environment_policy.include_only=[\"PATH\",\"TMPDIR\"]",
+      "--disable",
+      "apps",
+      "--disable",
+      "plugins",
+      "--disable",
+      "hooks",
+      "--disable",
+      "browser_use",
+      "--disable",
+      "browser_use_external",
+      "--disable",
+      "computer_use",
+      "--disable",
+      "in_app_browser",
+      "--disable",
+      "multi_agent",
+      "--disable",
+      "image_generation",
+      "--cd",
+      "/Users/miguel.araujo/Documents/Personal/vibe-coding/estabulo-emprestimo-eletronico/",
+      "--output-schema",
+      "/Users/miguel.araujo/Documents/Personal/vibe-coding/estabulo-emprestimo-eletronico/scripts/verificador.schema.json",
+      "--output-last-message",
+      "/Users/miguel.araujo/Documents/Personal/vibe-coding/estabulo-emprestimo-eletronico/artifacts/verificador/002-dados-iniciais/resultado.json",
+      "-"
+    ]
+  },
+  "checksSha256": "167b375379d3dabacc7ffe64ff16228eada16e514255166ecc1f25aa9c81fa2f"
+}

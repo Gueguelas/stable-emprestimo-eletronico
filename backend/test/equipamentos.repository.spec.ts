@@ -1,7 +1,14 @@
 import { Test } from "@nestjs/testing";
-import { ExecutionContext, INestApplication, UnauthorizedException } from "@nestjs/common";
+import {
+  ExecutionContext,
+  INestApplication,
+  UnauthorizedException,
+} from "@nestjs/common";
 import { APP_GUARD } from "@nestjs/core";
-import { PostgreSqlContainer, StartedPostgreSqlContainer } from "@testcontainers/postgresql";
+import {
+  PostgreSqlContainer,
+  StartedPostgreSqlContainer,
+} from "@testcontainers/postgresql";
 import { execSync } from "node:child_process";
 import request from "supertest";
 import { AppModule } from "../src/app.module";
@@ -19,7 +26,9 @@ class StubJwtGuard {
     const tenant = req.headers["x-test-tenant"];
     const user = req.headers["x-test-user"];
     if (typeof tenant !== "string" || typeof user !== "string") {
-      throw new UnauthorizedException("StubJwtGuard: faltou x-test-tenant/x-test-user");
+      throw new UnauthorizedException(
+        "StubJwtGuard: faltou x-test-tenant/x-test-user",
+      );
     }
     const store = als.getStore();
     if (store) {
@@ -41,6 +50,11 @@ describe("GET /v1/equipamentos (Postgres real, migration + seed reais)", () => {
   let container: StartedPostgreSqlContainer;
   let app: INestApplication;
   let prisma: PrismaService;
+  let estadoAposSeed: {
+    equipamentos: number;
+    emprestimos: number;
+    usuarios: number;
+  };
   const idA1 = "00000000-0000-4000-8000-00000000c001";
   const idA2 = "00000000-0000-4000-8000-00000000c002";
   const idA3 = "00000000-0000-4000-8000-00000000c003";
@@ -58,12 +72,12 @@ describe("GET /v1/equipamentos (Postgres real, migration + seed reais)", () => {
     execSync("npx prisma migrate deploy", {
       cwd: process.cwd(),
       env: process.env,
-      stdio: "inherit"
+      stdio: "inherit",
     });
     execSync("npx prisma db seed", {
       cwd: process.cwd(),
       env: process.env,
-      stdio: "inherit"
+      stdio: "inherit",
     });
 
     const moduleRef = await Test.createTestingModule({ imports: [AppModule] })
@@ -75,6 +89,13 @@ describe("GET /v1/equipamentos (Postgres real, migration + seed reais)", () => {
     app.setGlobalPrefix("v1");
     await app.init();
     prisma = app.get(PrismaService);
+    // Captura imediatamente após migration + seed, antes de qualquer fixture
+    // ou limpeza: um seed que crie empréstimos/usuários deve reprovar o CA-01.
+    estadoAposSeed = {
+      equipamentos: await prisma.equipamento.count(),
+      emprestimos: await prisma.emprestimo.count(),
+      usuarios: await prisma.user.count(),
+    };
 
     // Dois tenants para provar o isolamento. Users nasce no auth primeiro
     // (FK) — mesmo fluxo do seed.
@@ -84,19 +105,72 @@ describe("GET /v1/equipamentos (Postgres real, migration + seed reais)", () => {
               ($2::uuid, 'outro@tenant-b.example', 'teste')
        on conflict (id) do nothing`,
       USER_UM,
-      USER_OUTRO
+      USER_OUTRO,
     );
-    await prisma.user.create({ data: { id: USER_UM, nome: "Usuário Um", email: "um@tenant-a.example" } });
-    await prisma.user.create({ data: { id: USER_OUTRO, nome: "Usuário Outro", email: "outro@tenant-b.example" } });
-    await prisma.tenant.create({ data: { id: TENANT_A, slug: "tenant-a", nome: "Tenant A" } });
-    await prisma.tenant.create({ data: { id: TENANT_B, slug: "tenant-b", nome: "Tenant B" } });
-    await prisma.membership.create({ data: { tenantId: TENANT_A, userId: USER_UM } });
-    await prisma.membership.create({ data: { tenantId: TENANT_B, userId: USER_OUTRO } });
+    await prisma.user.create({
+      data: { id: USER_UM, nome: "Usuário Um", email: "um@tenant-a.example" },
+    });
+    await prisma.user.create({
+      data: {
+        id: USER_OUTRO,
+        nome: "Usuário Outro",
+        email: "outro@tenant-b.example",
+      },
+    });
+    await prisma.tenant.create({
+      data: { id: TENANT_A, slug: "tenant-a", nome: "Tenant A" },
+    });
+    await prisma.tenant.create({
+      data: { id: TENANT_B, slug: "tenant-b", nome: "Tenant B" },
+    });
+    await prisma.membership.create({
+      data: { tenantId: TENANT_A, userId: USER_UM },
+    });
+    await prisma.membership.create({
+      data: { tenantId: TENANT_B, userId: USER_OUTRO },
+    });
 
-    await prisma.equipamento.create({ data: { id: idA1, tenantId: TENANT_A, nome: "Notebook A1", categoria: "notebook", patrimonio: "TI-A001", cadastradoEm: new Date("2026-08-01T10:00:00Z") } });
-    await prisma.equipamento.create({ data: { id: idA2, tenantId: TENANT_A, nome: "Monitor A2", categoria: "monitor", patrimonio: "TI-A002", situacao: "em_manutencao", observacao: "Painel rachado", cadastradoEm: new Date("2026-08-02T10:00:00Z") } });
-    await prisma.equipamento.create({ data: { id: idA3, tenantId: TENANT_A, nome: "Câmera A3", categoria: "camera", patrimonio: "TI-A003", cadastradoEm: new Date("2026-08-03T10:00:00Z") } });
-    await prisma.equipamento.create({ data: { tenantId: TENANT_B, nome: "Notebook B1", categoria: "notebook", patrimonio: "TI-B001", cadastradoEm: new Date("2026-08-04T10:00:00Z") } });
+    await prisma.equipamento.create({
+      data: {
+        id: idA1,
+        tenantId: TENANT_A,
+        nome: "Notebook A1",
+        categoria: "notebook",
+        patrimonio: "TI-A001",
+        cadastradoEm: new Date("2026-08-01T10:00:00Z"),
+      },
+    });
+    await prisma.equipamento.create({
+      data: {
+        id: idA2,
+        tenantId: TENANT_A,
+        nome: "Monitor A2",
+        categoria: "monitor",
+        patrimonio: "TI-A002",
+        situacao: "em_manutencao",
+        observacao: "Painel rachado",
+        cadastradoEm: new Date("2026-08-02T10:00:00Z"),
+      },
+    });
+    await prisma.equipamento.create({
+      data: {
+        id: idA3,
+        tenantId: TENANT_A,
+        nome: "Câmera A3",
+        categoria: "camera",
+        patrimonio: "TI-A003",
+        cadastradoEm: new Date("2026-08-03T10:00:00Z"),
+      },
+    });
+    await prisma.equipamento.create({
+      data: {
+        tenantId: TENANT_B,
+        nome: "Notebook B1",
+        categoria: "notebook",
+        patrimonio: "TI-B001",
+        cadastradoEm: new Date("2026-08-04T10:00:00Z"),
+      },
+    });
 
     await prisma.emprestimo.create({
       data: {
@@ -104,14 +178,22 @@ describe("GET /v1/equipamentos (Postgres real, migration + seed reais)", () => {
         equipamentoId: idA3,
         userId: USER_UM,
         retiradaEm: new Date("2026-08-20"),
-        prazoEm: new Date("2026-09-03")
-      }
+        prazoEm: new Date("2026-09-03"),
+      },
     });
   });
 
   afterAll(async () => {
     await app?.close();
     await container?.stop();
+  });
+
+  it("test_ca_002_01_seed_vazio_sem_emprestimos_antes_de_fixtures_ou_limpeza", () => {
+    expect(estadoAposSeed).toEqual({
+      equipamentos: 12,
+      emprestimos: 0,
+      usuarios: 0,
+    });
   });
 
   it("401 sem credencial", async () => {
@@ -161,8 +243,8 @@ describe("GET /v1/equipamentos (Postgres real, migration + seed reais)", () => {
 
     const camera = item("Câmera A3");
     expect(camera.situacao).toBe("emprestado");
-    expect(camera.comPessoa).toBe("Usuário Um");
-    expect(camera.prazo).toBe("2026-09-03");
+    expect(camera.comPessoa).toBeNull();
+    expect(camera.prazo).toBeNull();
 
     const monitor = item("Monitor A2");
     expect(monitor.situacao).toBe("em_manutencao");
@@ -180,7 +262,9 @@ describe("GET /v1/equipamentos (Postgres real, migration + seed reais)", () => {
     expect(primeira.body.proximoCursor).not.toBeNull();
 
     const segunda = await request(app.getHttpServer())
-      .get(`/v1/equipamentos?limite=2&cursor=${encodeURIComponent(primeira.body.proximoCursor)}`)
+      .get(
+        `/v1/equipamentos?limite=2&cursor=${encodeURIComponent(primeira.body.proximoCursor)}`,
+      )
       .set("x-test-tenant", TENANT_A)
       .set("x-test-user", USER_UM);
 
@@ -193,5 +277,3 @@ describe("GET /v1/equipamentos (Postgres real, migration + seed reais)", () => {
     expect([...idsPrimeira, ...idsSegunda]).toHaveLength(3);
   });
 });
-
-

@@ -1,5 +1,8 @@
 import { Injectable } from "@nestjs/common";
-import { EquipamentosRepository, LinhaEquipamento } from "./equipamentos.repository";
+import {
+  EquipamentosRepository,
+  LinhaEquipamento,
+} from "./equipamentos.repository";
 import { EquipamentoRespostaDto } from "./equipamentos.schema";
 
 export interface ListaEquipamentos {
@@ -20,7 +23,7 @@ export class EquipamentosService {
     return {
       itens: pagina.map((linha) => this.paraDto(linha)),
       proximoCursor:
-        temProximaPagina && ultima ? this.codificarCursor(ultima) : null
+        temProximaPagina && ultima ? this.codificarCursor(ultima) : null,
     };
   }
 
@@ -40,17 +43,18 @@ export class EquipamentosService {
       categoria: linha.categoria as EquipamentoRespostaDto["categoria"],
       patrimonio: linha.patrimonio,
       situacao,
-      comPessoa: emprestimoAberto ? emprestimoAberto.user.nome : null,
-      prazo: emprestimoAberto
-        ? emprestimoAberto.prazoEm.toISOString().slice(0, 10)
-        : null,
-      observacao: linha.observacao
+      // A situação é pública no tenant; identidade/prazo só em /emprestimos.
+      comPessoa: null,
+      prazo: null,
+      observacao: linha.observacao,
+      imagemUrl: linha.imagemUrl ?? null,
     };
   }
 
   private codificarCursor(linha: LinhaEquipamento): string {
-    return Buffer.from(`${linha.cadastradoEm.toISOString()}|${linha.id}`, "utf8").toString(
-      "base64"
-    );
+    return Buffer.from(
+      `${linha.cadastradoEm.toISOString()}|${linha.id}`,
+      "utf8",
+    ).toString("base64");
   }
 }

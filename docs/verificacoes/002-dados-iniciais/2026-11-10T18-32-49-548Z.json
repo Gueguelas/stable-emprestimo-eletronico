@@ -1,0 +1,95 @@
+{
+  "spec": "002-dados-iniciais",
+  "estado": "a0e0c41176bcd6564c61768ae2e18ecc2d92026759b579b2d066d5fb67dc68f2",
+  "criterios": [
+    {
+      "ca": "CA-01",
+      "resultado": "APROVADO",
+      "evidencia": "backend/test/equipamentos.repository.spec.ts:105 captura o estado imediatamente após seed, antes das fixtures; backend/test/emprestimos.integration.spec.ts:151 verifica quantidades por categoria e manutenção; backend/prisma/equipamentos.json:1 contém TI-0001 a TI-0012. docs/verificacoes/api-test.txt:38: npm run test -- --runInBand, 5 suítes e 21 testes aprovados.",
+      "motivo": "Seed vazio comprovado sem usuários fictícios ou empréstimos; composição e itens em manutenção correspondem à spec. Testes executados, sem skip/todo."
+    },
+    {
+      "ca": "CA-02",
+      "resultado": "APROVADO",
+      "evidencia": "backend/test/emprestimos.integration.spec.ts:170 cria empréstimo, repete popular duas vezes e compara IDs e preservação do empréstimo; backend/prisma/schema.prisma:90 define unicidade tenant/patrimônio. docs/verificacoes/api-test.txt:5 registra aprovação da suíte.",
+      "motivo": "O upsert pela chave tenant/patrimônio preserva IDs e empréstimo existente; a repetição foi exercitada contra Postgres local."
+    },
+    {
+      "ca": "CA-03",
+      "resultado": "APROVADO",
+      "evidencia": "docs/evidencias/imagens/manifesto.json:1 registra origem, autores, licença, hashes, revisões individuais e rejeições; scripts/imagens.test.cjs:177 exercita rejeição e substituição sem aprovação automática. docs/verificacoes/imagens-test.txt:1: 11 testes aprovados. /opt/homebrew/bin/node scripts/validar-imagens-entrega.cjs: exit 0, 12 fotos 800x600, IDs e hashes distintos, 48 rejeições; manifesto SHA-256 24f4320559235bf3c1160149f1039fd48c465884d9635db859fd577c3bad4c8d.",
+      "motivo": "Os 12 JPG locais foram inspecionados nesta verificação. Arquivos, metadados selecionados da API e aprovações registradas são consistentes. A evidência comprova a preparação local, sem implicar publicação."
+    },
+    {
+      "ca": "CA-04",
+      "resultado": "PENDENTE",
+      "evidencia": ".agents/skills/imagens-equipamentos/scripts/preparar.cjs:194 define nome determinístico; backend/prisma/seed.ts:65 valida manifesto antes de popular com imagens. docs/verificacoes/imagens-reais.txt:13 registra storagePublicoVerificado=false; docs/evidencias/imagens/preparacao.json:18 registra uploadProducaoExecutado=false.",
+      "motivo": "Preparação e validação locais comprovadas. Faltam upload humano e evidência de acesso anônimo às URLs públicas; código preparado não comprova essa operação externa."
+    },
+    {
+      "ca": "CA-05",
+      "resultado": "PENDENTE",
+      "evidencia": "scripts/professor.test.mjs:88 testa idempotência e membership; scripts/professor.test.mjs:118 testa recusa com empréstimos; scripts/provisionar-professor.mjs:18 recebe segredos em execução. docs/verificacoes/professor-test.txt:11: npm run test:professor, 4 aprovados, zero skip/todo. docs/operacao-pratica.md:41 esclarece uso de API simulada.",
+      "motivo": "Comportamento local coberto por testes reais sobre API simulada. Não há comprovação de provisionamento, membership, ausência de empréstimos e login da conta real em produção."
+    },
+    {
+      "ca": "CA-06",
+      "resultado": "APROVADO",
+      "evidencia": "scripts/verificar-spec.mjs:29 configura execução independente ephemeral readonly e desabilita integrações; scripts/gate.test.mjs:4 testa recusa de relatórios incompletos e resultados pendentes; docs/verificacoes/harness-test.txt:8 registra 1 teste aprovado. docs/verificacoes/checks.json:2: estado recalculado por scripts/estado.mjs coincide; hashes dos 12 logs conferidos, todos com exitCode 0.",
+      "motivo": "Verificação independente realizada por leitura de implementação, testes e logs atuais, sem alterações ou integração/Postgres. Pendências externas permanecem explícitas e impedem concluir PRONTA."
+    }
+  ],
+  "conclusao": "NAO_PRONTA",
+  "em": "2026-11-10T18:32:49.548Z",
+  "harness": {
+    "sandbox": "read-only",
+    "mcp": false,
+    "apps": false,
+    "plugins": false,
+    "shellSecrets": false,
+    "args": [
+      "--no-daemon",
+      "exec",
+      "--ignore-user-config",
+      "--ephemeral",
+      "--sandbox",
+      "read-only",
+      "-c",
+      "approval_policy=\"never\"",
+      "-c",
+      "mcp_servers={}",
+      "-c",
+      "web_search=\"disabled\"",
+      "-c",
+      "shell_environment_policy.inherit=\"none\"",
+      "-c",
+      "shell_environment_policy.include_only=[\"PATH\",\"TMPDIR\"]",
+      "--disable",
+      "apps",
+      "--disable",
+      "plugins",
+      "--disable",
+      "hooks",
+      "--disable",
+      "browser_use",
+      "--disable",
+      "browser_use_external",
+      "--disable",
+      "computer_use",
+      "--disable",
+      "in_app_browser",
+      "--disable",
+      "multi_agent",
+      "--disable",
+      "image_generation",
+      "--cd",
+      "/Users/miguel.araujo/Documents/Personal/vibe-coding/estabulo-emprestimo-eletronico/",
+      "--output-schema",
+      "/Users/miguel.araujo/Documents/Personal/vibe-coding/estabulo-emprestimo-eletronico/scripts/verificador.schema.json",
+      "--output-last-message",
+      "/Users/miguel.araujo/Documents/Personal/vibe-coding/estabulo-emprestimo-eletronico/artifacts/verificador/002-dados-iniciais/resultado.json",
+      "-"
+    ]
+  },
+  "checksSha256": "f72a17212aa6e0ca1cbf4a756a3893a2e724a29200c0179930518077c2b556f3"
+}

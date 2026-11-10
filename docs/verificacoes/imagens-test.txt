@@ -1,0 +1,23 @@
+
+> test:imagens
+> node --test scripts/imagens.test.cjs
+
+✔ test_ca_03_04_dimensao_revisao_integridade_e_fotos_repetidas (149.015875ms)
+✔ test_ca_002_03_04_pipeline_com_secret_12_downloads_cache_revisao_e_retomada (193.901916ms)
+✔ test_ca_002_03_pipeline_sem_secret_recusa_antes_de_chamar_api (1.423458ms)
+✔ test_ca_002_03_recusa_resposta_nao_fotografica_mesmo_com_filtro_da_api (3.626917ms)
+✔ test_ca_002_03_recorte_local_reproduzivel_sem_alterar_conteudo (20.773167ms)
+✔ test_ca_002_03_busca_refinada_seleciona_somente_id_retornado_pela_api (117.917542ms)
+✔ test_ca_002_03_pipeline_interrompe_401_429_sem_aprovar_nem_repetir (3.0955ms)
+✔ test_ca_002_03_reenquadramento_explicito_conserva_recusa_e_exige_nova_revisao (131.503125ms)
+✔ test_ca_002_03_04_pipeline_retoma_depois_de_falha_sem_refazer_itens (110.254875ms)
+✔ test_ca_002_03_pipeline_bloqueia_redirect_para_fonte_externa (2.133333ms)
+✔ test_ca_002_03_secret_local_carregada_sem_sobrescrever_exportada_ou_expor_erro (2.557042ms)
+ℹ tests 11
+ℹ suites 0
+ℹ pass 11
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 999.564875

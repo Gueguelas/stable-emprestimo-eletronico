@@ -12,7 +12,7 @@ import { useToast } from "@/stores/toast";
 
 const schemaLogin = z.object({
   email: z.string().email("Informe um e-mail válido."),
-  senha: z.string().min(1, "Informe sua senha.")
+  senha: z.string().min(1, "Informe sua senha."),
 });
 type DadosLogin = z.infer<typeof schemaLogin>;
 
@@ -27,7 +27,7 @@ export function LoginPage() {
   const {
     register,
     handleSubmit,
-    formState: { errors }
+    formState: { errors },
   } = useForm<DadosLogin>({ resolver: zodResolver(schemaLogin) });
 
   async function submeter(dados: DadosLogin) {
@@ -51,15 +51,28 @@ export function LoginPage() {
         <Brand />
         <div className="login-copy">
           <p className="eyebrow">EMPRÉSTIMO DE EQUIPAMENTOS</p>
-          <h1>O que você precisa,<br />sem complicação.</h1>
+          <h1>
+            O que você precisa,
+            <br />
+            sem complicação.
+          </h1>
           <p className="login-lead">
             Equipamentos de TI disponíveis para o seu trabalho. Pegue emprestado, use e devolva.
           </p>
         </div>
         <div className="login-stats">
-          <div><strong>3</strong><span>itens por pessoa</span></div>
-          <div><strong>14</strong><span>dias de prazo</span></div>
-          <div><strong>0</strong><span>linhas para preencher</span></div>
+          <div>
+            <strong>3</strong>
+            <span>itens por pessoa</span>
+          </div>
+          <div>
+            <strong>14</strong>
+            <span>dias de prazo</span>
+          </div>
+          <div>
+            <strong>0</strong>
+            <span>linhas para preencher</span>
+          </div>
         </div>
         <footer>Operações · TI interno</footer>
       </section>
@@ -70,17 +83,33 @@ export function LoginPage() {
           <p className="login-form-lead">Use suas credenciais corporativas para continuar.</p>
           <label className="field">
             <span>E-mail</span>
-            <Input type="email" autoComplete="username" placeholder="voce@empresa.com" {...register("email")} />
+            <Input
+              type="email"
+              autoComplete="username"
+              placeholder="voce@empresa.com"
+              {...register("email")}
+            />
             {errors.email && <small className="field-error">{errors.email.message}</small>}
           </label>
           <label className="field">
             <span>Senha</span>
-            <Input type="password" autoComplete="current-password" placeholder="Sua senha" {...register("senha")} />
+            <Input
+              type="password"
+              autoComplete="current-password"
+              placeholder="Sua senha"
+              {...register("senha")}
+            />
             {errors.senha && <small className="field-error">{errors.senha.message}</small>}
           </label>
-          {erro && <p className="field-error" role="alert">{erro}</p>}
-          <Button block type="submit" disabled={buscando}>{buscando ? "Entrando…" : "Entrar"}</Button>
-          {!supabaseConfigurado && (
+          {erro && (
+            <p className="field-error" role="alert">
+              {erro}
+            </p>
+          )}
+          <Button block type="submit" disabled={buscando}>
+            {buscando ? "Entrando…" : "Entrar"}
+          </Button>
+          {import.meta.env.DEV && !supabaseConfigurado && (
             <Button block variant="ghost" type="button" onClick={entrarOps}>
               Entrar como Operações →
             </Button>

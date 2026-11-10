@@ -2,6 +2,7 @@ import { create } from "zustand";
 import type { Session, User } from "@supabase/supabase-js";
 import { extrairNome, extrairPapel, iniciais, type Papel } from "@/features/auth/claims";
 import { supabase, supabaseConfigurado } from "@/lib/supabase";
+import { queryClient } from "@/lib/query";
 
 export interface UsuarioApp {
   id: string;
@@ -26,7 +27,7 @@ function usuarioDaSessao(user: User, session: Session | null): UsuarioApp {
   const nome = extrairNome({
     app_metadata: user.app_metadata,
     user_metadata: user.user_metadata,
-    email: user.email
+    email: user.email,
   });
   return {
     id: user.id,
@@ -35,10 +36,10 @@ function usuarioDaSessao(user: User, session: Session | null): UsuarioApp {
     iniciais: iniciais(nome),
     papel: extrairPapel({
       app_metadata: user.app_metadata,
-      user_metadata: user.user_metadata
+      user_metadata: user.user_metadata,
     }),
     token: session?.access_token ?? null,
-    modoDev: false
+    modoDev: false,
   };
 }
 
@@ -50,7 +51,7 @@ function usuarioDev(papel: Papel, email = "ana.ribeiro@stable.local"): UsuarioAp
     iniciais: "AR",
     papel,
     token: "token-falso-de-desenvolvimento",
-    modoDev: true
+    modoDev: true,
   };
 }
 
@@ -60,6 +61,10 @@ export const useAuth = create<EstadoAuth>((set) => ({
   entrar: async (email, senha) => {
     set({ erro: null });
     if (!supabaseConfigurado || !supabase) {
+      if (!import.meta.env.DEV) {
+        set({ usuario: null, erro: "Login indisponível: autenticação não configurada." });
+        return;
+      }
       if (!email.trim() || !senha) {
         set({ erro: "Informe seu e-mail e sua senha." });
         return;
@@ -69,7 +74,7 @@ export const useAuth = create<EstadoAuth>((set) => ({
     }
     const { data, error } = await supabase.auth.signInWithPassword({
       email,
-      password: senha
+      password: senha,
     });
     if (error) {
       set({ erro: "Não foi possível entrar. Confira suas credenciais." });
@@ -77,11 +82,11 @@ export const useAuth = create<EstadoAuth>((set) => ({
     }
     set({
       usuario: data.user ? usuarioDaSessao(data.user, data.session) : null,
-      erro: null
+      erro: null,
     });
   },
   entrarComoOperacoes: () => {
-    if (!supabaseConfigurado) {
+    if (import.meta.env.DEV && !supabaseConfigurado) {
       set({ usuario: usuarioDev("operacoes"), erro: null });
     } else {
       set({ erro: "Use uma conta de Operações para entrar." });
@@ -95,9 +100,10 @@ export const useAuth = create<EstadoAuth>((set) => ({
         return;
       }
     }
+    queryClient.clear();
     set({ usuario: null, erro: null });
   },
-  definirErro: (erro) => set({ erro })
+  definirErro: (erro) => set({ erro }),
 }));
 
 export async function inicializarAuth(): Promise<void> {
@@ -107,12 +113,13 @@ export async function inicializarAuth(): Promise<void> {
     useAuth.getState().definirErro("Não foi possível restaurar a sessão.");
   } else if (data.session?.user) {
     useAuth.setState({
-      usuario: usuarioDaSessao(data.session.user, data.session)
+      usuario: usuarioDaSessao(data.session.user, data.session),
     });
   }
   supabase.auth.onAuthStateChange((_evento, session) => {
+    if (session?.user?.id !== useAuth.getState().usuario?.id) queryClient.clear();
     useAuth.setState({
-      usuario: session?.user ? usuarioDaSessao(session.user, session) : null
+      usuario: session?.user ? usuarioDaSessao(session.user, session) : null,
     });
   });
 }

@@ -16,7 +16,7 @@ const schemaEquipamento = z.object({
   categoria: z.enum(["notebook", "monitor", "cabo", "camera", "acessorio"]),
   patrimonio: z.string(),
   observacao: z.string(),
-  situacao: z.enum(["disponivel", "em_manutencao"])
+  situacao: z.enum(["disponivel", "em_manutencao"]),
 });
 type DadosEquipamento = z.infer<typeof schemaEquipamento>;
 
@@ -28,15 +28,15 @@ export function EquipamentosPage() {
   const {
     register,
     handleSubmit,
-    formState: { errors }
+    formState: { errors },
   } = useForm<DadosEquipamento>({
     resolver: zodResolver(schemaEquipamento),
     defaultValues: {
       categoria: "notebook",
       situacao: "disponivel",
       patrimonio: "",
-      observacao: ""
-    }
+      observacao: "",
+    },
   });
 
   function cadastrar(dados: DadosEquipamento) {
@@ -49,7 +49,7 @@ export function EquipamentosPage() {
       situacao: dados.situacao,
       comPessoa: null,
       prazo: null,
-      observacao: dados.observacao.trim() || null
+      observacao: dados.observacao.trim() || null,
     };
     adicionar(novo);
     mostrarToast("Equipamento cadastrado.");
@@ -58,9 +58,7 @@ export function EquipamentosPage() {
   }
 
   function cadastroInvalido() {
-    if (errors.nome) {
-      mostrarToast("Informe o nome do equipamento.");
-    }
+    mostrarToast("Informe o nome do equipamento.");
   }
 
   return (
@@ -97,16 +95,28 @@ export function EquipamentosPage() {
             </label>
             <label className="field field-span-2">
               <span>Observações</span>
-              <textarea className="input textarea" placeholder="Informações adicionais" {...register("observacao")} />
+              <textarea
+                className="input textarea"
+                placeholder="Informações adicionais"
+                {...register("observacao")}
+              />
             </label>
             <fieldset className="field field-span-2 radio-group">
               <legend>Situação inicial</legend>
-              <label><input type="radio" value="disponivel" {...register("situacao")} /> Disponível</label>
-              <label><input type="radio" value="em_manutencao" {...register("situacao")} /> Em manutenção</label>
+              <label>
+                <input type="radio" value="disponivel" {...register("situacao")} /> Disponível
+              </label>
+              <label>
+                <input type="radio" value="em_manutencao" {...register("situacao")} /> Em manutenção
+              </label>
             </fieldset>
             <div className="form-actions field-span-2">
-              <Button type="submit" disabled={enviando}>{enviando ? "Cadastrando…" : "Cadastrar equipamento"}</Button>
-              <Button type="button" variant="ghost" onClick={() => navegar("/operacoes")}>Cancelar</Button>
+              <Button type="submit" disabled={enviando}>
+                {enviando ? "Cadastrando…" : "Cadastrar equipamento"}
+              </Button>
+              <Button type="button" variant="ghost" onClick={() => navegar("/operacoes")}>
+                Cancelar
+              </Button>
             </div>
           </form>
         </Card>

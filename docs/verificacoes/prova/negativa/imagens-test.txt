@@ -1,0 +1,13 @@
+
+> test:imagens
+> node --test scripts/imagens.test.cjs
+
+✔ test_ca_03_04_dimensao_revisao_integridade_e_fotos_repetidas (125.414958ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 1
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 295.746208

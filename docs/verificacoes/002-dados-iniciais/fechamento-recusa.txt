@@ -1,0 +1,4 @@
+$ npm run fechar-spec -- 002-dados-iniciais --somente-gate
+FECHAMENTO RECUSADO: Spec não pronta: há falha, ausência de teste ou pendência
+
+exitCode=1

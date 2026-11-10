@@ -2,8 +2,7 @@
 Ao terminar uma tarefa do plano, ou quando eu disser "vamos fechar".
 
 ## Procedimento
-Sobrescreva handoff.md na raiz com, no máximo, 50 linhas:
-Coloque o modelo 
+Sobrescreva handoff.md na raiz com, no máximo, 25 linhas:
 1. Onde parei — tarefa e critério em andamento
 2. O que está commitado e em qual branch
 3. O que está aplicado no banco local mas ainda não commitado

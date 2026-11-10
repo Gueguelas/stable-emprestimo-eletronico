@@ -1,0 +1,20 @@
+{
+  "name": "stable-pratica",
+  "private": true,
+  "scripts": {
+    "contrato": "node scripts/contrato.mjs",
+    "imagens": "node scripts/imagens.cjs",
+    "imagens:preparar": "node scripts/imagens.cjs preparar",
+    "test:imagens": "node --test scripts/imagens.test.cjs",
+    "checks": "node scripts/checks.mjs",
+    "verificar-spec": "node scripts/verificar-spec.mjs",
+    "fechar-spec": "node scripts/fechar-spec.mjs",
+    "professor": "node scripts/provisionar-professor.mjs",
+    "test:professor": "node --test scripts/professor.test.mjs",
+    "test:harness": "node --test scripts/gate.test.mjs",
+    "dados:producao": "node scripts/popular-producao.cjs",
+    "provar-verificador": "node scripts/provar-verificador.mjs",
+    "test:sandbox": "node scripts/testar-sandbox.mjs",
+    "imagens:validar-entrega": "node scripts/validar-imagens-entrega.cjs"
+  }
+}

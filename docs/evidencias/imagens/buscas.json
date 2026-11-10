@@ -1,0 +1,53 @@
+{
+  "TI-0001": {
+    "consulta": "\"blank screen\"",
+    "fotoId": 7351266
+  },
+  "TI-0003": {
+    "consulta": "closed laptop",
+    "fotoId": 6856557
+  },
+  "TI-0004": {
+    "consulta": "\"blank screen\"",
+    "fotoId": 7334774
+  },
+  "TI-0005": {
+    "consulta": "\"computer monitor\"",
+    "fotoId": 5999978,
+    "pagina": 3,
+    "recorte": {
+      "left": 0.6,
+      "top": 0.15,
+      "width": 0.35,
+      "height": 0.75
+    }
+  },
+  "TI-0006": {
+    "consulta": "lcd",
+    "fotoId": 17894
+  },
+  "TI-0007": {
+    "consulta": "lcd",
+    "fotoId": 17768
+  },
+  "TI-0011": {
+    "consulta": "webcam",
+    "fotoId": 1163880,
+    "pagina": 2
+  },
+  "TI-0012": {
+    "consulta": "\"digital camera\"",
+    "fotoId": 6493212,
+    "pagina": 3,
+    "recorte": {
+      "left": 0.29,
+      "top": 0.42,
+      "width": 0.55,
+      "height": 0.58
+    }
+  },
+  "TI-0009": {
+    "consulta": "usb-c",
+    "fotoId": 1281034
+  }
+}

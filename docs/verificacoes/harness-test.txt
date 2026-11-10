@@ -1,0 +1,13 @@
+
+> test:harness
+> node --test scripts/gate.test.mjs
+
+✔ test_ca_003_09_gate_recusa_ausente_desatualizado_sem_teste_e_pendente (0.883292ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 1
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 121.360083

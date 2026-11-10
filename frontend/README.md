@@ -1,4 +1,4 @@
-﻿# Stable — front-end
+# Stable — front-end
 
 Aplicação web interna, em português do Brasil, para consultar equipamentos de
 TI. O catálogo lê `GET /v1/equipamentos`; empréstimos, devoluções, Operações e
@@ -20,7 +20,7 @@ $env:VITE_API_URL = "http://localhost:3000"
 $env:VITE_SUPABASE_URL = "https://SEU-PROJETO.supabase.co"
 $env:VITE_SUPABASE_ANON_KEY = "SUA_CHAVE_ANON"
 npm install
-npm run dev -- --host 127.0.0.1 --port 5173
+npm run dev
 ```
 
 Abra <http://localhost:5173/login>. Sem `VITE_SUPABASE_URL` e
@@ -52,19 +52,27 @@ de topo do Supabase.
 No backend, inicie o PostgreSQL 16 local na porta 5433, rode
 `npm run db:reset` e depois `npm run start:dev` (API em
 `http://localhost:3000`). No front, use `VITE_API_URL=http://localhost:3000`
-e as duas chaves do mesmo projeto Supabase.
+e as duas chaves do mesmo projeto Supabase. Sem `FRONT_ORIGIN`, a API permite
+origens locais conforme sua configuração atual.
 
 ### Opção B — front local e API publicada
 
 Use `VITE_API_URL=https://<api>.vercel.app` (sem acrescentar `/v1`) e as chaves
 Supabase correspondentes ao ambiente da API. Confira `https://<api>.vercel.app/health`.
+Se a API restringir CORS por `FRONT_ORIGIN`, a origem
+`http://localhost:5173` precisa estar permitida. Esta opção lê dados do ambiente
+publicado; valide a URL e o ambiente antes de usar.
 
 ### Opção C — front na Vercel
 
 Crie um projeto separado para o front, configure o root directory como
 `frontend/`, framework Vite, build `npm run build` e output `dist`. Cadastre
 `VITE_API_URL`, `VITE_SUPABASE_URL` e `VITE_SUPABASE_ANON_KEY` nas configurações
-do projeto.
+do projeto; mudanças nessas variáveis exigem novo build. A API precisa permitir
+a origem pública do front em `FRONT_ORIGIN`.
+
+O servidor de desenvolvimento já fixa a porta 5173. Rode `npm run dev` e abra
+<http://localhost:5173/login>.
 
 O deploy não foi executado e não há URL pública confirmada. A configuração de
 rewrite SPA deve ser adicionada pelo responsável pelo projeto de deploy antes
@@ -90,13 +98,12 @@ nem de backend remoto.
 | HTTP 401 | Projetos Supabase diferentes, token de demonstração ou usuário sem `tenant_id` |
 | Erro de CORS | A origem do front não está na configuração `FRONT_ORIGIN` da API |
 | “Failed to fetch” | API desligada, URL incorreta ou conexão indisponível |
-| Abas de Operações ausentes | A sessão não tem `app_metadata.papel: "operacoes"` |
+| Abas de Operações ausentes | Operações permanece disponível somente na demonstração local |
 
-## Estado do protótipo
+## Estado da prática
 
-- Catálogo consulta a API e valida a resposta com Zod; o cliente HTTP é
-  provisório até a API publicar `openapi.json` e o fluxo de geração orval.
-- Empréstimos, cadastro, devolução e operações usam fixtures em memória. Não
-  chamam endpoints de escrita e perdem as alterações ao recarregar.
-- Próximo passo de integração: implementar as rotas de escrita na API, publicar
-o OpenAPI, gerar o cliente e substituir os mocks correspondentes.
+- Catálogo e meus empréstimos usam transporte/tipos/validação gerados por Orval de OpenAPI, sem cliente HTTP manual.
+- Solicitação persiste na API; UI atualiza catálogo e empréstimos após sucesso. Datas vêm da sessão/POST do servidor.
+- Cadastro e Operações demonstrativos só são acessíveis em desenvolvimento; devolução real está fora desta prática.
+- Build de produção sem Supabase Auth configurado recusa login.
+- Fotos reais e produção dependem do operador. Veja ../docs/operacao-pratica.md e ../ENTREGA.md.

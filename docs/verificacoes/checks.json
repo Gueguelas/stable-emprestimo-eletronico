@@ -1,0 +1,91 @@
+{
+  "estado": "a0e0c41176bcd6564c61768ae2e18ecc2d92026759b579b2d066d5fb67dc68f2",
+  "terminouEm": "2026-11-10T18:30:52.624Z",
+  "aprovado": true,
+  "passos": [
+    {
+      "nome": "contrato",
+      "comando": "npm run contrato (.)",
+      "exitCode": 0,
+      "arquivo": "docs/verificacoes/contrato.txt",
+      "sha256": "519a465e6d3ddad7cf60e7072379853386395addeb0b0ccd5e0608eab1b9203b"
+    },
+    {
+      "nome": "api-test",
+      "comando": "npm run test -- --runInBand (backend)",
+      "exitCode": 0,
+      "arquivo": "docs/verificacoes/api-test.txt",
+      "sha256": "58c244a39cbf327429f5fd846f4e6a6088851d74c4ed802ab1537324e5459dc6"
+    },
+    {
+      "nome": "api-build",
+      "comando": "npm run build (backend)",
+      "exitCode": 0,
+      "arquivo": "docs/verificacoes/api-build.txt",
+      "sha256": "f6b840c20d1d86ca8616ffb99175a2d7c364e616f0613dd18ca05d7507c73103"
+    },
+    {
+      "nome": "front-test",
+      "comando": "npm run test (frontend)",
+      "exitCode": 0,
+      "arquivo": "docs/verificacoes/front-test.txt",
+      "sha256": "09084f74eda89fdf6cfd37332a9ab5614dd56d848ef43f613b3baca044a3bb85"
+    },
+    {
+      "nome": "front-build",
+      "comando": "npm run build (frontend)",
+      "exitCode": 0,
+      "arquivo": "docs/verificacoes/front-build.txt",
+      "sha256": "951d4bc2b402bbca55e2405dda2f7ec9bb35bb4f72f74e1886d45092be27c057"
+    },
+    {
+      "nome": "front-lint",
+      "comando": "npm run lint (frontend)",
+      "exitCode": 0,
+      "arquivo": "docs/verificacoes/front-lint.txt",
+      "sha256": "bb5c2263db42e53604e745e52d145b0b0243d2cbdb033c4208b44e0f06cb56d0"
+    },
+    {
+      "nome": "front-e2e",
+      "comando": "npm run e2e (frontend)",
+      "exitCode": 0,
+      "arquivo": "docs/verificacoes/front-e2e.txt",
+      "sha256": "8e5e186862cedadb4d377a3131f0ac81fae2e83bfbfe563afb56b937de96f649"
+    },
+    {
+      "nome": "imagens-test",
+      "comando": "npm run test:imagens (.)",
+      "exitCode": 0,
+      "arquivo": "docs/verificacoes/imagens-test.txt",
+      "sha256": "ff15ea6ed085497778081cfbdb3ea22b6c03ddc08c8f1b1877bd772bdadcdc92"
+    },
+    {
+      "nome": "imagens-reais",
+      "comando": "npm run imagens:validar-entrega (.)",
+      "exitCode": 0,
+      "arquivo": "docs/verificacoes/imagens-reais.txt",
+      "sha256": "f681f1d8b66685be3135d403ca20834220c66995cd91dd4eb4e4789edc952d8e"
+    },
+    {
+      "nome": "professor-test",
+      "comando": "npm run test:professor (.)",
+      "exitCode": 0,
+      "arquivo": "docs/verificacoes/professor-test.txt",
+      "sha256": "7623457abb9eb2470e20b975240e1a451d33b909b5f60dbe11dba964405762ab"
+    },
+    {
+      "nome": "harness-test",
+      "comando": "npm run test:harness (.)",
+      "exitCode": 0,
+      "arquivo": "docs/verificacoes/harness-test.txt",
+      "sha256": "fd44edf577ae15637027a5e465eea29b759537b9ca3af7a94c8edd5e4e956af3"
+    },
+    {
+      "nome": "sandbox-test",
+      "comando": "npm run test:sandbox (.)",
+      "exitCode": 0,
+      "arquivo": "docs/verificacoes/sandbox-test.txt",
+      "sha256": "ed4d0548b443ec12541e2a9a4fc03ec4bb35654cedb35b177a7e4e48e07b6c44"
+    }
+  ]
+}

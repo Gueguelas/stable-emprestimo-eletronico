@@ -1,0 +1,12 @@
+{
+  "arquivo": "backend/test/emprestimos.integration.spec.ts",
+  "ca": "CA-05",
+  "shaOriginal": "eff30e0ac4cedc8b8b7c014846423db01a8fede1a88a0253427c25a6d0fc024e",
+  "shaPlantado": "2231a849b6635d94c891049c4e3ba46437bf58917d4e49aaac9c33b1e7751099",
+  "restaurado": true,
+  "estadoNegativo": "d95f1c03696fa886be54144c00ab8d53cd5837c94f1665d6c362456d01a878dc",
+  "resultadoNegativo": "SEM_TESTE",
+  "gateNegativoRecusou": true,
+  "estadoFinal": "0badb3f2484fe3cfbd07f8a6b07b5e640ebfef23ea178d285a77b5871b0e5aef",
+  "resultadoFinal": "APROVADO"
+}

@@ -9,6 +9,8 @@ alwaysApply: true
 
 ## Autoridade
 
+- Não escreva ADR. Se encontrar uma decisão que precisa de um, descreva
+  a decisão e as alternativas, e PARE. Quem decide é o time.
 - Não contrarie o que está em docs/adr/. Se precisar contrariar, pare.
 - Não responda por conta própria o que o PRD deixou ambíguo. Liste as
   perguntas e espere. (Ex.: quem provisiona tenant, quem convida
@@ -57,7 +59,8 @@ alwaysApply: true
 - Não faça commits nem push sem pedido explícito do usuário.
 - Sempre deixe as modificações em staging para o usuário avaliar e dar
   o veredito.
-- Não faça push na branch de produção - faça alterações na branch de ´dev´ e após tudo completo, Pull Request para a ´main´ : deploy acontece por push, e a decisão de publicar é do time.
+- Não faça push na branch de produção: deploy acontece por push, e a
+  decisão de publicar é do time.
 - Nunca versionar o `.env`.
 
 ## Produção

@@ -21,11 +21,11 @@ test("catálogo carrega dados da API e aplica filtro", async ({ page }) => {
             situacao: "disponivel",
             comPessoa: null,
             prazo: null,
-            observacao: null
-          }
+            observacao: null,
+          },
         ],
-        proximoCursor: null
-      })
+        proximoCursor: null,
+      }),
     });
   });
   await page.goto("/login");
@@ -43,7 +43,7 @@ test("problema RFC 9457 aparece como mensagem de erro", async ({ page }) => {
     await route.fulfill({
       status: 401,
       contentType: "application/problem+json",
-      body: JSON.stringify({ title: "Não autorizado", detail: "Token de acesso inválido." })
+      body: JSON.stringify({ title: "Não autorizado", detail: "Token de acesso inválido." }),
     });
   });
   await page.goto("/login");

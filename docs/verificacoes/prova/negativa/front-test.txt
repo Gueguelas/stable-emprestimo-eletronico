@@ -1,0 +1,17 @@
+
+> stable-front@0.1.0 test
+> node ./node_modules/vitest/vitest.mjs run
+
+
+ RUN  v4.1.12 /Users/miguel.araujo/Documents/Personal/vibe-coding/estabulo-emprestimo-eletronico/frontend
+
+(node:95928) Warning: `--localstorage-file` was provided without a valid path
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:95923) Warning: `--localstorage-file` was provided without a valid path
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+ Test Files  6 passed (6)
+      Tests  17 passed (17)
+   Start at  14:32:21
+   Duration  1.19s (transform 357ms, setup 804ms, import 568ms, tests 78ms, environment 2.71s)
+

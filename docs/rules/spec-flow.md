@@ -9,6 +9,10 @@ Ao iniciar qualquer funcionalidade nova do PRD.
 4. tasks.md sai do plano. Cada tarefa cita um CA-xx e cabe
    num commit.
 5. Uma tarefa por vez. Ao terminar, siga rules/checks.md.
+6. Na prática 002/003, fechamento somente por `npm run fechar-spec -- <NNN-nome>`:
+   o comando executa checks e inicia `agents/verificador-spec.md` em contexto
+   limpo readonly. Não declarar pronta com CA pendente/sem teste ou relatório
+   ausente/desatualizado. Só o principal corrige, inclusive teste quebrado.
 
 ## Não faça
 - Não escreva código antes do plano aprovado.

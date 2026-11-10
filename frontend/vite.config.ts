@@ -11,17 +11,17 @@ export default defineConfig({
   resolve: {
     preserveSymlinks: true,
     alias: {
-      "@": path.resolve(raiz, "src")
-    }
+      "@": path.resolve(raiz, "src"),
+    },
   },
   server: {
     host: "127.0.0.1",
     port: 5173,
-    strictPort: true
+    strictPort: true,
   },
   test: {
     environment: "jsdom",
+    setupFiles: ["./src/test-setup.ts"],
     include: ["src/**/*.test.{ts,tsx}"],
-    setupFiles: ["./src/test-setup.ts"]
-  }
+  },
 });

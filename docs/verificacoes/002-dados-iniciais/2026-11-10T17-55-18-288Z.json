@@ -1,0 +1,95 @@
+{
+  "spec": "002-dados-iniciais",
+  "estado": "3a4c79b8042dddd0b26aa31f2f4983b733c818b3185d98db28028761d468c756",
+  "criterios": [
+    {
+      "ca": "CA-01",
+      "resultado": "APROVADO",
+      "evidencia": "backend/prisma/equipamentos.json:3; backend/prisma/seed.ts:12; backend/test/emprestimos.integration.spec.ts:151; docs/verificacoes/api-test.txt:5 e :38. npm run test -- --runInBand: 5 suítes e 20 testes passaram, com reset e seed em PostgreSQL local.",
+      "motivo": "Dados e teste executado comprovam os 12 equipamentos, distribuição 4/3/3/2, manutenção somente em TI-0004/TI-0007 e zero empréstimos. Teste ativo, sem skip/todo."
+    },
+    {
+      "ca": "CA-02",
+      "resultado": "APROVADO",
+      "evidencia": "backend/prisma/seed.ts:25; backend/test/emprestimos.integration.spec.ts:170; docs/verificacoes/api-test.txt:38. npm run test -- --runInBand: 20 testes passaram.",
+      "motivo": "Upsert usa tenant/patrimônio. O teste cria empréstimo, repete o seed duas vezes e verifica preservação dos IDs e do empréstimo."
+    },
+    {
+      "ca": "CA-03",
+      "resultado": "PENDENTE",
+      "evidencia": "scripts/imagens.test.cjs:93 e :166; .agents/skills/imagens-equipamentos/scripts/preparar.cjs:133 e :191; docs/verificacoes/imagens-test.txt:5; docs/operacao-pratica.md:5. npm run test:imagens: 7 passaram, zero skipped/todo.",
+      "motivo": "Testes comprovam preparação, dimensões, hashes, revisão obrigatória e substituição de rejeitada usando imagens sintéticas e API simulada. Faltam as 12 fotos reais distintas do Pixabay e os registros de inspeção visual; aprovação local do pipeline não comprova essa entrega."
+    },
+    {
+      "ca": "CA-04",
+      "resultado": "PENDENTE",
+      "evidencia": ".agents/skills/imagens-equipamentos/scripts/preparar.cjs:133 e :205; backend/prisma/seed.ts:60; scripts/popular-producao.cjs:47; scripts/imagens.test.cjs:22; docs/verificacoes/imagens-test.txt:14; docs/operacao-pratica.md:23.",
+      "motivo": "Caminho determinístico e validação local do manifesto têm implementação e testes passando. Não há comprovação de upload humano nem de acesso anônimo às URLs públicas; o script de publicação não constitui evidência de Storage ou produção."
+    },
+    {
+      "ca": "CA-05",
+      "resultado": "SEM_TESTE",
+      "evidencia": "scripts/provisionar-professor.mjs:44, :54, :99 e :106; docs/verificacoes/checks.json:5; docs/operacao-pratica.md:32. Inspeção dos testes e logs referenciados não encontrou execução que exercite o provisionamento do professor.",
+      "motivo": "Há código para localizar/criar Auth, associar membership e recusar conta com empréstimos, mas faltam testes executados de idempotência e desses comportamentos. Provisionamento humano e login real em produção também permanecem sem comprovação."
+    },
+    {
+      "ca": "CA-06",
+      "resultado": "APROVADO",
+      "evidencia": "scripts/verificar-spec.mjs:19, :29 e :119; scripts/gate.mjs:13; scripts/gate.test.mjs:21; docs/verificacoes/harness-test.txt:5; docs/verificacoes/sandbox-test.txt:5; docs/verificacoes/checks.json:2. npm run test:harness: 1 passou; test:sandbox registrou escrita/rede bloqueadas. Recálculo readonly de estado() e dos dez hashes dos logs: todos conferem.",
+      "motivo": "Esta revisão independente confrontou cada CA com código, testes e logs atuais. Os dez checks registram exitCode 0; pendências externas e ausência de teste permanecem explícitas e impedem aprovação da spec. Nenhum arquivo foi alterado."
+    }
+  ],
+  "conclusao": "NAO_PRONTA",
+  "em": "2026-11-10T17:55:18.288Z",
+  "harness": {
+    "sandbox": "read-only",
+    "mcp": false,
+    "apps": false,
+    "plugins": false,
+    "shellSecrets": false,
+    "args": [
+      "--no-daemon",
+      "exec",
+      "--ignore-user-config",
+      "--ephemeral",
+      "--sandbox",
+      "read-only",
+      "-c",
+      "approval_policy=\"never\"",
+      "-c",
+      "mcp_servers={}",
+      "-c",
+      "web_search=\"disabled\"",
+      "-c",
+      "shell_environment_policy.inherit=\"none\"",
+      "-c",
+      "shell_environment_policy.include_only=[\"PATH\",\"TMPDIR\"]",
+      "--disable",
+      "apps",
+      "--disable",
+      "plugins",
+      "--disable",
+      "hooks",
+      "--disable",
+      "browser_use",
+      "--disable",
+      "browser_use_external",
+      "--disable",
+      "computer_use",
+      "--disable",
+      "in_app_browser",
+      "--disable",
+      "multi_agent",
+      "--disable",
+      "image_generation",
+      "--cd",
+      "/Users/miguel.araujo/Documents/Personal/vibe-coding/estabulo-emprestimo-eletronico/",
+      "--output-schema",
+      "/Users/miguel.araujo/Documents/Personal/vibe-coding/estabulo-emprestimo-eletronico/scripts/verificador.schema.json",
+      "--output-last-message",
+      "/Users/miguel.araujo/Documents/Personal/vibe-coding/estabulo-emprestimo-eletronico/artifacts/verificador/002-dados-iniciais/resultado.json",
+      "-"
+    ]
+  },
+  "checksSha256": "994f5980e05587c83e788a26a92b51d8f59cb8af4f508345fdc7f9c3dbacd393"
+}

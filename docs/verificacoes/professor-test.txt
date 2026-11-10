@@ -1,0 +1,16 @@
+
+> test:professor
+> node --test scripts/professor.test.mjs
+
+✔ test_ca_002_05_professor_idempotente_cria_uma_conta_sem_resetar_senha (28.534916ms)
+✔ test_ca_002_05_professor_recusa_conta_com_emprestimo_e_tenant_conflitante (0.712416ms)
+✔ test_ca_002_05_professor_nao_declara_sucesso_se_login_falha (0.355875ms)
+✔ test_ca_002_05_professor_exige_tty_secrets_e_confirmacao_antes_da_api (0.211417ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 152.6865

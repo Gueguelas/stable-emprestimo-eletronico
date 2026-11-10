@@ -43,7 +43,7 @@ migration e o seed de verdade (nunca Prisma mockado) e derrubam o container no f
 
 - `GET /health` — liveness, sem JWT e sem banco. Resposta `{ "status": "ok" }`.
 - `GET /v1/equipamentos` — catálogo com situação derivada (`disponivel`,
-  `emprestado` com quem e prazo, `em_manutencao` com observação). Requer
+  `emprestado` sem divulgar dados de outro usuário, `em_manutencao` com observação). Requer
   `Authorization: Bearer <token do Supabase>`. Paginação por cursor
   (`?limite=50&cursor=...`). Erros em RFC 9457.
 
@@ -53,3 +53,13 @@ migration e o seed de verdade (nunca Prisma mockado) e derrubam o container no f
 - Prisma Migrate é o único dono do schema; RLS entra como SQL bruto dentro da migration.
 - Validação com Zod (nestjs-zod) — nunca class-validator.
 - Não commitar nem dar push sem pedido explícito.
+
+## Prática SDD 002/003
+- GET /v1/sessao: identidade/membership e referência de datas do servidor.
+- POST /v1/emprestimos: cria imediatamente, limite 3, bloqueio por atraso, prazo 14 dias corridos.
+- GET /v1/emprestimos?status=abertos: somente empréstimos do usuário do JWT.
+- GET /openapi.json: contrato gerado dos DTOs Zod. `npm run openapi` exporta sem acessar banco.
+- JWT aceita tenant_id superior ou app_metadata.tenant_id assinado, rejeita divergências e exige membership.
+- Seed automático recusa banco remoto e não cria empréstimos/usuários fictícios.
+- Migração, dados remotos e professor: somente operador, conforme ../docs/operacao-pratica.md.
+- Checks consolidados: `npm run checks` na raiz do Stable.

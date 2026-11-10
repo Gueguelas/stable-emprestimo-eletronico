@@ -1,0 +1,19 @@
+{
+  "executadoEm": "2026-11-10T18:24:18.584Z",
+  "fonte": "API real Pixabay; consultas e downloads realizados nesta sessão",
+  "aprovadas": 12,
+  "reprovadas": 48,
+  "dimensoes": "800x600",
+  "idsDistintos": 12,
+  "hashesOriginaisDistintos": 12,
+  "hashesFinaisDistintos": 12,
+  "manifestoSha256": "24f4320559235bf3c1160149f1039fd48c465884d9635db859fd577c3bad4c8d",
+  "validacao": "validarManifesto executada com sucesso sobre os arquivos reais",
+  "retomada": {
+    "consultas": 0,
+    "manifestoAntes": "24f4320559235bf3c1160149f1039fd48c465884d9635db859fd577c3bad4c8d",
+    "manifestoDepois": "24f4320559235bf3c1160149f1039fd48c465884d9635db859fd577c3bad4c8d",
+    "preservado": true
+  },
+  "uploadProducaoExecutado": false
+}

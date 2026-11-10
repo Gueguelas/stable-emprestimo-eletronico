@@ -12,11 +12,11 @@ registrada se alguém lembrar.
 Estado atual: este checkout contém documentação, protótipo, API em `backend/`
 e front em `frontend/`. A separação em dois repositórios continua sendo a
 decisão do ADR-001; a migração para repositórios próprios ainda é pendência.
-A API implementa health check e leitura paginada do catálogo. O front tem
-login real quando configurado e consulta esse catálogo; empréstimos,
-devoluções, Operações e cadastro ainda são demonstrações em memória. Portanto,
-o produto descrito no PRD ainda não está completo nem pronto para substituir a
-planilha.
+A API implementa health check, sessão, catálogo e solicitação/listagem de
+empréstimos persistidos. O front integra os fluxos reais por OpenAPI/Orval.
+Devolução, Operações e cadastro reais estão fora desta prática; demos só em
+desenvolvimento. Upload das fotos, conta do professor e produção dependem das ações
+do operador descritas em docs/operacao-pratica.md; o PRD completo continua pendente.
 
 ## Comandos
 Documentação e protótipo não têm build. Os comandos de teste, build e lint
@@ -25,7 +25,7 @@ também tem E2E com Playwright. O que rodar antes de declarar uma tarefa pronta
 está em docs/rules/checks.md, e o procedimento de schema está em
 docs/rules/migration.md.
 
-Git: siga docs/rules/RESTRICTIONS.md e docs/rules/operacoes.md. Commit e push
+Git: siga docs/rules/restrictions.md e docs/rules/operacoes.md. Commit e push
 exigem pedido explícito do usuário; não faça push na produção. Ao receber
 autorização para commitar, faça um commit por tarefa com a mensagem citando a
 tarefa e o critério de aceitação.
@@ -37,7 +37,7 @@ docs/adr/001-stack.md      → decisões de arquitetura e consequências
 docs/adr/002-layout-design-system.md → design system Nocturne (acento teal
                              do Stable, Raleway, dark), páginas e regras
                              visuais — antigo docs/layout.md, promovido a ADR
-docs/rules/RESTRICTIONS.md → o que o agente não pode fazer (vale sempre)
+docs/rules/restrictions.md → o que o agente não pode fazer (vale sempre)
 docs/rules/checks.md       → o que precisa passar antes de dizer "pronto"
 docs/rules/migration.md    → procedimento para qualquer mudança de schema
 docs/rules/operacoes.md    → contrato de operação: Git, níveis de autorização
@@ -48,16 +48,15 @@ docs/rules/skill.md        → quando capturar e como reusar skills
 docs/rules/handoff.md      → o que escrever no handoff ao fechar a sessão
 docs/rules/clean-code.md   → guia de referência Clean Code TypeScript (consulta)
 docs/skills/               → skills capturados: procedimentos que já funcionaram
+docs/handoff/              → onde a sessão parou (escrever ao fim de cada sessão)
 prototipo/                 → protótipo navegável do layout (catalogo.html)
 backend/                   → API (NestJS + Prisma); separação em repo próprio
                              é pendência, não mudança do ADR-001
-frontend/                  → SPA React/Vite; telas de empréstimo ainda usam mocks
+frontend/                  → SPA React/Vite; catálogo e empréstimos integrados à API
 CLAUDE.md                  → aponta para este arquivo
 .env                       → ignorado pelo git — nunca versionar
 .env.example               → modelo das variáveis esperadas
 skills/                    → Pasta de skils para serem utilizadas se necessário 
-handoff.md                 → onde a sessão parou (escrever ao fim de cada sessão)
-
 ```
 
 ## Convenções obrigatórias
@@ -77,7 +76,7 @@ handoff.md                 → onde a sessão parou (escrever ao fim de cada ses
   — o OpenAPI sai do mesmo schema que valida.
 
 ## Rotina por tipo de tarefa
-- **Qualquer tarefa**: leia docs/rules/RESTRICTIONS.md antes de começar.
+- **Qualquer tarefa**: leia docs/rules/restrictions.md antes de começar.
 - **Antes de dizer "pronto", "implementado" ou "funcionando"**: siga
   docs/rules/checks.md — testes, build, git status e o critério do PRD
   atendido, citados na resposta.
@@ -108,7 +107,7 @@ handoff.md                 → onde a sessão parou (escrever ao fim de cada ses
   vencem quando entrarem em conflito.
 
 ## O que NÃO fazer
-Resumo — a fonte de verdade é docs/rules/RESTRICTIONS.md; leia-o por inteiro.
+Resumo — a fonte de verdade é docs/rules/restrictions.md; leia-o por inteiro.
 - Não commitar nem dar push sem o usuário pedir; sempre deixar em staging.
 - Não criar pacote compartilhado de tipos entre front e API.
 - Não escrever cliente HTTP à mão nem deixar o front falar direto com o
@@ -125,10 +124,18 @@ Resumo — a fonte de verdade é docs/rules/RESTRICTIONS.md; leia-o por inteiro.
   sem a pasta de spec no padrão (docs/rules/skill.md, docs/rules/spec-flow.md).
 
 ## Onde olhar
+### Prática SDD 002/003
+- Plano integral explicitamente aprovado pelo usuário; decisões em `docs/specs/002-dados-iniciais/spec.md` e `docs/specs/003-solicitar-emprestimo/spec.md`.
+- Skill descoberta em `.agents/skills/imagens-equipamentos/`; scripts só preparam arquivos locais, sem upload.
+- Verificador: `agents/verificador-spec.md`, acionado pelo comando obrigatório `npm run fechar-spec -- 003-solicitar-emprestimo` (ou 002).
+- `npm run checks` registra testes/build/lint/E2E e hash das entradas em `docs/verificacoes/`. Relatório não substitui evidência de produção.
+- Nunca editar ou corrigir pelo verificador. Se Codex readonly não estiver disponível, deixar verificação pendente, sem substituir por revisão do próprio implementador.
+- Nesta prática, sharp local e complementação Swagger/Orval do contrato existente foram autorizados no plano. Não estender a autorização para outras bibliotecas, ADRs, configuração de deploy ou produção.
+
 - docs/PRD.md — o que o negócio quer
 - docs/adr/002-layout-design-system.md — como a UI deve se parecer e se comportar
 - docs/adr/001-stack.md — por que decidimos assim e as consequências
-- docs/rules/RESTRICTIONS.md — o que não fazer; leia antes de qualquer mexida
+- docs/rules/restrictions.md — o que não fazer; leia antes de qualquer mexida
 - docs/rules/checks.md — verificação de fim de tarefa
 - docs/rules/migration.md — procedimento de mudança de schema
 - docs/rules/operacoes.md — níveis de autorização e contrato de Git

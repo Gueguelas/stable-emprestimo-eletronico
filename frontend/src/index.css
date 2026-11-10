@@ -274,3 +274,7 @@ h2 { font-weight: 600; line-height: 1.2; }
   .field-span-2 { grid-column: auto; }
   .toast { max-width: calc(100vw - 24px); overflow: hidden; text-overflow: ellipsis; }
 }
+/* Fotografias preparadas em 800×600 pela skill; preservam a proporção. */
+.equipment-photo { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: contain; border-radius: var(--radius-md, 8px); background: var(--color-surface, #232532); }
+.equipment-photo-empty { display: grid; place-items: center; opacity: .55; font-size: 13px; }
+.photo-credit { margin-top: 24px; font-size: 12px; opacity: .55; }

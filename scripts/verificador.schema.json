@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["spec", "estado", "criterios", "conclusao"],
+  "properties": {
+    "spec": {"type": "string"},
+    "estado": {"type": "string"},
+    "criterios": {
+      "type": "array",
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["ca", "resultado", "evidencia", "motivo"],
+        "properties": {
+          "ca": {"type": "string"},
+          "resultado": {"type": "string", "enum": ["APROVADO", "FALHOU", "SEM_TESTE", "PENDENTE"]},
+          "evidencia": {"type": "string"},
+          "motivo": {"type": "string"}
+        }
+      }
+    },
+    "conclusao": {"type": "string", "enum": ["PRONTA", "NAO_PRONTA"]}
+  }
+}

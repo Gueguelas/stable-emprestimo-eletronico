@@ -1,0 +1,5 @@
+
+> test:sandbox
+> node scripts/testar-sandbox.mjs
+
+{"escritaBloqueada":true,"redeBloqueada":true}

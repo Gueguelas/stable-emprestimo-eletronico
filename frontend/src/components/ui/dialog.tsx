@@ -9,7 +9,8 @@ export function Dialog({
   children,
   confirmar,
   textoConfirmar = "Confirmar",
-  largura = "420px"
+  confirmando = false,
+  largura = "420px",
 }: {
   aberto: boolean;
   aoFechar: () => void;
@@ -17,6 +18,7 @@ export function Dialog({
   children: ReactNode;
   confirmar: () => void;
   textoConfirmar?: string;
+  confirmando?: boolean;
   largura?: string;
 }) {
   return (
@@ -27,8 +29,12 @@ export function Dialog({
           <DialogPrimitive.Title className="dialog-title">{titulo}</DialogPrimitive.Title>
           {children}
           <div className="dialog-actions">
-            <Button variant="secondary" onClick={aoFechar}>Cancelar</Button>
-            <Button onClick={confirmar}>{textoConfirmar}</Button>
+            <Button variant="secondary" disabled={confirmando} onClick={aoFechar}>
+              Cancelar
+            </Button>
+            <Button disabled={confirmando} onClick={confirmar}>
+              {textoConfirmar}
+            </Button>
           </div>
         </DialogPrimitive.Content>
       </DialogPrimitive.Portal>

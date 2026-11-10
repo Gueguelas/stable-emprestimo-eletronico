@@ -1,0 +1,10 @@
+Prisma migrate dev --create-only em Postgres local encontrou P4002: FK public.users → auth.users exige multi-schema para introspecção.
+Não modelamos auth.users como domínio: Supabase Auth continua dono da identidade.
+Alternativa usada: Prisma Migrate diff entre schema anterior e atualizado, sem introspecção nem conexão remota.
+Comando: prisma migrate diff --from-schema-datamodel <temporario>/antes.prisma --to-schema-datamodel prisma/schema.prisma --script
+Exit: 0
+-- AlterTable
+ALTER TABLE "equipamentos" ADD COLUMN     "imagem_url" TEXT;
+
+
+Índice parcial e policies adicionados como SQL bruto na mesma migration; validação por migrate reset e Testcontainers.

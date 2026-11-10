@@ -11,8 +11,6 @@ alwaysApply: true
 
 - Commit e push só com pedido explícito do usuário, conforme
   `RESTRICTIONS.md`. Não faça push na produção.
-- Commits são feitos no repositório da raiz e nos repositórios abaixo - o de cima sendo uma visâo geral do projeto, e os de baixo sendo o front e a API. O commit é feito no repositório correto, de acordo com a tarefa.
-- Commits são feitos nas branchs de ´dev´, e após tudo completo, Pull Request para a branch ´main´ . O deploy acontece por push, e a decisão de publicar é do time.
 - Quando o usuário autorizar um commit, faça um por tarefa e use uma
   mensagem que cite a tarefa e o critério de aceitação.
 - Nunca junte código e mudança de regra no mesmo commit.

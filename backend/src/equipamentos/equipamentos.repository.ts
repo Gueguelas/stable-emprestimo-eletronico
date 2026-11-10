@@ -10,6 +10,7 @@ export interface LinhaEquipamento {
   patrimonio: string;
   situacao: string;
   observacao: string | null;
+  imagemUrl?: string | null;
   cadastradoEm: Date;
   emprestimos: Array<{
     prazoEm: Date;
@@ -24,15 +25,16 @@ const SELECT_COM_EMPRESTIMO = {
   patrimonio: true,
   situacao: true,
   observacao: true,
+  imagemUrl: true,
   cadastradoEm: true,
   emprestimos: {
     where: { devolvidoEm: null },
     take: 1,
     select: {
       prazoEm: true,
-      user: { select: { nome: true } }
-    }
-  }
+      user: { select: { nome: true } },
+    },
+  },
 } satisfies Prisma.EquipamentoSelect;
 
 @Injectable()
@@ -57,7 +59,7 @@ export class EquipamentosRepository {
       const data = new Date(dataIso);
       onde.OR = [
         { cadastradoEm: { lt: data } },
-        { cadastradoEm: { equals: data }, id: { lt: id } }
+        { cadastradoEm: { equals: data }, id: { lt: id } },
       ];
     }
 
@@ -66,7 +68,7 @@ export class EquipamentosRepository {
       where: onde,
       orderBy: [{ cadastradoEm: "desc" }, { id: "desc" }],
       take: limite + 1,
-      select: SELECT_COM_EMPRESTIMO
+      select: SELECT_COM_EMPRESTIMO,
     });
   }
 }

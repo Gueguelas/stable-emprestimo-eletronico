@@ -81,6 +81,7 @@ model Equipamento {
   patrimonio   String
   situacao     SituacaoItem @default(disponivel)
   observacao   String?
+  imagemUrl    String?      @map("imagem_url")
   cadastradoEm DateTime     @default(now()) @map("cadastrado_em") @db.Timestamptz(6)
 
   tenant     Tenant       @relation(fields: [tenantId], references: [id], onDelete: Cascade)

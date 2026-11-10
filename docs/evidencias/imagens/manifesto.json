@@ -1,0 +1,1125 @@
+{
+  "fonte": "Pixabay",
+  "itens": [
+    {
+      "patrimonio": "TI-0001",
+      "busca": "\"blank screen\"",
+      "paginaBusca": 1,
+      "arquivo": "TI-0001.jpg",
+      "fotoId": 7351266,
+      "autor": "leonidaltman",
+      "pagina": "https://pixabay.com/photos/laptop-living-room-laptop-screen-7351266/",
+      "licenca": "https://pixabay.com/service/license-summary/",
+      "origemSha256": "5207eae6d1626400162ec39ef233b398eaa8acc59bd3edd3a8df70db9ba555f6",
+      "sha256": "4373dd1b24d6c7d5b844e6198ba5ca3ddfacd4258c1bac39314f6e4b30d89aaa",
+      "largura": 800,
+      "altura": 600,
+      "revisao": {
+        "estado": "aprovada",
+        "motivo": "Notebook sobre sofá, tela branca vazia sem interface, sem pessoas ou logo. Caracteres pequenos do teclado não legíveis na imagem final 800x600; foto ilustrativa não comprova polegadas.",
+        "em": "2026-11-10T18:09:02.861Z"
+      },
+      "tipo": "photo"
+    },
+    {
+      "patrimonio": "TI-0002",
+      "arquivo": "TI-0002.jpg",
+      "fotoId": 791032,
+      "autor": "kaboompics",
+      "pagina": "https://pixabay.com/photos/technology-laptop-computer-netbook-791032/",
+      "licenca": "https://pixabay.com/service/license-summary/",
+      "origemSha256": "19f8016847c26a17621a159b4f016a4183c83fa24a429ddc43ac4fa943f175b4",
+      "sha256": "6a98cb411e93c04c97f236bcb77dcd90925c932383ab15148f50594f5eb848a6",
+      "largura": 800,
+      "altura": 600,
+      "revisao": {
+        "estado": "aprovada",
+        "motivo": "Notebook aberto visto pela tampa e lateral, tela sem conteúdo visível; sem pessoas, marca ou texto legível no JPG 800x600. Dimensão comercial é apenas ilustrativa.",
+        "em": "2026-11-10T18:03:56.502Z"
+      },
+      "tipo": "photo",
+      "busca": "open laptop minimal desk",
+      "paginaBusca": 1
+    },
+    {
+      "patrimonio": "TI-0003",
+      "busca": "closed laptop",
+      "arquivo": "TI-0003.jpg",
+      "fotoId": 6856557,
+      "autor": "LUNEMax",
+      "pagina": "https://pixabay.com/photos/laptop-technology-electronic-6856557/",
+      "licenca": "https://pixabay.com/service/license-summary/",
+      "origemSha256": "79fa49d8bd92d2bbf4192bc70ad304361ed9cc085e7dc432e5e02de2503fb241",
+      "sha256": "2ada917ae7c32dd6b970993988c875f746ab16738924eb871a0867edf75979f2",
+      "largura": 800,
+      "altura": 600,
+      "revisao": {
+        "estado": "aprovada",
+        "motivo": "Notebook em perspectiva lateral, tela preta vazia, sem pessoas ou logos. Inscrições do teclado desfocadas e sem texto legível no JPG de entrega 800x600; foto ilustrativa não comprova polegadas.",
+        "em": "2026-11-10T18:05:53.509Z"
+      },
+      "tipo": "photo",
+      "paginaBusca": 1
+    },
+    {
+      "patrimonio": "TI-0004",
+      "busca": "\"blank screen\"",
+      "paginaBusca": 1,
+      "arquivo": "TI-0004.jpg",
+      "fotoId": 7334774,
+      "autor": "leonidaltman",
+      "pagina": "https://pixabay.com/photos/laptop-computer-macbook-screen-7334774/",
+      "licenca": "https://pixabay.com/service/license-summary/",
+      "origemSha256": "cddd941af4317186fdf1d63c715915df69370126e34c28fc887267ede21854ee",
+      "sha256": "ce011f264973fa5a1b631566d15c9bd44b30e48d3d5ea57cf8ff7b7f5e6f5c55",
+      "largura": 800,
+      "altura": 600,
+      "revisao": {
+        "estado": "aprovada",
+        "motivo": "Notebook inteiro em perspectiva, tela branca vazia, sem pessoas, fabricante ou texto legível no JPG 800x600; teclas pequenas em plano geral. Imagem ilustrativa não comprova polegadas.",
+        "em": "2026-11-10T18:14:32.431Z"
+      },
+      "tipo": "photo"
+    },
+    {
+      "patrimonio": "TI-0005",
+      "busca": "\"computer monitor\"",
+      "paginaBusca": 3,
+      "arquivo": "TI-0005.jpg",
+      "fotoId": 5999978,
+      "autor": "bobyr",
+      "pagina": "https://pixabay.com/photos/computer-desk-office-monitor-5999978/",
+      "licenca": "https://pixabay.com/service/license-summary/",
+      "origemSha256": "a729a10d347e108549ca67780feb0fdbb16c687a956570a9e81e3fa34bf73e29",
+      "sha256": "633b6fbeb7c1d28ca5ee548cf39663cd0576a7950e9259cb5c11dfe8235f5c68",
+      "largura": 800,
+      "altura": 600,
+      "revisao": {
+        "estado": "aprovada",
+        "motivo": "Monitor inteiro com base visto pela lateral. Recorte de enquadramento exclui o caderno com texto em primeiro plano, preserva todo o monitor e não apaga nem retoca marcas. Arquivo final sem pessoa, inscrição legível ou tela com conteúdo.",
+        "em": "2026-11-10T18:14:32.434Z"
+      },
+      "recorte": {
+        "left": 0.6,
+        "top": 0.15,
+        "width": 0.35,
+        "height": 0.75
+      },
+      "tipo": "photo"
+    },
+    {
+      "patrimonio": "TI-0006",
+      "busca": "lcd",
+      "paginaBusca": 1,
+      "arquivo": "TI-0006.jpg",
+      "fotoId": 17894,
+      "autor": "PublicDomainPictures",
+      "pagina": "https://pixabay.com/photos/blank-business-computer-desktop-17894/",
+      "licenca": "https://pixabay.com/service/license-summary/",
+      "origemSha256": "226e20e608be75acd82428405d48aee47232ca819dec222892373dfe1468b140",
+      "sha256": "8c38ef718adc51a1d65f061ac13b30f0a9f3e38743a9f71bd29b0f5652d78df7",
+      "largura": 800,
+      "altura": 600,
+      "revisao": {
+        "estado": "aprovada",
+        "motivo": "Monitor inteiro de frente, fundo branco e tela branca sem conteúdo, sem pessoa, fabricante ou texto legível; somente pictogramas de botões. Distinto de TI-0007: fotografia frontal, tela branca e outro enquadramento; polegadas apenas ilustrativas.",
+        "em": "2026-11-10T18:23:07.968Z"
+      },
+      "tipo": "photo"
+    },
+    {
+      "patrimonio": "TI-0007",
+      "busca": "lcd",
+      "paginaBusca": 1,
+      "arquivo": "TI-0007.jpg",
+      "fotoId": 17768,
+      "autor": "PublicDomainPictures",
+      "pagina": "https://pixabay.com/photos/blank-business-computer-desktop-17768/",
+      "licenca": "https://pixabay.com/service/license-summary/",
+      "origemSha256": "285756bd9b2611ab5a736aa6040590b4d0159896dc12143d6d284c9ec3116c07",
+      "sha256": "819ebed4c49279514a9dbc87557c8e971cdb5f69991ad4e58e316e9518fee339",
+      "largura": 800,
+      "altura": 600,
+      "revisao": {
+        "estado": "aprovada",
+        "motivo": "Monitor inteiro em perspectiva lateral, tela preta vazia e fundo branco, sem pessoa, fabricante ou texto legível; somente pictogramas de botões. Outra fotografia/ângulo que TI-0006, com IDs e hashes distintos; polegadas não inferidas.",
+        "em": "2026-11-10T18:23:07.976Z"
+      },
+      "tipo": "photo"
+    },
+    {
+      "patrimonio": "TI-0008",
+      "arquivo": "TI-0008.jpg",
+      "fotoId": 1827,
+      "autor": "PublicDomainPictures",
+      "pagina": "https://pixabay.com/photos/high-definition-multimedia-1827/",
+      "licenca": "https://pixabay.com/service/license-summary/",
+      "origemSha256": "419bcc42e9ad77433474b588a7da559ae4bdcad96535fa5d2da5617cbcddf433",
+      "sha256": "0f5f7258250f49475682dfcfac821f1c0b589dd1104be3660255e3e2d8d5e2e6",
+      "largura": 800,
+      "altura": 600,
+      "revisao": {
+        "estado": "aprovada",
+        "motivo": "Conector HDMI dourado em fundo branco com corpo preto sem inscrição legível; sem pessoas, logos ou telas. Foto não comprova o comprimento.",
+        "em": "2026-11-10T18:03:56.503Z"
+      },
+      "tipo": "photo",
+      "busca": "hdmi cable",
+      "paginaBusca": 1
+    },
+    {
+      "patrimonio": "TI-0009",
+      "busca": "usb-c",
+      "paginaBusca": 1,
+      "arquivo": "TI-0009.jpg",
+      "fotoId": 1281034,
+      "autor": "denvit",
+      "pagina": "https://pixabay.com/photos/usb-type-c-cable-guy-two-1281034/",
+      "licenca": "https://pixabay.com/service/license-summary/",
+      "origemSha256": "f6306cd403f9644c53f5773c1b1e0d28380971f16cd55a2b1ce17e862282ad80",
+      "sha256": "aecc099c80fa28383746bd0e4fa1d25566d395e872c43b6b7590c3291574cbb6",
+      "largura": 800,
+      "altura": 600,
+      "revisao": {
+        "estado": "aprovada",
+        "motivo": "Conector USB-C em primeiro plano, fundo desfocado; sem pessoas, fabricante, texto legível ou telas. Pictograma genérico de conexão USB não identifica fabricante; metragem não é inferida da foto.",
+        "em": "2026-11-10T18:07:12.922Z"
+      },
+      "tipo": "photo"
+    },
+    {
+      "patrimonio": "TI-0010",
+      "arquivo": "TI-0010.jpg",
+      "fotoId": 494649,
+      "autor": "blickpixel",
+      "pagina": "https://pixabay.com/photos/network-cable-cable-patch-494649/",
+      "licenca": "https://pixabay.com/service/license-summary/",
+      "origemSha256": "0612b06654ca4fe8f429554b661feb37c4243460a76b6a1edf6cb456700b4cd6",
+      "sha256": "4a20b4e116e5e3ea1985fe6ba28b2c317d447e0b9f557961e01a8e4c51a80bcf",
+      "largura": 800,
+      "altura": 600,
+      "revisao": {
+        "estado": "aprovada",
+        "motivo": "Cabos de rede com conectores RJ45 em fundo branco; sem pessoas, marcas, texto legível ou telas. Foto ilustrativa não comprova metragem.",
+        "em": "2026-11-10T18:02:06.377Z"
+      },
+      "tipo": "photo",
+      "busca": "ethernet cable",
+      "paginaBusca": 1
+    },
+    {
+      "patrimonio": "TI-0011",
+      "busca": "webcam",
+      "paginaBusca": 2,
+      "arquivo": "TI-0011.jpg",
+      "fotoId": 1163880,
+      "autor": "willsong",
+      "pagina": "https://pixabay.com/photos/video-conference-hd-material-1163880/",
+      "licenca": "https://pixabay.com/service/license-summary/",
+      "origemSha256": "80a691cb8de4b14c7316f9be9e5985ab3df874ef10623a4256896e1f1e8df7d0",
+      "sha256": "d705bf83b76f8ab0789bd51f4ed67c1351042975233a6643a70f6e0384e64001",
+      "largura": 800,
+      "altura": 600,
+      "revisao": {
+        "estado": "aprovada",
+        "motivo": "Câmera externa de videoconferência em base, sem pessoa, tela com conteúdo ou texto/fabricante legível no JPG 800x600. Pequeno selo da lente sem inscrição legível nessa resolução; ilustração não comprova resolução Full HD.",
+        "em": "2026-11-10T18:09:02.861Z"
+      },
+      "tipo": "photo"
+    },
+    {
+      "patrimonio": "TI-0012",
+      "busca": "\"digital camera\"",
+      "paginaBusca": 3,
+      "recorte": {
+        "left": 0.29,
+        "top": 0.42,
+        "width": 0.55,
+        "height": 0.58
+      },
+      "reenquadramentoDe": "66233c13f9aef64d5fd763af740273336b61b511294de559d282ec009fd9b718",
+      "arquivo": "TI-0012.jpg",
+      "fotoId": 6493212,
+      "autor": "Travis21",
+      "pagina": "https://pixabay.com/photos/camera-photography-device-outdoors-6493212/",
+      "licenca": "https://pixabay.com/service/license-summary/",
+      "origemSha256": "cae7510d75a1ae6e33bb5b783b8a33bf554b5bc636a3a8160c00f8416c4fd3c6",
+      "sha256": "154e658e07bd415bbf13b43d9105efa62c121d4962711131fb6f9ee77b63cd32",
+      "largura": 800,
+      "altura": 600,
+      "revisao": {
+        "estado": "aprovada",
+        "motivo": "Corpo compacto de câmera digital visto por trás, inteiro, tela apagada e sem pessoa. Recorte exclui inscrição legível do acessório no cenário, preservando corpo e alça; não retoca o equipamento. Inscrições restantes desfocadas e sem texto/marca legível no JPG final 800x600. Foto ilustrativa não comprova modelo.",
+        "em": "2026-11-10T18:23:07.977Z"
+      },
+      "tipo": "photo"
+    }
+  ],
+  "rejeitadas": [
+    {
+      "patrimonio": "TI-0001",
+      "arquivo": "TI-0001.jpg",
+      "fotoId": 3678419,
+      "autor": "1162835",
+      "pagina": "https://pixabay.com/photos/woman-attractive-posing-business-3678419/",
+      "licenca": "https://pixabay.com/service/license-summary/",
+      "origemSha256": "4d7c2d1411429f4b11a651604bd7b3f344d1fb3a4cd718186123509de7aa0f75",
+      "sha256": "b27aec09f9b71652737b346d3963e867a07db810f7881fa5cfa973777464338d",
+      "largura": 800,
+      "altura": 600,
+      "revisao": {
+        "estado": "reprovada",
+        "motivo": "Pessoa em primeiro plano; equipamento secundário.",
+        "em": "2026-11-10T18:02:06.357Z"
+      }
+    },
+    {
+      "patrimonio": "TI-0002",
+      "arquivo": "TI-0002.jpg",
+      "fotoId": 1853259,
+      "autor": "Pexels",
+      "pagina": "https://pixabay.com/photos/apple-macbook-notebook-computer-1853259/",
+      "licenca": "https://pixabay.com/service/license-summary/",
+      "origemSha256": "4efbe9d85bc6119f006ee417fd5087576cb04d10f0b1ab237a249b0d3ddbe79e",
+      "sha256": "a26d040956b30d3b307f5836973fa674e518c2f76e3b0fdf146acf1657c6877c",
+      "largura": 800,
+      "altura": 600,
+      "revisao": {
+        "estado": "reprovada",
+        "motivo": "Logo Apple claramente visível na tampa.",
+        "em": "2026-11-10T18:02:06.370Z"
+      }
+    },
+    {
+      "patrimonio": "TI-0003",
+      "arquivo": "TI-0003.jpg",
+      "fotoId": 886462,
+      "autor": "Simon",
+      "pagina": "https://pixabay.com/photos/keyboard-computer-keys-white-886462/",
+      "licenca": "https://pixabay.com/service/license-summary/",
+      "origemSha256": "98b63107f27f6dc7d44dae290e404de912b2f500166f2410793c44813c88f407",
+      "sha256": "8e104f3e234c81b981a76d51b5137943620fc670e8eb3e7648d0cae4c4e1593e",
+      "largura": 800,
+      "altura": 600,
+      "revisao": {
+        "estado": "reprovada",
+        "motivo": "Letras, texto Alt e símbolo Windows legíveis no teclado.",
+        "em": "2026-11-10T18:02:06.371Z"
+      }
+    },
+    {
+      "patrimonio": "TI-0004",
+      "arquivo": "TI-0004.jpg",
+      "fotoId": 1850268,
+      "autor": "Pexels",
+      "pagina": "https://pixabay.com/photos/adult-annoyed-blur-burnout-1850268/",
+      "licenca": "https://pixabay.com/service/license-summary/",
+      "origemSha256": "8194db3cf5f1dd0dca53bc88b9cdad101b291a6a231527a6e377a20fc988244d",
+      "sha256": "58f73b3a4034e11d98e2dca8c2315646de5f04425ee5599122452d3cbb8d0f55",
+      "largura": 800,
+      "altura": 600,
+      "revisao": {
+        "estado": "reprovada",
+        "motivo": "Pessoa em primeiro plano.",
+        "em": "2026-11-10T18:02:06.372Z"
+      }
+    },
+    {
+      "patrimonio": "TI-0005",
+      "arquivo": "TI-0005.jpg",
+      "fotoId": 4532323,
+      "autor": "MaxxGirr",
+      "pagina": "https://pixabay.com/photos/workplace-business-office-computer-4532323/",
+      "licenca": "https://pixabay.com/service/license-summary/",
+      "origemSha256": "4ba14ecf222bf6a4778fd45b504e705039b5738ccbfea1e65c56e6e94b743a55",
+      "sha256": "0864fa5e3de528ae956d625eec013cb93aaf31a7ba494dfa04e673429d7554e3",
+      "largura": 800,
+      "altura": 600,
+      "revisao": {
+        "estado": "reprovada",
+        "motivo": "Logo Apple visível no monitor.",
+        "em": "2026-11-10T18:02:06.372Z"
+      }
+    },
+    {
+      "patrimonio": "TI-0006",
+      "arquivo": "TI-0006.jpg",
+      "fotoId": 1868496,
+      "autor": "Pexels",
+      "pagina": "https://pixabay.com/photos/apple-computer-desk-workspace-1868496/",
+      "licenca": "https://pixabay.com/service/license-summary/",
+      "origemSha256": "3accdf0e68ff613d438357711dd3f73e72c33083545bc4138c02a7959fbe8e59",
+      "sha256": "42c8bc05ba9a6923b76595557459af231e6a636ceb2ea2de8aec6cf9c6c303b3",
+      "largura": 800,
+      "altura": 600,
+      "revisao": {
+        "estado": "reprovada",
+        "motivo": "Logo Apple visível sob a tela.",
+        "em": "2026-11-10T18:02:06.373Z"
+      }
+    },
+    {
+      "patrimonio": "TI-0007",
+      "arquivo": "TI-0007.jpg",
+      "fotoId": 6801334,
+      "autor": "Mariakray",
+      "pagina": "https://pixabay.com/photos/technology-devices-electronics-6801334/",
+      "licenca": "https://pixabay.com/service/license-summary/",
+      "origemSha256": "c99cc25f249026a4dc8e6158d5c0a8f15a57b9c77b84c3daafa823b2d2358fdd",
+      "sha256": "72e994e78900d15a2396c3f1ad83f17138b42d5521c796024e26520fde022c54",
+      "largura": 800,
+      "altura": 600,
+      "revisao": {
+        "estado": "reprovada",
+        "motivo": "Mostra telefone e tablet sobre notebook, não um monitor.",
+        "em": "2026-11-10T18:02:06.374Z"
+      }
+    },
+    {
+      "patrimonio": "TI-0008",
+      "arquivo": "TI-0008.jpg",
+      "fotoId": 2202226,
+      "autor": "WikimediaImages",
+      "pagina": "https://pixabay.com/photos/hdmi-connector-cable-plug-2202226/",
+      "licenca": "https://pixabay.com/service/license-summary/",
+      "origemSha256": "4abfa120446e4235f725d196b7f1b198dc871811c432e0e14bdbd8174f301291",
+      "sha256": "979c8c13f1550228600e5569b2e873210e3eb238cf86fffec491e3b76592caa5",
+      "largura": 800,
+      "altura": 600,
+      "revisao": {
+        "estado": "reprovada",
+        "motivo": "Texto HDMI legível no conector.",
+        "em": "2026-11-10T18:02:06.374Z"
+      }
+    },
+    {
+      "patrimonio": "TI-0009",
+      "arquivo": "TI-0009.jpg",
+      "fotoId": 4875319,
+      "autor": "ds_30",
+      "pagina": "https://pixabay.com/photos/cable-computer-usb-technology-4875319/",
+      "licenca": "https://pixabay.com/service/license-summary/",
+      "origemSha256": "7af2905d0e8dbc3500f9f1363053dd5459a328d12aca8d45fc79a66965a46545",
+      "sha256": "09184ba14107c4d85d544e8183df8679428de40df83318b5b123a48583d545b4",
+      "largura": 800,
+      "altura": 600,
+      "revisao": {
+        "estado": "reprovada",
+        "motivo": "Conectores USB-A e antigos; não representa USB-C.",
+        "em": "2026-11-10T18:02:06.375Z"
+      }
+    },
+    {
+      "patrimonio": "TI-0011",
+      "arquivo": "TI-0011.jpg",
+      "fotoId": 1155173,
+      "autor": "sarinharas",
+      "pagina": "https://pixabay.com/photos/portable-computer-computer-pra%C3%A7a-1155173/",
+      "licenca": "https://pixabay.com/service/license-summary/",
+      "origemSha256": "06916200bd7b4f6188abce2de698e699a6920979d413037d1723d1cf192c0d22",
+      "sha256": "0f292fa549b708fac6b68c88b69f131f6ad09e0ef2316872d43604b6104001cf",
+      "largura": 800,
+      "altura": 600,
+      "revisao": {
+        "estado": "reprovada",
+        "motivo": "Notebook com marcas Lenovo e ThinkPad; não representa webcam externa.",
+        "em": "2026-11-10T18:02:06.376Z"
+      }
+    },
+    {
+      "patrimonio": "TI-0012",
+      "arquivo": "TI-0012.jpg",
+      "fotoId": 2364849,
+      "autor": "Mr_Worker",
+      "pagina": "https://pixabay.com/photos/child-camera-photographer-2364849/",
+      "licenca": "https://pixabay.com/service/license-summary/",
+      "origemSha256": "f734002c1ed9cf116349d9652bda45d18aab053c64dfb45bab40187de7aab7a0",
+      "sha256": "ca0d6700cbfe25c0ac08d1112a18ae4ba31cb962c89781f130b6ef0eaefb7624",
+      "largura": 800,
+      "altura": 600,
+      "revisao": {
+        "estado": "reprovada",
+        "motivo": "Criança em primeiro plano e texto na câmera.",
+        "em": "2026-11-10T18:02:06.376Z"
+      }
+    },
+    {
+      "patrimonio": "TI-0001",
+      "arquivo": "TI-0001.jpg",
+      "fotoId": 2982270,
+      "autor": "ClickerHappy",
+      "pagina": "https://pixabay.com/photos/computer-laptop-work-place-mouse-2982270/",
+      "licenca": "https://pixabay.com/service/license-summary/",
+      "origemSha256": "466f8dcfbcbefe9d443e469be9595ea3c103e35a77ab8326ad3b079dffc1cbd8",
+      "sha256": "0f40226679d133adc3dcc709e1c215dd360aab9611f90fe3414a8c9bb60a154c",
+      "largura": 800,
+      "altura": 600,
+      "revisao": {
+        "estado": "reprovada",
+        "motivo": "Marca Nikon legível na câmera e caracteres do teclado.",
+        "em": "2026-11-10T18:03:56.495Z"
+      }
+    },
+    {
+      "patrimonio": "TI-0003",
+      "arquivo": "TI-0003.jpg",
+      "fotoId": 2567809,
+      "autor": "StockSnap",
+      "pagina": "https://pixabay.com/photos/laptop-computer-technology-2567809/",
+      "licenca": "https://pixabay.com/service/license-summary/",
+      "origemSha256": "37f6d8bc5eee39c9d007fa6560ce54d726fa04d18cc73c864f2255a9534e0f73",
+      "sha256": "72a691d82763257baf550b1eda39bd28cda8646147ae208c032161a26a0f37b9",
+      "largura": 800,
+      "altura": 600,
+      "revisao": {
+        "estado": "reprovada",
+        "motivo": "Ícones da área de trabalho na tela e letras no teclado; enquadramento parcial.",
+        "em": "2026-11-10T18:03:56.497Z"
+      }
+    },
+    {
+      "patrimonio": "TI-0004",
+      "arquivo": "TI-0004.jpg",
+      "fotoId": 865091,
+      "autor": "picjumbo_com",
+      "pagina": "https://pixabay.com/photos/office-desk-smartphone-modern-865091/",
+      "licenca": "https://pixabay.com/service/license-summary/",
+      "origemSha256": "c2da09db8a8943212cb4b137e13e93acd9f8536b04a74fc0148328bcc539f6d8",
+      "sha256": "2951be079d28fa040af5efe66690b0c93020a54bb6f71362b8c7089e12ccece0",
+      "largura": 800,
+      "altura": 600,
+      "revisao": {
+        "estado": "reprovada",
+        "motivo": "Texto Cmd e letras do teclado legíveis; notebook apenas parcial.",
+        "em": "2026-11-10T18:03:56.498Z"
+      }
+    },
+    {
+      "patrimonio": "TI-0005",
+      "arquivo": "TI-0005.jpg",
+      "fotoId": 1140699,
+      "autor": "theglassdesk",
+      "pagina": "https://pixabay.com/photos/desk-computer-modern-keyboard-1140699/",
+      "licenca": "https://pixabay.com/service/license-summary/",
+      "origemSha256": "de57410d193ea0c84cae5651cb8a5452aed39e5ef07877f9f4f886bcb5c321d7",
+      "sha256": "3114c2aed70e4c9c867f6be314e4de5732a5acbd9f5f29c0e2430937fc4d1d07",
+      "largura": 800,
+      "altura": 600,
+      "revisao": {
+        "estado": "reprovada",
+        "motivo": "Logo Apple legível sob a tela.",
+        "em": "2026-11-10T18:03:56.499Z"
+      }
+    },
+    {
+      "patrimonio": "TI-0006",
+      "arquivo": "TI-0006.jpg",
+      "fotoId": 2181919,
+      "autor": "Pexels",
+      "pagina": "https://pixabay.com/photos/chairs-conference-room-empty-2181919/",
+      "licenca": "https://pixabay.com/service/license-summary/",
+      "origemSha256": "7b2fba7356712c897bd79fc1664ee445b768e7cee0a7062b20623d196b8b8287",
+      "sha256": "d590993b93ad7691fd74061af1d9fd5fea882f62cb0c389569f939b3db1b74e6",
+      "largura": 800,
+      "altura": 600,
+      "revisao": {
+        "estado": "reprovada",
+        "motivo": "Televisor na parede de sala de reuniões; não representa monitor de mesa.",
+        "em": "2026-11-10T18:03:56.500Z"
+      }
+    },
+    {
+      "patrimonio": "TI-0007",
+      "arquivo": "TI-0007.jpg",
+      "fotoId": 4962269,
+      "autor": "sergeitokmakov",
+      "pagina": "https://pixabay.com/photos/old-computer-8bit-technology-retro-4962269/",
+      "licenca": "https://pixabay.com/service/license-summary/",
+      "origemSha256": "dcd74519e9fc568fa2f49baaf491da83277cbbc5d62dec78502ec72427401a11",
+      "sha256": "768ac32410f97332857ff1cce92166baf525db643e97a22cf55ccb0c1d0db97f",
+      "largura": 800,
+      "altura": 600,
+      "revisao": {
+        "estado": "reprovada",
+        "motivo": "Equipamentos antigos com texto em tela e etiquetas; inadequados ao monitor de mesa.",
+        "em": "2026-11-10T18:03:56.500Z"
+      }
+    },
+    {
+      "patrimonio": "TI-0011",
+      "arquivo": "TI-0011.jpg",
+      "fotoId": 1219748,
+      "autor": "Aksa2011",
+      "pagina": "https://pixabay.com/photos/camera-webcam-computer-internet-1219748/",
+      "licenca": "https://pixabay.com/service/license-summary/",
+      "origemSha256": "429a93a193f6988b4be7bc3ab560395bc23ccf7ee488a193084e90688b8f6194",
+      "sha256": "4d54fe7fb39a654fe684fc685b138b015c6058f8c77e5773f4d61bff7edbe46a",
+      "largura": 800,
+      "altura": 600,
+      "revisao": {
+        "estado": "reprovada",
+        "motivo": "Texto 1.3 MEGA PIXEL na lente; modelo não representa Full HD.",
+        "em": "2026-11-10T18:03:56.501Z"
+      }
+    },
+    {
+      "patrimonio": "TI-0012",
+      "arquivo": "TI-0012.jpg",
+      "fotoId": 3545828,
+      "autor": "HOerwin56",
+      "pagina": "https://pixabay.com/photos/camera-compact-digital-3545828/",
+      "licenca": "https://pixabay.com/service/license-summary/",
+      "origemSha256": "efe7b311fdc02806dad6b3ee77c8f797a8f30efb1725c92ab8bde5a1ff9055b8",
+      "sha256": "fdad8663ec6905309909343e740d03e3f8725c001b7ed021b60a6250c2455fdb",
+      "largura": 800,
+      "altura": 600,
+      "revisao": {
+        "estado": "reprovada",
+        "motivo": "Marca Pentax e vários textos legíveis na câmera.",
+        "em": "2026-11-10T18:03:56.502Z"
+      }
+    },
+    {
+      "patrimonio": "TI-0001",
+      "busca": "laptop",
+      "arquivo": "TI-0001.jpg",
+      "fotoId": 5673901,
+      "autor": "JoshuaWoroniecki",
+      "pagina": "https://pixabay.com/photos/laptop-digital-device-technology-5673901/",
+      "licenca": "https://pixabay.com/service/license-summary/",
+      "origemSha256": "440aa2dba7dcfc1eaf9f91f60f63ae20b4add4c8b40e3c8528bd4c3f278a3174",
+      "sha256": "ff8eded62c3257e463bf2d0d81bb451fd7742fae5bbfb98c5ad7a74b1ed0a654",
+      "largura": 800,
+      "altura": 600,
+      "revisao": {
+        "estado": "reprovada",
+        "motivo": "Tela exibe composição colorida e teclado com inscrições; não é tela sem conteúdo.",
+        "em": "2026-11-10T18:05:53.500Z"
+      }
+    },
+    {
+      "patrimonio": "TI-0004",
+      "busca": "closed laptop",
+      "arquivo": "TI-0004.jpg",
+      "fotoId": 1839156,
+      "autor": "Pexels",
+      "pagina": "https://pixabay.com/photos/technology-modern-mouse-business-1839156/",
+      "licenca": "https://pixabay.com/service/license-summary/",
+      "origemSha256": "3a82d131828c531548e13fbaf8b7790059075e5623719f9bb84061d3fc43369c",
+      "sha256": "b8c516ff7dddb70405a4f774d9747e4d9bb868d90fde46f2aaf00d90275dbd87",
+      "largura": 800,
+      "altura": 600,
+      "revisao": {
+        "estado": "reprovada",
+        "motivo": "Logo Apple grande na tampa.",
+        "em": "2026-11-10T18:05:53.504Z"
+      }
+    },
+    {
+      "patrimonio": "TI-0005",
+      "busca": "computer monitor on desk",
+      "arquivo": "TI-0005.jpg",
+      "fotoId": 4795762,
+      "autor": "yeiferr",
+      "pagina": "https://pixabay.com/photos/computer-laptop-tech-blue-computer-4795762/",
+      "licenca": "https://pixabay.com/service/license-summary/",
+      "origemSha256": "7757568ffd41a29f75eb4e0124db4c8bfcacce4709dc7d212c33e3947dddd0ed",
+      "sha256": "ce24a096cdcc144e9ef97f6cb1f0cd8d5ea10d0f4eea8eb9ace9cf51d5873845",
+      "largura": 800,
+      "altura": 600,
+      "revisao": {
+        "estado": "reprovada",
+        "motivo": "Texto e código nas duas telas.",
+        "em": "2026-11-10T18:05:53.505Z"
+      }
+    },
+    {
+      "patrimonio": "TI-0006",
+      "busca": "monitor",
+      "arquivo": "TI-0006.jpg",
+      "fotoId": 1834328,
+      "autor": "Pexels",
+      "pagina": "https://pixabay.com/photos/apple-chair-computer-desk-table-1834328/",
+      "licenca": "https://pixabay.com/service/license-summary/",
+      "origemSha256": "e3428c465f295b6d5933e85fdfb5d629d8f61ceebb300563ddbd1d6b739426b0",
+      "sha256": "5b3681a06d0d5c69cf37cf7d3c95fa996e8a5789e6690bc3ae442144c816542d",
+      "largura": 800,
+      "altura": 600,
+      "revisao": {
+        "estado": "reprovada",
+        "motivo": "Logo Apple sob a tela.",
+        "em": "2026-11-10T18:05:53.506Z"
+      }
+    },
+    {
+      "patrimonio": "TI-0007",
+      "busca": "computer display",
+      "arquivo": "TI-0007.jpg",
+      "fotoId": 2468062,
+      "autor": "ElisaRiva",
+      "pagina": "https://pixabay.com/photos/technology-equipment-responsive-web-2468062/",
+      "licenca": "https://pixabay.com/service/license-summary/",
+      "origemSha256": "2eca8ece066493f51da4997e6a7b29c05329b2763025fee86e856d8d908b4d56",
+      "sha256": "ddcda9f09901db982e92130873b0407072ff52173bbfb49b44c0683695a2d864",
+      "largura": 800,
+      "altura": 600,
+      "revisao": {
+        "estado": "reprovada",
+        "motivo": "Ilustração vetorial; não é foto real de um equipamento.",
+        "em": "2026-11-10T18:05:53.507Z"
+      }
+    },
+    {
+      "patrimonio": "TI-0011",
+      "busca": "web camera",
+      "arquivo": "TI-0011.jpg",
+      "fotoId": 796227,
+      "autor": "Vitamin",
+      "pagina": "https://pixabay.com/photos/web-cam-internet-video-796227/",
+      "licenca": "https://pixabay.com/service/license-summary/",
+      "origemSha256": "152e282080019c9d29e9de864ba489e53675c909c4261f9c2df7003f6d7a4460",
+      "sha256": "1837df28000c5ae64bae32a7a29575644991eb191bf5a4a8c3f59fb8aee73dec",
+      "largura": 800,
+      "altura": 600,
+      "revisao": {
+        "estado": "reprovada",
+        "motivo": "Texto WEB CAMERA e dados ópticos claramente legíveis.",
+        "em": "2026-11-10T18:05:53.508Z"
+      }
+    },
+    {
+      "patrimonio": "TI-0012",
+      "busca": "compact digital camera",
+      "arquivo": "TI-0012.jpg",
+      "fotoId": 4907231,
+      "autor": "ds_30",
+      "pagina": "https://pixabay.com/photos/camera-photo-panel-photography-4907231/",
+      "licenca": "https://pixabay.com/service/license-summary/",
+      "origemSha256": "6c6fb39076f63fd8a6b84852e19301affcef94aab27ffdc45adfe5c7748a1c40",
+      "sha256": "b21d193c6d6ff024e56244cdc96d1504e98e632b053c762d5b002557ad15a247",
+      "largura": 800,
+      "altura": 600,
+      "revisao": {
+        "estado": "reprovada",
+        "motivo": "Textos ON OFF MENU SCENE na câmera.",
+        "em": "2026-11-10T18:05:53.508Z"
+      }
+    },
+    {
+      "patrimonio": "TI-0009",
+      "arquivo": "TI-0009.jpg",
+      "fotoId": 7066127,
+      "autor": "Alexandra_Koch",
+      "pagina": "https://pixabay.com/photos/cable-charging-cable-usb-7066127/",
+      "licenca": "https://pixabay.com/service/license-summary/",
+      "origemSha256": "a01648815a1cae5c573e484cb9d94220fa3a3a14721639700a498905453a418c",
+      "sha256": "6cb2c41d0b03980c312d094310819bd5c9c382c157a99ff9e0d13760d7be5c43",
+      "largura": 800,
+      "altura": 600,
+      "revisao": {
+        "estado": "reprovada",
+        "motivo": "Conector distal não identificável com segurança como USB-C; adequação incerta.",
+        "em": "2026-11-10T18:05:53.509Z"
+      }
+    },
+    {
+      "patrimonio": "TI-0001",
+      "busca": "\"closed laptop\"",
+      "paginaBusca": 1,
+      "arquivo": "TI-0001.jpg",
+      "fotoId": 6716343,
+      "autor": "lisakara",
+      "pagina": "https://pixabay.com/photos/laptop-computer-mac-pc-technology-6716343/",
+      "licenca": "https://pixabay.com/service/license-summary/",
+      "origemSha256": "e7c88fb2437200d13d9ae2d1a59aa273003ed518532fcd7f5453a5a5ef65920b",
+      "sha256": "ac833a5a393c5f031b5231f1c8ad4ff79719bc7eb49ba4001b5befdfd7875d02",
+      "largura": 800,
+      "altura": 600,
+      "revisao": {
+        "estado": "reprovada",
+        "motivo": "Tela com interface/conteúdo e vários notebooks, sem destaque limpo do item.",
+        "em": "2026-11-10T18:07:12.914Z"
+      }
+    },
+    {
+      "patrimonio": "TI-0004",
+      "busca": "\"closed laptop\"",
+      "paginaBusca": 1,
+      "arquivo": "TI-0004.jpg",
+      "fotoId": 4948833,
+      "autor": "izzyestabrook",
+      "pagina": "https://pixabay.com/photos/cactus-laptop-desk-working-4948833/",
+      "licenca": "https://pixabay.com/service/license-summary/",
+      "origemSha256": "df9e1cd8a1d55cdbf0c4c0358dc7588fe0d0ceeab2c310f7a80a3057def082c5",
+      "sha256": "16945f13e1433af9da8968b1c795408eb7dff18f10ff1e8295c428d0f70f2df0",
+      "largura": 800,
+      "altura": 600,
+      "revisao": {
+        "estado": "reprovada",
+        "motivo": "Texto BADASS legível na pulseira ao lado do notebook.",
+        "em": "2026-11-10T18:07:12.917Z"
+      }
+    },
+    {
+      "patrimonio": "TI-0005",
+      "busca": "\"computer monitor\"",
+      "paginaBusca": 1,
+      "arquivo": "TI-0005.jpg",
+      "fotoId": 2815634,
+      "autor": "jarmoluk",
+      "pagina": "https://pixabay.com/photos/office-printer-hardware-monitor-2815634/",
+      "licenca": "https://pixabay.com/service/license-summary/",
+      "origemSha256": "0b9bd326e0ffe59812594fefbefb801aac7d428d66f8c6308fbb28968a040399",
+      "sha256": "8a386b1c52e82270b55a847fb9626055123f6097da4549068e3efbc77c2ac49d",
+      "largura": 800,
+      "altura": 600,
+      "revisao": {
+        "estado": "reprovada",
+        "motivo": "Logo HP legível na impressora em primeiro plano.",
+        "em": "2026-11-10T18:07:12.918Z"
+      }
+    },
+    {
+      "patrimonio": "TI-0006",
+      "busca": "\"computer monitor\"",
+      "paginaBusca": 1,
+      "arquivo": "TI-0006.jpg",
+      "fotoId": 54583,
+      "autor": "JamesDeMers",
+      "pagina": "https://pixabay.com/photos/home-office-work-space-computer-54583/",
+      "licenca": "https://pixabay.com/service/license-summary/",
+      "origemSha256": "50a017a07848dbb54beef66c5f365058e9a66d6e4895fe6b488fa1ffa7613194",
+      "sha256": "b20cf0e2c13c838cc4d51b239123bb8c6e67cfc79c2b0e031fe21a257dbf5b36",
+      "largura": 800,
+      "altura": 600,
+      "revisao": {
+        "estado": "reprovada",
+        "motivo": "Tela ligada com conteúdo.",
+        "em": "2026-11-10T18:07:12.919Z"
+      }
+    },
+    {
+      "patrimonio": "TI-0007",
+      "busca": "\"computer monitor\"",
+      "paginaBusca": 2,
+      "arquivo": "TI-0007.jpg",
+      "fotoId": 5636733,
+      "autor": "anonima2020",
+      "pagina": "https://pixabay.com/photos/desktop-computer-work-space-5636733/",
+      "licenca": "https://pixabay.com/service/license-summary/",
+      "origemSha256": "69fc73fb8e80451afa410db3bd82fbe7168381221503444ba2e1042fb4e60ebd",
+      "sha256": "6dc8191e5ae3a81d532ff4fac9a3d1d9c3dd69aafbc783d4f0ef786e9ef73df1",
+      "largura": 800,
+      "altura": 600,
+      "revisao": {
+        "estado": "reprovada",
+        "motivo": "Telas ligadas exibindo interfaces, texto e imagens.",
+        "em": "2026-11-10T18:07:12.920Z"
+      }
+    },
+    {
+      "patrimonio": "TI-0011",
+      "busca": "webcam",
+      "paginaBusca": 2,
+      "arquivo": "TI-0011.jpg",
+      "fotoId": 4607652,
+      "autor": "Curious_Collectibles",
+      "pagina": "https://pixabay.com/photos/cam-camera-live-streaming-hd-4607652/",
+      "licenca": "https://pixabay.com/service/license-summary/",
+      "origemSha256": "fa88156048e819e15de5c4405c0254a2d58f88c156249bb4ac357e479fd4d1ad",
+      "sha256": "0d39a0dde81e8736e5fa3f3205fd41d4b27bc1b119845e3d26fbcd34ee25bfc5",
+      "largura": 800,
+      "altura": 600,
+      "revisao": {
+        "estado": "reprovada",
+        "motivo": "Texto HD 1080p legível.",
+        "em": "2026-11-10T18:07:12.920Z"
+      }
+    },
+    {
+      "patrimonio": "TI-0012",
+      "busca": "\"digital camera\"",
+      "paginaBusca": 3,
+      "arquivo": "TI-0012.jpg",
+      "fotoId": 2570936,
+      "autor": "StockSnap",
+      "pagina": "https://pixabay.com/photos/equipment-tools-red-video-camera-2570936/",
+      "licenca": "https://pixabay.com/service/license-summary/",
+      "origemSha256": "4dde1df37adda38e1ed459b78219eb1cca0bde94f1eddee804523c0dca3741f6",
+      "sha256": "287fbc0390912cdecae9cb8e1bb6903f4bddb355161e2a7bd4e8c5a984977db0",
+      "largura": 800,
+      "altura": 600,
+      "revisao": {
+        "estado": "reprovada",
+        "motivo": "Câmera cinematográfica com marca RED legível; não é compacta.",
+        "em": "2026-11-10T18:07:12.921Z"
+      }
+    },
+    {
+      "patrimonio": "TI-0004",
+      "busca": "\"closed laptop\"",
+      "paginaBusca": 1,
+      "arquivo": "TI-0004.jpg",
+      "fotoId": 5517751,
+      "autor": "ricardorv30",
+      "pagina": "https://pixabay.com/photos/workplace-workspace-home-office-5517751/",
+      "licenca": "https://pixabay.com/service/license-summary/",
+      "origemSha256": "1c9b48ec9afdaae3b72af8c4e387fc900d50e6619586354c05929a8442225c91",
+      "sha256": "05dff42e54887c7db0b42a733b2d65827aa103c1a0da86f97e1bffdd6235e479",
+      "largura": 800,
+      "altura": 600,
+      "revisao": {
+        "estado": "reprovada",
+        "motivo": "Logo HP na tampa, texto Life no vaso e retrato de pessoa ao fundo.",
+        "em": "2026-11-10T18:09:02.849Z"
+      }
+    },
+    {
+      "patrimonio": "TI-0005",
+      "busca": "webkamera",
+      "paginaBusca": 1,
+      "arquivo": "TI-0005.jpg",
+      "fotoId": 7223054,
+      "autor": "HHbaoan",
+      "pagina": "https://pixabay.com/photos/monitor-black-and-white-7223054/",
+      "licenca": "https://pixabay.com/service/license-summary/",
+      "origemSha256": "f109dc9da9f1b309059e44cd3fd820ab0f7af73cb2d32a25f6b7a1e1314ac37a",
+      "sha256": "415e59dd8c5a1e2f20967633f769f76329ace0dfbdd70264a91a10e25dbdc9b4",
+      "largura": 800,
+      "altura": 600,
+      "revisao": {
+        "estado": "reprovada",
+        "motivo": "Câmera de segurança com logo Yi; não é monitor.",
+        "em": "2026-11-10T18:09:02.857Z"
+      }
+    },
+    {
+      "patrimonio": "TI-0006",
+      "busca": "\"blank screen\"",
+      "paginaBusca": 1,
+      "arquivo": "TI-0006.jpg",
+      "fotoId": 5475883,
+      "autor": "Monfocus",
+      "pagina": "https://pixabay.com/photos/table-work-table-imac-screen-5475883/",
+      "licenca": "https://pixabay.com/service/license-summary/",
+      "origemSha256": "ce54ec194929c94064ec1694e3c3829cac80080a01a43bf466eee930e895014f",
+      "sha256": "34a433a28540ed059403dce9cc4e871e2a868e4ada293eefc3ea3255f211349d",
+      "largura": 800,
+      "altura": 600,
+      "revisao": {
+        "estado": "reprovada",
+        "motivo": "Tablet e caderno com texto Bullet planner; não é monitor.",
+        "em": "2026-11-10T18:09:02.858Z"
+      }
+    },
+    {
+      "patrimonio": "TI-0007",
+      "busca": "\"blank screen\"",
+      "paginaBusca": 1,
+      "arquivo": "TI-0007.jpg",
+      "fotoId": 5141242,
+      "autor": "jeanvdmeulen",
+      "pagina": "https://pixabay.com/photos/black-blank-business-communication-5141242/",
+      "licenca": "https://pixabay.com/service/license-summary/",
+      "origemSha256": "6ecefe789fee0e991780757056016b96201c22ebf316fd3847fd3f6de15dd20a",
+      "sha256": "04042f35650c4b34bd67c31d573091869ed4051b11ab407d52561031f7675c92",
+      "largura": 800,
+      "altura": 600,
+      "revisao": {
+        "estado": "reprovada",
+        "motivo": "Notebook HP com marca e etiqueta Intel legíveis; não é monitor.",
+        "em": "2026-11-10T18:09:02.859Z"
+      }
+    },
+    {
+      "patrimonio": "TI-0012",
+      "busca": "\"compact camera\"",
+      "paginaBusca": 1,
+      "arquivo": "TI-0012.jpg",
+      "fotoId": 5416893,
+      "autor": "Bru-nO",
+      "pagina": "https://pixabay.com/photos/vacations-more-camera-5416893/",
+      "licenca": "https://pixabay.com/service/license-summary/",
+      "origemSha256": "adb3f118055034636c05ffd1e45e9ed139d00a212d50dcb36d62b72c0ab01d63",
+      "sha256": "2f2a282b89a1d3f9129c1b4dbb1d8f796799577ea280e429b4edd03a5685d07c",
+      "largura": 800,
+      "altura": 600,
+      "revisao": {
+        "estado": "reprovada",
+        "motivo": "Marca Kodak e texto Instamatic na câmera analógica.",
+        "em": "2026-11-10T18:09:02.860Z"
+      }
+    },
+    {
+      "patrimonio": "TI-0006",
+      "busca": "\"computer monitor\"",
+      "paginaBusca": 1,
+      "arquivo": "TI-0006.jpg",
+      "fotoId": 2831949,
+      "autor": "Alexas_Fotos",
+      "pagina": "https://pixabay.com/photos/apple-apple-devices-clean-computer-2831949/",
+      "licenca": "https://pixabay.com/service/license-summary/",
+      "origemSha256": "c81307967f06464094104480cc1bc27c42fb51167b55b29dc5ff2c4fd86da98d",
+      "sha256": "2ad91e54119ea775bff72e617c99374f056ee79fb334904903c8d5b787e23648",
+      "largura": 800,
+      "altura": 600,
+      "revisao": {
+        "estado": "reprovada",
+        "motivo": "Logo Apple visível sob a tela.",
+        "em": "2026-11-10T18:12:06.446Z"
+      }
+    },
+    {
+      "patrimonio": "TI-0007",
+      "busca": "\"computer monitor\"",
+      "paginaBusca": 1,
+      "arquivo": "TI-0007.jpg",
+      "fotoId": 1744803,
+      "autor": "jdpereiro",
+      "pagina": "https://pixabay.com/photos/office-space-office-sunny-coworking-1744803/",
+      "licenca": "https://pixabay.com/service/license-summary/",
+      "origemSha256": "85a308797f0bdf09fb74d0ebf071ebf839cfc8e87ca19a569aa12fe49da0a4f6",
+      "sha256": "57f745dbbebebe714256bb6d3c4dfd965e6d5228f7dd8cd49811c087adb68a6b",
+      "largura": 800,
+      "altura": 600,
+      "revisao": {
+        "estado": "reprovada",
+        "motivo": "Escritório amplo, texto Declic no vidro em primeiro plano.",
+        "em": "2026-11-10T18:12:06.449Z"
+      }
+    },
+    {
+      "patrimonio": "TI-0012",
+      "busca": "\"digital camera\"",
+      "paginaBusca": 3,
+      "arquivo": "TI-0012.jpg",
+      "fotoId": 6493212,
+      "autor": "Travis21",
+      "pagina": "https://pixabay.com/photos/camera-photography-device-outdoors-6493212/",
+      "licenca": "https://pixabay.com/service/license-summary/",
+      "origemSha256": "cae7510d75a1ae6e33bb5b783b8a33bf554b5bc636a3a8160c00f8416c4fd3c6",
+      "sha256": "66233c13f9aef64d5fd763af740273336b61b511294de559d282ec009fd9b718",
+      "largura": 800,
+      "altura": 600,
+      "revisao": {
+        "estado": "reprovada",
+        "motivo": "Inscrição legível no aro do filtro/lente em primeiro plano.",
+        "em": "2026-11-10T18:12:06.449Z"
+      }
+    },
+    {
+      "patrimonio": "TI-0006",
+      "busca": "computer monitor on desk",
+      "paginaBusca": 1,
+      "arquivo": "TI-0006.jpg",
+      "fotoId": 1207834,
+      "autor": "martinvorel_com",
+      "pagina": "https://pixabay.com/photos/home-office-pc-computer-1207834/",
+      "licenca": "https://pixabay.com/service/license-summary/",
+      "origemSha256": "25eea1a6f90c73814eaa7acfc96a4afa359ba3d507a1bc0e8a67723b5510cfcc",
+      "sha256": "aa7589462bbee59d443b9a2a794b9f9fafc4122d1d662901f1eb378d65f2294d",
+      "largura": 800,
+      "altura": 600,
+      "revisao": {
+        "estado": "reprovada",
+        "motivo": "Logo Apple visível e monitor parcialmente fora do enquadramento.",
+        "em": "2026-11-10T18:13:19.820Z"
+      }
+    },
+    {
+      "patrimonio": "TI-0007",
+      "busca": "\"pc monitor\"",
+      "paginaBusca": 1,
+      "arquivo": "TI-0007.jpg",
+      "fotoId": 3655665,
+      "autor": "markusspiske",
+      "pagina": "https://pixabay.com/photos/computer-display-monitor-digital-3655665/",
+      "licenca": "https://pixabay.com/service/license-summary/",
+      "origemSha256": "1e87467826fc84e3031468eca2e42c5163a31adcd449d81272bbcbcbe07531a5",
+      "sha256": "c6d82fd9332d637f42409cd8fee1cedaa135bd34e21972a9c445853a06bb24c6",
+      "largura": 800,
+      "altura": 600,
+      "revisao": {
+        "estado": "reprovada",
+        "motivo": "Telas com relógio e marca MacBook Pro visível.",
+        "em": "2026-11-10T18:13:19.823Z"
+      }
+    },
+    {
+      "patrimonio": "TI-0012",
+      "busca": "\"camera silhouette\"",
+      "paginaBusca": 1,
+      "arquivo": "TI-0012.jpg",
+      "fotoId": 9558492,
+      "autor": "ZT_OSCAR",
+      "pagina": "https://pixabay.com/photos/camera-lens-photo-photography-9558492/",
+      "licenca": "https://pixabay.com/service/license-summary/",
+      "origemSha256": "3b599935c5665daf42c0af01789b92e7511441fe207b665b2a11713266f41821",
+      "sha256": "13355c1ca050deed9f9140ea1e437e6ce4ac0edb39b7033d15ba4559905eddb9",
+      "largura": 800,
+      "altura": 600,
+      "revisao": {
+        "estado": "reprovada",
+        "motivo": "Pessoa em silhueta segurando câmera.",
+        "em": "2026-11-10T18:13:19.824Z"
+      }
+    },
+    {
+      "patrimonio": "TI-0006",
+      "busca": "\"computer monitor\"",
+      "paginaBusca": 7,
+      "arquivo": "TI-0006.jpg",
+      "fotoId": 2617622,
+      "autor": "StockSnap",
+      "pagina": "https://pixabay.com/photos/computer-desktop-monitor-technology-2617622/",
+      "licenca": "https://pixabay.com/service/license-summary/",
+      "origemSha256": "f583a6d409752f08537bb02121540da1c3d723e26210cbb943aeaf99f4b05fcf",
+      "sha256": "3b700bbad525febf1c4291c6fa89aaabf4ffc339b9f27a468893d6123953a45c",
+      "largura": 800,
+      "altura": 600,
+      "revisao": {
+        "estado": "reprovada",
+        "motivo": "Logos Apple e Envato, texto em objetos e conteúdo nas telas.",
+        "em": "2026-11-10T18:14:32.435Z"
+      }
+    },
+    {
+      "patrimonio": "TI-0007",
+      "busca": "\"pc monitor\"",
+      "paginaBusca": 1,
+      "arquivo": "TI-0007.jpg",
+      "fotoId": 2561518,
+      "autor": "StockSnap",
+      "pagina": "https://pixabay.com/photos/computer-technology-electronics-2561518/",
+      "licenca": "https://pixabay.com/service/license-summary/",
+      "origemSha256": "c0374d50892d3a9d1ef200c2a6cfb85e63f50d8e48fc02075ecb7d6751989343",
+      "sha256": "ca056a56552fad55f8ccd8fefa4d568d83d4dde425cf117ddf16f2cc9ba910d7",
+      "largura": 800,
+      "altura": 600,
+      "revisao": {
+        "estado": "reprovada",
+        "motivo": "Pessoa diante da tela com código.",
+        "em": "2026-11-10T18:14:32.435Z"
+      }
+    },
+    {
+      "patrimonio": "TI-0012",
+      "busca": "\"digital camera\"",
+      "paginaBusca": 3,
+      "arquivo": "TI-0012.jpg",
+      "fotoId": 2595136,
+      "autor": "StockSnap",
+      "pagina": "https://pixabay.com/photos/camera-dslr-photography-black-blur-2595136/",
+      "licenca": "https://pixabay.com/service/license-summary/",
+      "origemSha256": "e14b9d2aa0784744c63a33edea3ab7ea8fa1291bab5e0b16a1ce8f4f9da5a5f1",
+      "sha256": "5492fa55c98100c152e1c4043088fb474b82a0b017807ed42ce01810ddb5ef4e",
+      "largura": 800,
+      "altura": 600,
+      "revisao": {
+        "estado": "reprovada",
+        "motivo": "Pessoa segurando câmera e imagem na tela.",
+        "em": "2026-11-10T18:14:32.436Z"
+      }
+    }
+  ]
+}

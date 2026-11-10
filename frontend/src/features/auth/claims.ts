@@ -11,20 +11,12 @@ export interface ClaimsAuth {
 }
 
 export function extrairPapel(claims: ClaimsAuth): Papel {
-  const papel =
-    claims.app_metadata?.papel ??
-    claims.app_metadata?.role ??
-    claims.papel ??
-    claims.role;
+  const papel = claims.app_metadata?.papel ?? claims.app_metadata?.role ?? claims.papel;
   return papel === "operacoes" ? "operacoes" : "colaborador";
 }
 
 export function extrairNome(claims: ClaimsAuth): string {
-  const nome =
-    claims.user_metadata?.nome ??
-    claims.full_name ??
-    claims.name ??
-    claims.email;
+  const nome = claims.user_metadata?.nome ?? claims.full_name ?? claims.name ?? claims.email;
   return typeof nome === "string" && nome.length > 0 ? nome : "Colaborador";
 }
 

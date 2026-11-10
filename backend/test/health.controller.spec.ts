@@ -7,13 +7,14 @@ import { JwtGuard } from "../src/auth/jwt.guard";
 import { ProblemDetailsFilter } from "../src/erros/problem-details.filter";
 import { ENV } from "../src/env";
 import { HealthModule } from "../src/health/health.module";
+import { PrismaService } from "../src/prisma/prisma.service";
 
 const envTeste = {
   NODE_ENV: "test" as const,
   PORT: 3000,
   DATABASE_URL: "postgresql://postgres:postgres@localhost:5432/stable",
   DIRECT_URL: "postgresql://postgres:postgres@localhost:5432/stable",
-  SUPABASE_URL: "http://localhost:54321"
+  SUPABASE_URL: "http://localhost:54321",
 };
 
 describe("GET /health", () => {
@@ -24,10 +25,14 @@ describe("GET /health", () => {
       imports: [HealthModule],
       providers: [
         { provide: ENV, useValue: envTeste },
+        {
+          provide: PrismaService,
+          useValue: { membership: { findUnique: jest.fn() } },
+        },
         JwtGuard,
         { provide: APP_GUARD, useExisting: JwtGuard },
-        { provide: APP_FILTER, useClass: ProblemDetailsFilter }
-      ]
+        { provide: APP_FILTER, useClass: ProblemDetailsFilter },
+      ],
     }).compile();
 
     app = modulo.createNestApplication();
@@ -51,12 +56,14 @@ describe("GET /health com AppModule e banco inacessível", () => {
 
   beforeAll(async () => {
     process.env.NODE_ENV = "test";
-    process.env.DATABASE_URL = "postgresql://invalido:invalido@127.0.0.1:9/nenhum";
-    process.env.DIRECT_URL = "postgresql://invalido:invalido@127.0.0.1:9/nenhum";
+    process.env.DATABASE_URL =
+      "postgresql://invalido:invalido@127.0.0.1:9/nenhum";
+    process.env.DIRECT_URL =
+      "postgresql://invalido:invalido@127.0.0.1:9/nenhum";
     process.env.SUPABASE_URL = "http://localhost:54321";
 
     const modulo = await Test.createTestingModule({
-      imports: [AppModule]
+      imports: [AppModule],
     }).compile();
 
     app = modulo.createNestApplication();

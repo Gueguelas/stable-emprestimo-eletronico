@@ -38,6 +38,14 @@ mudança parecer trivial.
    (`prisma/seed.ts`) sobe sem erro.
 
 ## Verificação
+Nota comprovada na prática 002/003: `migrate dev` encontrou P4002 ao
+introspectar a FK entre public.users e auth.users (Auth continua dono da
+identidade). Para esta migration aditiva, o DDL da coluna foi gerado pelo
+engine `prisma migrate diff` entre os schemas anterior e atualizado, sem
+introspecção. Índice parcial/RLS entram na mesma migration. Não assumir que
+isso autoriza modelar ou gerenciar auth.users pelo Prisma. Evidência em
+docs/verificacoes/migration-geracao.txt; aplicar e validar via Prisma local.
+
 `npx prisma migrate reset` numa máquina limpa aplica todas as
 migrations do zero — incluindo o SQL bruto de RLS — e o seed sobe sem
 erro e sem nenhum passo manual.

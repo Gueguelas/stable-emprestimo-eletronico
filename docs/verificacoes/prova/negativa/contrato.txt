@@ -1,0 +1,15 @@
+
+> contrato
+> node scripts/contrato.mjs
+
+
+> stable-api@0.1.0 openapi
+> ts-node scripts/exportar-openapi.ts
+
+
+> stable-front@0.1.0 generate
+> orval
+
+🍻 orval v8.47.0 - A swagger client generator for typescript
+stable - 🎉 Stable API - Your OpenAPI spec has been converted into ready to use orval!
+validacao - 🎉 Stable API - Your OpenAPI spec has been converted into ready to use orval!

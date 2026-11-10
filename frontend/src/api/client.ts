@@ -1,63 +1,74 @@
-﻿import { listaEquipamentosSchema } from "./schemas";
+import { useAuth } from "@/stores/auth";
+import {
+  listarEquipamentos as pagina,
+  listarMeusEmprestimos,
+  obterSessao,
+  solicitarEmprestimo,
+} from "./generated/stable";
+import {
+  ListarEquipamentosResponse,
+  ListarMeusEmprestimosResponse,
+  ObterSessaoResponse,
+  SolicitarEmprestimoResponse,
+} from "./generated/validation";
+import type { Equipamento } from "./schemas";
 
-// Provisório até a API publicar openapi.json para gerar o cliente com orval.
 export class ErroApi extends Error {
   constructor(
     message: string,
-    readonly status: number
+    readonly status: number,
   ) {
     super(message);
     this.name = "ErroApi";
   }
 }
-
-function baseApi(): string {
-  return `${(import.meta.env.VITE_API_URL || "http://localhost:3000").replace(/\/+$/, "")}/v1`;
+function opcoes(): RequestInit {
+  const token = useAuth.getState().usuario?.token;
+  return { headers: token ? { Authorization: `Bearer ${token}` } : {} };
 }
-
-async function buscarPagina(cursor: string | null, token: string | null) {
-  const url = new URL(`${baseApi()}/equipamentos`);
-  url.searchParams.set("limite", "100");
-  if (cursor) url.searchParams.set("cursor", cursor);
-  const response = await fetch(url, {
-    headers: token ? { Authorization: `Bearer ${token}` } : {}
-  });
-  if (!response.ok) {
-    const body: unknown = await response.json().catch(() => null);
-    const problem =
-      typeof body === "object" && body !== null ? (body as { title?: unknown; detail?: unknown }) : null;
-    const detail =
-      typeof problem?.detail === "string"
-        ? problem.detail
-        : typeof problem?.title === "string"
-          ? problem.title
-          : "Não foi possível carregar os equipamentos.";
-    throw new ErroApi(detail, response.status);
+function sucesso<T>(r: { data: T; status: number }): T {
+  if (r.status < 200 || r.status >= 300) {
+    const body: unknown = r.data;
+    const p = typeof body === "object" && body !== null ? (body as Record<string, unknown>) : {};
+    throw new ErroApi(
+      typeof p.detail === "string"
+        ? p.detail
+        : typeof p.title === "string"
+          ? p.title
+          : "Não foi possível concluir a operação.",
+      r.status,
+    );
   }
-
-  let body: unknown;
-  try {
-    body = await response.json();
-  } catch {
-    throw new ErroApi("A API retornou uma resposta inválida.", response.status);
-  }
-  const parsed = listaEquipamentosSchema.safeParse(body);
-  if (!parsed.success) {
-    throw new ErroApi("A resposta da API não corresponde ao contrato esperado.", response.status);
-  }
-  return parsed.data;
+  return r.data;
 }
-
-export async function listarEquipamentos(token: string | null) {
-  const itens: Awaited<ReturnType<typeof buscarPagina>>["itens"] = [];
-  let cursor: string | null = null;
+// Transporte e tipos são gerados pelo Orval. Esta camada só compõe paginação,
+// autenticação e validação também gerada; não escreve fetch nem endpoints.
+export async function listarEquipamentos() {
+  const itens: Equipamento[] = [];
+  let cursor: string | undefined;
   const vistos = new Set<string>();
-  for (let pagina = 0; pagina < 20; pagina += 1) {
-    const resultado = await buscarPagina(cursor, token);
-    itens.push(...resultado.itens);
-    cursor = resultado.proximoCursor;
-    if (!cursor || vistos.has(cursor)) break;
-    vistos.add(cursor);
+  for (let n = 0; n < 100; n++) {
+    const r = ListarEquipamentosResponse.parse(
+      sucesso(await pagina({ limite: 100, cursor }, opcoes())),
+    );
+    itens.push(...r.itens);
+    if (!r.proximoCursor) return itens;
+    if (vistos.has(r.proximoCursor)) throw new Error("Paginação inválida retornada pela API.");
+    vistos.add(r.proximoCursor);
+    cursor = r.proximoCursor;
   }
-  return itens;
+  throw new Error("Limite de páginas excedido; catálogo incompleto.");
+}
+export async function meusEmprestimosApi() {
+  return ListarMeusEmprestimosResponse.parse(
+    sucesso(await listarMeusEmprestimos({ status: "abertos" }, opcoes())),
+  );
+}
+export async function sessaoApi() {
+  return ObterSessaoResponse.parse(sucesso(await obterSessao(opcoes())));
+}
+export async function solicitarApi(equipamentoId: string) {
+  return SolicitarEmprestimoResponse.parse(
+    sucesso(await solicitarEmprestimo({ equipamentoId }, opcoes())),
+  );
 }

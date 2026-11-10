@@ -1,0 +1,113 @@
+{
+  "spec": "003-solicitar-emprestimo",
+  "estado": "d95f1c03696fa886be54144c00ab8d53cd5837c94f1665d6c362456d01a878dc",
+  "criterios": [
+    {
+      "ca": "CA-01",
+      "resultado": "APROVADO",
+      "evidencia": "backend/test/emprestimos.integration.spec.ts:182; backend/src/auth/jwt.guard.ts:58; docs/verificacoes/api-test.txt:5. npm run test -- --runInBand: suíte aprovada.",
+      "motivo": "Teste ativo exercita JWT assinado via JWKS local, rejeição de claims conflitantes/inválidos, membership ausente e tenant adicional no body, verificando status e corpo."
+    },
+    {
+      "ca": "CA-02",
+      "resultado": "APROVADO",
+      "evidencia": "backend/test/emprestimos.integration.spec.ts:215; backend/test/prazo.spec.ts:2; docs/verificacoes/api-test.txt:36. npm run test -- --runInBand: testes aprovados.",
+      "motivo": "Comprova criação 201, prazo de 14 dias, duas consultas persistidas e situação derivada no catálogo. Teste de datas cobre virada do dia em São Paulo, mês, ano e ano bissexto."
+    },
+    {
+      "ca": "CA-03",
+      "resultado": "APROVADO",
+      "evidencia": "backend/test/emprestimos.integration.spec.ts:237; backend/test/emprestimos.integration.spec.ts:231; backend/src/emprestimos/emprestimos.repository.ts:51; docs/verificacoes/api-test.txt:5.",
+      "motivo": "Testes ativos verificam 409 com motivo para manutenção e item ocupado, contagem sem nova linha e catálogo derivando emprestado."
+    },
+    {
+      "ca": "CA-04",
+      "resultado": "APROVADO",
+      "evidencia": "backend/test/emprestimos.integration.spec.ts:247; frontend/src/features/emprestimos/regrasReais.test.ts:25; docs/verificacoes/api-test.txt:5; docs/verificacoes/front-test.txt:14. API: 19 aprovados; front: 17 aprovados.",
+      "motivo": "Exercita limite com 422, atraso com precedência sobre limite e vencimento hoje permitindo 201. Regra real do front também distingue vencimento hoje de atraso."
+    },
+    {
+      "ca": "CA-05",
+      "resultado": "SEM_TESTE",
+      "evidencia": "backend/test/emprestimos.integration.spec.ts:267; backend/test/emprestimos.integration.spec.ts:275; docs/verificacoes/api-test.txt:39. npm run test -- --runInBand: 1 skipped, 19 passed, 20 total.",
+      "motivo": "Concorrência pelo mesmo equipamento foi exercitada. O teste de concorrência do mesmo usuário para itens diferentes está em it.skip; os locks implementados não substituem sua execução."
+    },
+    {
+      "ca": "CA-06",
+      "resultado": "APROVADO",
+      "evidencia": "backend/test/emprestimos.integration.spec.ts:290; backend/test/emprestimos.integration.spec.ts:304; backend/test/emprestimos.integration.spec.ts:314; docs/verificacoes/api-test.txt:5.",
+      "motivo": "Teste ativo usa usuários com mesmo nome, comprova filtragem por identidade, catálogo vazio e solicitação 404 para outro tenant. RLS é exercitada com SET LOCAL ROLE stable_reader, definido NOBYPASSRLS."
+    },
+    {
+      "ca": "CA-07",
+      "resultado": "SEM_TESTE",
+      "evidencia": "docs/verificacoes/contrato.txt:14; frontend/src/api/client.ts:2; frontend/e2e/emprestimos.spec.ts:49; frontend/e2e/emprestimos.spec.ts:84; frontend/src/pages/CatalogoPage.tsx:105; docs/verificacoes/front-e2e.txt:18. npm run e2e: 11 aprovados.",
+      "motivo": "Contrato Zod/OpenAPI/Orval e integração real estão presentes. E2E cobre busca, filtro, vazio, crédito e proporção do fallback; todas as imagens interceptadas são nulas. Não há teste executado do carregamento de uma foto nem do estado loading do catálogo. Fallback não comprova fotos reais."
+    },
+    {
+      "ca": "CA-08",
+      "resultado": "APROVADO",
+      "evidencia": "frontend/e2e/emprestimos.spec.ts:105; frontend/e2e/emprestimos.spec.ts:130; frontend/e2e/emprestimos.spec.ts:138; frontend/e2e/emprestimos.spec.ts:153; frontend/src/api/useEmprestimos.ts:25; docs/verificacoes/front-e2e.txt:30. npm run e2e: 11 aprovados.",
+      "motivo": "E2E exercita confirmação, atualização das duas telas, recusa com motivo, reload com reautenticação demo, bloqueio por falha de leitura e apenas um POST no duplo clique. Persistência real é comprovada separadamente no teste PostgreSQL do CA-02."
+    },
+    {
+      "ca": "CA-09",
+      "resultado": "SEM_TESTE",
+      "evidencia": "scripts/gate.test.mjs:4; docs/verificacoes/harness-test.txt:5; scripts/provar-verificador.mjs:48; scripts/provar-verificador.mjs:63. npm run test:harness: 1 aprovado. Hash recalculado por scripts/estado.mjs coincide com estado; os nove logs conferem e têm exitCode 0.",
+      "motivo": "O teste executado comprova as recusas do gate. Há script de prova negativa do verificador, mas os artefatos disponíveis não incluem resultado concluído dessa prova nem execução da recusa pelo fechamento completo. Esta revisão identifica o skip sem corrigir arquivos; isso não permite declarar toda a prova automatizada concluída."
+    }
+  ],
+  "conclusao": "NAO_PRONTA",
+  "em": "2026-11-10T17:34:55.099Z",
+  "harness": {
+    "sandbox": "read-only",
+    "mcp": false,
+    "apps": false,
+    "plugins": false,
+    "shellSecrets": false,
+    "args": [
+      "--no-daemon",
+      "exec",
+      "--ignore-user-config",
+      "--ephemeral",
+      "--sandbox",
+      "read-only",
+      "-c",
+      "approval_policy=\"never\"",
+      "-c",
+      "mcp_servers={}",
+      "-c",
+      "web_search=\"disabled\"",
+      "-c",
+      "shell_environment_policy.inherit=\"none\"",
+      "-c",
+      "shell_environment_policy.include_only=[\"PATH\",\"TMPDIR\"]",
+      "--disable",
+      "apps",
+      "--disable",
+      "plugins",
+      "--disable",
+      "hooks",
+      "--disable",
+      "browser_use",
+      "--disable",
+      "browser_use_external",
+      "--disable",
+      "computer_use",
+      "--disable",
+      "in_app_browser",
+      "--disable",
+      "multi_agent",
+      "--disable",
+      "image_generation",
+      "--cd",
+      "/Users/miguel.araujo/Documents/Personal/vibe-coding/estabulo-emprestimo-eletronico/",
+      "--output-schema",
+      "/Users/miguel.araujo/Documents/Personal/vibe-coding/estabulo-emprestimo-eletronico/scripts/verificador.schema.json",
+      "--output-last-message",
+      "/Users/miguel.araujo/Documents/Personal/vibe-coding/estabulo-emprestimo-eletronico/artifacts/verificador/003-solicitar-emprestimo/resultado.json",
+      "-"
+    ]
+  },
+  "checksSha256": "8c16bede41ae6c676c625fa4e525de3b9e6277e13adc49cb243b01b3f72a3637"
+}
