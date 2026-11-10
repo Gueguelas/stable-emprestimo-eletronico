@@ -57,8 +57,7 @@ alwaysApply: true
 - Não faça commits nem push sem pedido explícito do usuário.
 - Sempre deixe as modificações em staging para o usuário avaliar e dar
   o veredito.
-- Não faça push na branch de produção: deploy acontece por push, e a
-  decisão de publicar é do time.
+- Não faça push na branch de produção - faça alterações na branch de ´dev´ e após tudo completo, Pull Request para a ´main´ : deploy acontece por push, e a decisão de publicar é do time.
 - Nunca versionar o `.env`.
 
 ## Produção
